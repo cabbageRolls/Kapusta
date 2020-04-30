@@ -1,10 +1,15 @@
 /** @format */
 
-import React from 'react';
-import '../CSS/normilize.css';
+import React from "react";
+import "../CSS/normilize.css";
+import Logo from "./logo/Logo";
 
 function App() {
-	return <div></div>;
+  return (
+    <div>
+      <Logo />
+    </div>
+  );
 }
 
 export default App;
