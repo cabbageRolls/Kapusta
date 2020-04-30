@@ -90,3 +90,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 6. Затем делаем коммит и пушим.
 
 7. Переходим в эту ветку в вашем репозитории и делаете Pull request.
+
+![alt text](readme/pull3.png)
+
+![alt text](readme/pull4.png)
+
+8. Далее Тим лиды проводят код ревью и указывает на ошибки и что стоит изменить.
+
+![alt text](readme/codeRev.png)
+
+9. После всех исправлений тим лид дает добро на merge.
