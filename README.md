@@ -1,3 +1,5 @@
+<!-- @format -->
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +68,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Инструкция
+
+1. Первым делом делаем форк репозитория
+
+![alt text](readme/fork.png 'Кнопка fork')
+
+2. Переходим на форкнутый репозиторий из своего аккаунта
+
+![alt text](readme/afterFork.png 'После форка будет такой вид')
+
+3. Клонируем репо себе на ПК/Mac os/Чайник
+
+4. От ветки develop создаем ветку с названием, которое соответсвует названию вашего компонента и в начале добавляем "feature/". Пример "feature/header"
+
+![alt text](readme/createBranch.png 'Создание ветки')
+
+5. После в папке components создаем папку с названием нужного компонента и в ней работаем.
+
+6. Затем делаем коммит и пушим.
+
+7. Переходим в эту ветку в вашем репозитории и делаете Pull request.
