@@ -6,7 +6,7 @@ import "../CSS/normilize.css";
 import ProjectTitle from './ProjectTitle/ProjectTitle.jsx'
 
 function App() {
-  return <ProjectTitle />;
+  return <div></div>;
 }
 
 export default App;
