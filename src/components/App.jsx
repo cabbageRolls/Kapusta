@@ -1,10 +1,10 @@
 /** @format */
 
-import React from 'react';
-import '../CSS/normilize.css';
+import React from "react";
+import "../CSS/normilize.css";
 
 function App() {
-	return <div></div>;
+  return <div></div>;
 }
 
 export default App;
