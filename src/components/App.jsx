@@ -3,8 +3,10 @@
 import React from "react";
 import "../CSS/normilize.css";
 
+import ProjectTitle from './ProjectTitle/ProjectTitle.jsx'
+
 function App() {
-  return <div></div>;
+  return <ProjectTitle />;
 }
 
 export default App;
