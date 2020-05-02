@@ -1,14 +1,9 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import SetBalance from './setBalanceForm';
 
 function App() {
-  return (
-    <div>
-      <SetBalance />
-    </div>
-  );
+  return <div> </div>;
 }
 
 export default App;
