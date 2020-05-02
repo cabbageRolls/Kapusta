@@ -8,7 +8,7 @@ import ProjectTitle from './ProjectTitle/ProjectTitle.jsx';
 import AuthForm from './AuthForm/AuthForm';
 
 function App() {
-  return <div></div>;
+  return <div> </div>;
 }
 
 export default App;
