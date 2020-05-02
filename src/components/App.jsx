@@ -5,7 +5,7 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 
 import ProjectTitle from './ProjectTitle/ProjectTitle.jsx';
-import AuthInput from './AuthInput/AuthInput';
+import AuthForm from './AuthForm/AuthForm';
 
 function App() {
   return <div></div>;
