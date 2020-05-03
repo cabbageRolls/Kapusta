@@ -1,7 +1,7 @@
 .ActionButton {
   width: 272px;
   padding: 0 2px;
-  margin: 38px auto;
+  margin: 38px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -25,6 +25,7 @@
   border: 2px rgb(244, 246, 251) solid;
   border-radius: 16px;
   background-color: rgb(255, 255, 255);
+  transition: all 0.3s linear;
 }
 
 .SignUpButton {
