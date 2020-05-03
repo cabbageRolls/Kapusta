@@ -35,7 +35,6 @@
   outline: none;
 }
 
-
 .GoBackButtonImg {
   margin-right: 15px;
   background-image: url(./img/arrowblack.png);
@@ -47,31 +46,11 @@
   display: inline-block;
 }
 
-.GoBackButtonImgMobile {
-  background-image: url(./img/arrowblack.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 16px;
-  height: 10px;
-}
-
-.GoBackButtonImgTablet {
-  background-image: url(./img/arrowblack.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 16px;
-  height: 10px;
-  display: inline-block;
-  margin-right: 17px;
-}
-
 .GoBackButton:hover .GoBackButtonImg {
   background-image: url(./img/arrow.png);
 }
 
-.GoBackButtonTablet:hover .GoBackButtonImgTablet {
+.GoBackButtonTablet:hover .GoBackButtonImg {
   background-image: url(./img/arrow.png);
 }
 

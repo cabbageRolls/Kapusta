@@ -3,29 +3,22 @@ import { useMediaQuery } from 'react-responsive';
 import styles from './GoBackButton.module.css';
 
 export default function GoBackButton() {
-  const isDesktop = useMediaQuery({
-    query: '(min-device-width: 768px)',
-  });
   const isTablet = useMediaQuery({
     query: '(max-width: 768px) and (min-width: 480px)',
   });
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   return (
     <div className={styles.divButton}>
-      {isMobile && (
+      {isMobile ? (
         <button type="button" className={styles.GoBackButtonMobile}>
-          <div className={styles.GoBackButtonImgMobile}></div>
+          <div className={styles.GoBackButtonImg}></div>
         </button>
-      )}
-
-      {isTablet && (
+      ) : isTablet ? (
         <button type="button" className={styles.GoBackButtonTablet}>
-          <div className={styles.GoBackButtonImgTablet}></div>
+          <div className={styles.GoBackButtonImg}></div>
           На главную
         </button>
-      )}
-
-      {isDesktop && (
+      ) : (
         <button type="button" className={styles.GoBackButton}>
           <div className={styles.GoBackButtonImg}></div>
           Вернуться на главную
