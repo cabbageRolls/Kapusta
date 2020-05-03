@@ -4,11 +4,7 @@ import '../CSS/index.css';
 import BalanceDetails from '../components/BalanceDetails';
 
 function App() {
-  return (
-    <div>
-      <BalanceDetails />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
