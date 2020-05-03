@@ -1,8 +1,23 @@
-.WelcomingPage{
-    width: 900px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 110px 0;
+.WelcomingPage {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+@media (max-width: 767px) {
+  .WelcomingPage {
+    width: 304px;
+    padding: 70px 0;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+  .WelcomingPage {
+    width: 420px;
+    padding: 90px 0;
+  }
 }
