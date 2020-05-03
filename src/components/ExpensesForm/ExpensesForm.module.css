@@ -1,0 +1,66 @@
+.form {
+  margin: 30px 0px 60px 30px;
+  width: 602px;
+  position: relative;
+}
+.descriptionInput {
+  padding: 15px;
+  margin: 0;
+  outline: none;
+  border: 2px solid #c7ccdc;
+  border-right: none;
+  border-top-left-radius: 10px;
+  width: 475px;
+}
+.amountInput {
+  padding: 15px;
+  margin: 0;
+  border: 2px solid #c7ccdc;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  outline: none;
+  width: 125px;
+}
+
+.iconCalculator {
+  background-image: url(./iconcalculator.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: 15px;
+  left: 555px;
+}
+
+.descriptionInput::placeholder {
+  font-size: 13px;
+  line-height: 45px;
+  color: #c7ccdc;
+}
+.amountInput::placeholder {
+  font-size: 13px;
+  line-height: 45px;
+  color: #c7ccdc;
+}
+/* tablet */
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .form {
+    width: 500px;
+  }
+
+  .descriptionInput {
+    width: 375px;
+  }
+
+  .iconCalculator {
+    position: absolute;
+    top: 14px;
+    left: 450px;
+  }
+}
+/* mobile */
