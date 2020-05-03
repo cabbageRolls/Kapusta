@@ -4,7 +4,11 @@ import '../CSS/index.css';
 
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <GoBackButton />
+    </div>
+  );
 }
 
 export default App;
