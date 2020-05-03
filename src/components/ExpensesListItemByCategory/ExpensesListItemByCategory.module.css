@@ -1,0 +1,37 @@
+.item {
+  width: 67px;
+  height: 95px;
+}
+.amount {
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #62646d;
+}
+.name {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #62646d;
+  text-align: center;
+}
+.icon {
+  width: 64px;
+  height: 58px;
+  padding-bottom: 7px;
+  cursor: pointer;
+  padding-right: 5px;
+}
+.icon_back {
+  border-radius: 19px;
+  background-color: #f4f6fb;
+  width: 59px;
+  height: 48px;
+  margin: 0 auto 15px;
+}
+.icon_back:hover {
+  background-color: #ffd9c0;
+}
