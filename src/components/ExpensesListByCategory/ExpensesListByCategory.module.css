@@ -1,0 +1,59 @@
+.Item {
+  list-style: none;
+  padding: 11px;
+  position: relative;
+  margin: 22px 0 24px;
+}
+.ItemList {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 320px;
+}
+.Item:nth-child(3n + 3):after {
+  display: block;
+  width: 254px;
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid #f4f6fb;
+  top: 124%;
+  right: 7px;
+}
+.Item:last-child:after {
+  display: block;
+  width: 254px;
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid #f4f6fb;
+  top: 124%;
+  right: -36px;
+}
+@media (min-width: 768px) {
+  .Item {
+    padding: 8px;
+  }
+  .ItemList {
+    width: 500px;
+  }
+  .ListBackground {
+    width: 689px;
+    height: 334px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 26px auto;
+  }
+  .Item:nth-child(3n + 3):after {
+    width: 0;
+  }
+  .Item:last-child:after {
+    width: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .ListBackground {
+    width: 943px;
+    height: 349px;
+    margin: 30px auto;
+  }
+}
