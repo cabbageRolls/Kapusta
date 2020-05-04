@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.iconDate {
+  background-image: url('./img/9-512.png');
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+input {
+  border-width: 0px;
+  border: 0;
+  padding: 0;
+  width: 60px;
+  font-size: 10px;
+}
+
+input:hover {
+  cursor: pointer;
+}
