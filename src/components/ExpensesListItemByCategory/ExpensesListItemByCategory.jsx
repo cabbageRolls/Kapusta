@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './ExpensesListItemByCategory.module.css';
 
 const ExpensesListItemByCategory = ({ name, amount, icon }) => (
-  <div className={styles.item}>
-    <p className={styles.amount}>{amount}</p>
-    <div className={styles.icon_back}>
-      <img className={styles.icon} src={icon} alt="" />
+  <div className={styles.Item}>
+    <p className={styles.Amount}>{amount}</p>
+    <div className={styles.IconBack}>
+      <img className={styles.Icon} src={icon} alt="" />
     </div>
-    <p className={styles.name}>{name}</p>
+    <p className={styles.Name}>{name}</p>
   </div>
 );
 
