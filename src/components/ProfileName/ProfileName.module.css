@@ -1,0 +1,33 @@
+.wrapper {
+  font-size: 13px;
+  font-family: 'Roboto';
+  color: rgb(82, 85, 95);
+  font-weight: 600;
+  max-width: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 56px;
+}
+
+.firstLetter {
+  background-color: #f5f7fa;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  display: block;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-right: 20px;
+  }
+}
