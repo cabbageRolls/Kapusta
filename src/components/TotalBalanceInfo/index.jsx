@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import Styles from './TotalBalanceInfo.module.css';
 
-const index = () => {
-  //   const isOther = useMediaQuery({
-  //     query: '(min-width: 480px)',
-  //   });
+const index = ({ data, cost }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   return (
     <div
@@ -16,14 +14,19 @@ const index = () => {
     >
       <div>
         <span className={Styles.balanceOnDay}>Баланс на </span>
-        <span className={Styles.balanceOnDay}>21.11.2019:</span>
+        <span className={Styles.balanceOnDay}>{data}:</span>
       </div>
       <div>
-        <span className={Styles.balanceCost}>45000.00 </span>
+        <span className={Styles.balanceCost}>{cost} </span>
         <span className={Styles.balanceCost}>UAH</span>
       </div>
     </div>
   );
+};
+
+index.propTypes = {
+  data: PropTypes.string.isRequired,
+  cost: PropTypes.string.isRequired,
 };
 
 export default index;
