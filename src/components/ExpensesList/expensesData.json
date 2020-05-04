@@ -1,0 +1,44 @@
+[
+  {
+    "id": "id-1",
+    "date": "03.05.2020",
+    "description": "Products with transfer",
+    "category": "Products ",
+    "amount": "- 22.35"
+  },
+  {
+    "id": "id-2",
+    "date": "03.05.2020",
+    "description": "Girls",
+    "category": "Girls",
+    "amount": "- 40.00"
+  },
+  {
+    "id": "id-3",
+    "date": "03.05.2020",
+    "description": "Cars",
+    "category": "Cars",
+    "amount": "- 17.50"
+  },
+  {
+    "id": "id-4",
+    "date": "03.05.2020",
+    "description": "Relax",
+    "category": "Relax",
+    "amount": "- 47.25"
+  },
+  {
+    "id": "id-5",
+    "date": "03.05.2020",
+    "description": "Love",
+    "category": "Love",
+    "amount": "- 10.00"
+  },
+  {
+    "id": "id-6",
+    "date": "03.05.2020",
+    "description": "Products",
+    "category": "Products",
+    "amount": "- 22.00"
+  }
+]

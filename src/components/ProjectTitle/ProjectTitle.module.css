@@ -1,0 +1,117 @@
+@import '../../CSS/fonts.css';
+
+.ProjectTitle {
+  padding-top: 200px;
+  max-width: 380px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Kapusta {
+  font-size: 102px;
+  font-family: 'Roboto';
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  line-height: 120%;
+}
+
+.SmartFinance {
+  font-size: 15px;
+  font-family: 'Roboto';
+  color: rgb(82, 85, 95);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 4px;
+  line-height: 150%;
+  padding-left: 60px;
+}
+
+.KapustaSign {
+  display: inline-block;
+}
+
+.KapustaSign::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 11px;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  margin-top: 32px;
+  margin-left: 22px;
+}
+
+.KapustaSign::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 11px;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  margin-top: -26px;
+  margin-left: 22px;
+}
+
+@media (max-width: 767px) {
+  .ProjectTitle {
+    width: 304px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  .Kapusta {
+    font-size: 50px;
+    padding-left: 29px;
+  }
+
+  .KapustaSign::before {
+    background-color: rgb(0, 1, 7);
+    width: 4px;
+    height: 5px;
+    margin-top: 16px;
+    margin-left: 11px;
+  }
+
+  .KapustaSign::after {
+    background-color: rgb(0, 1, 7);
+    width: 4px;
+    height: 5px;
+    margin-top: -12px;
+    margin-left: 11px;
+  }
+
+  .SmartFinance {
+    font-size: 12px;
+    letter-spacing: 2px;
+    line-height: 190%;
+    padding-left: 43px;
+  }
+}
+
+
+@media (min-width: 767px) and (max-width: 1023px) {
+  .ProjectTitle {
+    width: 420px;
+    margin: 0 auto;
+    padding-top: 150px;
+  }
+
+  .Kapusta {
+    font-size: 75px;
+  }
+
+  .SmartFinance {
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 150%;
+    padding-left: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ProjectTitle {
+    padding-right: 90px;
+  }
+}

@@ -1,0 +1,39 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title,
+.item {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr 2fr 1fr;
+  padding: 5px;
+  align-items: center;
+}
+
+.titleItem {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.expenseAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(160, 102, 102);
+  font-weight: bold;
+}
+
+.btn {
+  border-width: 0px;
+  background-color: white;
+  width: 26px;
+  height: 23px;
+  cursor: pointer;
+  padding: 0;
+  background-color: inherit;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
