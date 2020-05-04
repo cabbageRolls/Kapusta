@@ -5,7 +5,7 @@ import '../CSS/index.css';
 function App() {
   return (
     <div>
-      <List />
+
     </div>
   );
 }
