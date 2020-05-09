@@ -1,0 +1,65 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.expensesList {
+  margin: 0;
+}
+
+.title,
+.item {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr 2fr 1fr;
+  padding: 5px;
+  align-items: center;
+}
+
+.titleItem {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.expenseAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(160, 102, 102);
+  font-weight: bold;
+}
+
+.btn {
+  border-width: 0px;
+  background-color: white;
+  width: 26px;
+  height: 23px;
+  cursor: pointer;
+  padding: 0;
+  background-color: inherit;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Scroll */
+
+.scrollbar {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f97a2c;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
