@@ -1,0 +1,58 @@
+/* .balanceDetailsContainer {
+  height: 78px;
+  width: 285px;
+} */
+
+.balanceDetails {
+  font-family: Roboto-Regular, Roboto-Medium, AdobeInvisFont, MyriadPro-Regular;
+  display: flex;
+  width: 265px;
+  height: 78px;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 84px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.line {
+  width: 2px;
+  height: 68px;
+  background-color: #f4f6fb;
+}
+.expensesNumber {
+  display: inline-block;
+  color: #da1818;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.incomeNumber {
+  display: inline-block;
+  color: seagreen;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .balanceDetails {
+    justify-content: center;
+    width: 689px;
+    height: 51px;
+  }
+  .line {
+    height: 40px;
+    margin-right: 30px;
+  }
+  .expenses {
+    margin-right: 30px;
+  }
+  .incomeNumber {
+    margin-left: 15px;
+  }
+  .expensesNumber {
+    margin-left: 15px;
+  }
+}
