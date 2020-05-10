@@ -27,3 +27,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.disable {
+  width: 320px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  border-width: 0px;
+  margin-bottom: 35px;
+  background-color: rgb(136, 136, 136);
+}

@@ -4,6 +4,7 @@ import DatePickerCustom from '../datePicker';
 import Notification from '../WelcomeNotification/WelcomeNotification';
 import AdditionalButton from '../AdditionalButton/AdditionalButton';
 import ReportButton from '../goToReportsButton';
+import ExpensesList from '../ExpensesList';
 
 export default class setBalanceForm extends React.Component {
   state = {
@@ -38,7 +39,7 @@ export default class setBalanceForm extends React.Component {
 
     return (
       <div className={Styles.container}>
-        <ReportButton />
+        <ReportButton active={balance} />
         <p className={Styles.text}>Баланс:</p>
         <form onSubmit={this.handleSubmit} action="" className={Styles.form}>
           <input
@@ -57,6 +58,7 @@ export default class setBalanceForm extends React.Component {
           </button>
         </form>
         {balance ? <DatePickerCustom /> : <Notification />}
+        <ExpensesList />
         <AdditionalButton active={balance} />
       </div>
     );

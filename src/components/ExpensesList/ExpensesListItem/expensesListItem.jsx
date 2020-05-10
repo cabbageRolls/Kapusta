@@ -15,6 +15,7 @@ const ExpensesListItem = ({ expenses }) => (
                   <div className={styles.titleItem}>Описание</div>
                   <div className={styles.titleItem}>Категория</div>
                   <div className={styles.titleItem}>Сумма</div>
+                  <div className={styles.titleItem}></div>
                 </div>
                 {expenses.map(expense => (
                   <li className={styles.item} key={expense.id}>
@@ -24,22 +25,22 @@ const ExpensesListItem = ({ expenses }) => (
                     </span>
                     <span className={styles.expense}>{expense.category}</span>
                     <span className={styles.expenseAmount}>
-                      {expense.amount} грн.{' '}
-                      <button className={styles.btn}>
-                        <svg
-                          width="24px"
-                          height="24px"
-                          viewBox="0 0 24 24"
-                          fill="#000000"
-                          focusable="false"
-                          class="undefined "
-                        >
-                          <path d="M0 0h24v24H0z" fill="none"></path>
-                          <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path>
-                          <path d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
-                        </svg>
-                      </button>
+                      {expense.amount} грн.
                     </span>
+                    <button className={styles.btn}>
+                      <svg
+                        width="24px"
+                        height="24px"
+                        viewBox="0 0 24 24"
+                        fill="#000000"
+                        focusable="false"
+                        class="undefined "
+                      >
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path>
+                        <path d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
+                      </svg>
+                    </button>
                   </li>
                 ))}
               </ul>
