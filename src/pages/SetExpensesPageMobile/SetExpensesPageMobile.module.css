@@ -1,0 +1,15 @@
+.formWrapper {
+  margin: 0 auto;
+  background-color: #f4f6fb;
+  height: 256px;
+  border-bottom-left-radius: 50%;
+}
+.buttons {
+  margin: 0 auto;
+  width: fit-content;
+}
+.goBackButton {
+  width: fit-content;
+  padding-left: 20px;
+  color: blue;
+}
