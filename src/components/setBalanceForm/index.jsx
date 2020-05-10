@@ -1,27 +1,64 @@
 import React from 'react';
 import Styles from './setBalanceForm.module.css';
 import DatePickerCustom from '../datePicker';
+import Notification from '../WelcomeNotification/WelcomeNotification';
+import AdditionalButton from '../AdditionalButton/AdditionalButton';
+import ReportButton from '../goToReportsButton';
 
-export default function setBalanceForm() {
-  return (
-    <div className={Styles.container}>
-      <p className={Styles.text}>Баланс:</p>
-      <form action="" className={Styles.form}>
-        <input className={Styles.input} type="text" value={'55,000.00 UAH'} />
+export default class setBalanceForm extends React.Component {
+  state = {
+    balance: false,
+    inputValue: '',
+  };
 
-        <div className={Styles.block}>
-          <p>
-            Привет! Для начала работы внеси текущий баланс своего счета!
-            <span>
-              Ты не можешь тратить деньги пока их у тебя нет &#128512;
-            </span>
-          </p>
-        </div>
-        <button className={Styles.button}>
-          <div className={Styles.containerBtn}>подтвердить</div>
-        </button>
-      </form>
-      <DatePickerCustom />
-    </div>
-  );
+  handleChange = e => {
+    this.setState({ inputValue: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const { inputValue } = this.state;
+
+    this.setState(prevState => ({
+      balance: prevState.balance + Number(inputValue),
+    }));
+
+    this.resetForm();
+  };
+
+  resetForm = () => {
+    this.setState({
+      inputValue: '',
+    });
+  };
+
+  render() {
+    const { inputValue, balance } = this.state;
+
+    return (
+      <div className={Styles.container}>
+        <ReportButton />
+        <p className={Styles.text}>Баланс:</p>
+        <form onSubmit={this.handleSubmit} action="" className={Styles.form}>
+          <input
+            className={Styles.input}
+            type="text"
+            value={inputValue}
+            onChange={this.handleChange}
+            placeholder={
+              balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
+            }
+            pattern="\d+(\.\d{2})?"
+          />
+
+          <button className={Styles.button}>
+            <div className={Styles.containerBtn}>подтвердить</div>
+          </button>
+        </form>
+        {balance ? <DatePickerCustom /> : <Notification />}
+        <AdditionalButton active={balance} />
+      </div>
+    );
+  }
 }

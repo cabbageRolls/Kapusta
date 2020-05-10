@@ -1,15 +1,14 @@
 .button {
-  width: 200px;
+  width: 320px;
   cursor: pointer;
   font-size: 14px;
   text-align: center;
-  /* border-radius: 50px; */
   border-width: 0px;
-  background-color: rgba(199, 199, 199, 0.6);
+  margin-bottom: 35px;
 }
 
 .button:hover {
-  background-color: rgba(78, 78, 78, 0.6);
+  background-color: rgb(255, 108, 10);
   transition: all 0.3s linear;
 }
 
@@ -18,7 +17,7 @@
   height: 40px;
   margin: 0;
   padding: 0;
-  background-image: url("./img/bar_chart-24px.svg");
+  background-image: url('./img/bar_chart-24px.svg');
   background-size: cover;
   background-repeat: no-repeat;
 }
