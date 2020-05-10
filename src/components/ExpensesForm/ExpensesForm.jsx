@@ -26,30 +26,32 @@ export default class ExpensesForm extends Component {
     const { inputValue } = this.state;
     return (
       <>
-        <form action="" className={styles.form} onSubmit={this.handleSubmit}>
-          <div className={styles.div}>
+        <div className={styles.container}>
+          <form action="" className={styles.form} onSubmit={this.handleSubmit}>
+            <div className={styles.div}>
+              <input
+                className={styles.descriptionInput}
+                type="text"
+                name="description"
+                value={inputValue}
+                onChange={this.handleChange}
+              />
+              {inputValue.length === 0 && (
+                <span className={styles.placeholder}>
+                  Здесь ты будешь вносить на что ты тратишь деньги
+                </span>
+              )}
+            </div>
             <input
-              className={styles.descriptionInput}
+              className={styles.amountInput}
               type="text"
-              name="description"
-              value={inputValue}
-              onChange={this.handleChange}
+              name="amount"
+              placeholder="0.00"
             />
-            {inputValue.length === 0 && (
-              <span className={styles.placeholder}>
-                Здесь ты будешь вносить на что ты тратишь деньги
-              </span>
-            )}
-          </div>
-          <input
-            className={styles.amountInput}
-            type="text"
-            name="amount"
-            placeholder="0.00"
-          />
-          <div className={styles.border}></div>
-          <div className={styles.iconCalculator}></div>
-        </form>
+            <div className={styles.border}></div>
+            <div className={styles.iconCalculator}></div>
+          </form>
+        </div>
       </>
     );
   }
