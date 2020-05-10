@@ -1,5 +1,5 @@
 .container {
-  max-width: 1000px;
+  width: 350px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -17,7 +17,7 @@
 }
 
 .titleItem {
-  font-size: 22px;
+  font-size: 14px;
   font-weight: bold;
 }
 

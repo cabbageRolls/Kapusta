@@ -4,9 +4,9 @@ import ExpensesListItem from './ExpensesListItem/expensesListItem';
 import expensesData from './expensesData.json';
 
 export default class ExpensesList extends React.Component {
-  state = {
-    expense: false,
-  };
+  // static defaultProps = {
+  //   expenses: [],
+  // };
 
   render() {
     return (

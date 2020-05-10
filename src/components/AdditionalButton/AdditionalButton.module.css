@@ -1,27 +1,39 @@
 .ContainerButton {
-  width: 321px;
+  width: 320px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 0 1px 0 1px;
-  position: fixed;
   bottom: 1px;
 }
 
 .RateButton,
 .IncomeButton {
   width: 158px;
-  height: 55px;
+  height: 40px;
   font-size: 11px;
   font-family: 'Roboto';
   font-weight: bold;
   cursor: pointer;
   border: none;
   outline: none;
+  transition: all 0.3s linear;
 }
 
 .RateButton:hover,
 .IncomeButton:hover {
   border: none;
   background-color: rgb(255, 108, 10);
+}
+
+.disable {
+  background-color: rgb(136, 136, 136);
+  width: 158px;
+  height: 40px;
+  font-size: 11px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
