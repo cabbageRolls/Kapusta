@@ -11,21 +11,31 @@ const index = ({ month, year, increment, decrement }) => {
       {isMobile ? '' : <h4 className={Styles.title}>Текущий период:</h4>}
       <div className={Styles.wrapper}>
         <button className={Styles.button} onClick={decrement}>
-          <img
+          <svg
             className={[Styles.svg, Styles.svgLeft].join(' ')}
-            src="./images/svg/arrow_right-24px.svg"
-            alt="arrowLeft"
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M10 17l5-5-5-5v10z" />
+            <path fill="none" d="M0 24V0h24v24H0z" />
+          </svg>
         </button>
         <div className={Styles.data}>
           {month} {year}
         </div>
         <button className={Styles.button} onClick={increment}>
-          <img
+          <svg
             className={Styles.svg}
-            src="./images/svg/arrow_right-24px.svg"
-            alt="arrowRigth"
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M10 17l5-5-5-5v10z" />
+            <path fill="none" d="M0 24V0h24v24H0z" />
+          </svg>
         </button>
       </div>
     </div>
