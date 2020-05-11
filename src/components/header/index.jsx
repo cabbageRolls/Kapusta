@@ -1,8 +1,8 @@
-import React from 'react';
+import React from './node_modules/react';
 import styles from './Header.module.css';
-import Logo from '../logo/';
-import ProfileName from '../ProfileName/';
-import LogoutButton from '../LogoutButton/';
+import Logo from '../logo';
+import ProfileName from '../ProfileName';
+import LogoutButton from '../LogoutButton';
 
 const index = () => {
   return (
