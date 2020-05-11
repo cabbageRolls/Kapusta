@@ -18,7 +18,6 @@
   border-right: none;
   border-top-left-radius: 10px;
   width: 475px;
-
 }
 
 .amountInput {
@@ -92,7 +91,7 @@
   .form {
     padding: 15px 0px 50px;
     width: 280px;
-    background-color: #c7ccdc;
+    margin: 0 auto;
   }
 
   .descriptionInput {
@@ -149,12 +148,11 @@
   }
 
   .div {
-    position: relative
+    position: relative;
   }
 
   .placeholder {
     color: #9a9a9b;
     padding: 10px 10px 0px 20px;
   }
-
 }
