@@ -1,4 +1,5 @@
 .container {
+  width: 280px;
   text-align: center;
   font-size: 10px;
   margin: 0 auto;
@@ -7,6 +8,10 @@
 }
 
 .text {
+  font-size: 13px;
+  font: 'Roboto';
+  font-weight: normal;
+  color: #52555f;
   margin-bottom: 20px;
 }
 
@@ -17,20 +22,24 @@
 
 .input {
   position: relative;
-  width: 160px;
+  width: 43%;
   height: 100%;
   border-width: 0px;
   border: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
+  font: 'Roboto';
+  color: #000;
   font-weight: bold;
   text-align: center;
   outline: none;
   text-transform: uppercase;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 ::-webkit-input-placeholder {
-  color: #747474;
+  color: #000;
 }
 
 :focus::-webkit-input-placeholder {
@@ -44,7 +53,7 @@
 }
 
 .button {
-  width: 160px;
+  width: 43%;
   padding: 10px;
   height: 100%;
   cursor: pointer;
@@ -54,7 +63,14 @@
   border-top-right-radius: 30px;
   border-width: 0px;
   outline: none;
-  color: #747474;
+}
+
+.containerBtn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font: 'Roboto';
+  color: #52555f;
+  font-weight: 500;
 }
 
 .button:hover {
@@ -62,10 +78,9 @@
   background-color: rgb(255, 108, 10);
 }
 
-.containerBtn {
-  font-size: 12px;
-  color: #747474;
-  font-weight: bold;
+.button:hover .containerBtn {
+  transition: all 0.3s linear;
+  color: #fff;
 }
 
 .block {
