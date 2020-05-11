@@ -1,0 +1,24 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ExpensesListContainer {
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.ExpensesList {
+  width: 760px;
+}
+
+.MonthSummary {
+  /* display: inline-block; */
+  /* width: 230px; */
+}

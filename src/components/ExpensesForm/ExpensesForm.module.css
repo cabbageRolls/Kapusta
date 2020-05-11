@@ -5,7 +5,7 @@
 }
 
 .form {
-  margin: 30px 0px 60px 30px;
+  margin: 38px 0px 60px 30px;
   width: 602px;
   position: relative;
 }
@@ -29,7 +29,6 @@
   border-bottom-right-radius: 10px;
   outline: none;
   width: 125px;
-
 }
 
 .iconCalculator {
@@ -42,7 +41,7 @@
   display: inline-block;
   vertical-align: middle;
   position: absolute;
-  top: 15px;
+  top: 12px;
   left: 555px;
 }
 
