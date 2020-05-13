@@ -16,7 +16,7 @@ const index = ({ data, cost }) => {
         <span className={Styles.balanceOnDay}>Баланс на </span>
         <span className={Styles.balanceOnDay}>{data}:</span>
       </div>
-      <div>
+      <div className={Styles.balance}>
         <span className={Styles.balanceCost}>{cost} </span>
         <span className={Styles.balanceCost}>UAH</span>
       </div>

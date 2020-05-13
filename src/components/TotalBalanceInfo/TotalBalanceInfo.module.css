@@ -18,3 +18,8 @@
   font-weight: 700;
   color: #000;
 }
+.balance {
+  padding: 0 47px;
+  border-radius: 30px;
+  background-color: white;
+}
