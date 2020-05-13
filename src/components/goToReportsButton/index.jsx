@@ -1,5 +1,8 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
+
 import Styles from './goToReportsButton.module.css';
+
 export default function ButtonReports({ active }) {
   return (
     <button
@@ -7,16 +10,32 @@ export default function ButtonReports({ active }) {
       disabled={!active}
     >
       <div className={Styles.container}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
-          <path fill="none" d="M0 0h24v24H0z" />
-        </svg>
-        <p className={Styles.text}>Перейти к отчетам</p>
+        <MediaQuery maxDeviceWidth={767}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+            <path fill="none" d="M0 0h24v24H0z" />
+          </svg>
+          <p className={Styles.text}>Перейти к отчетам</p>
+        </MediaQuery>
+
+        <MediaQuery minDeviceWidth={768}>
+          <p className={Styles.text}>Перейти к отчетам</p>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+            <path fill="none" d="M0 0h24v24H0z" />
+          </svg>
+        </MediaQuery>
       </div>
     </button>
   );

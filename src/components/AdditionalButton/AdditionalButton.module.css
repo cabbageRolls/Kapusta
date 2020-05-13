@@ -38,3 +38,18 @@
   border: none;
   outline: none;
 }
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .ContainerButton {
+    justify-content: flex-start;
+  }
+
+  .RateButton,
+  .IncomeButton,
+  .disable {
+    width: 130x;
+    height: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}

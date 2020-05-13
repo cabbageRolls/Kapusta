@@ -1,7 +1,5 @@
 .containerNotification {
   padding-top: 20px;
-  margin-bottom: 50px;
-  width: 100%;
   text-align: center;
 }
 
@@ -46,4 +44,32 @@
   font-size: 12px;
   font-weight: lighter;
   text-align: left;
+}
+
+/* DESKTOP */
+
+@media (min-width: 992px) {
+  .containerNotification {
+    /* width: 80%;
+    margin-bottom: 0px; */
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 991px) {
+  .containerNotification {
+    width: 48%;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 60px;
+    top: 46px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .containerNotification {
+    margin-bottom: 50px;
+    width: 100%;
+  }
 }

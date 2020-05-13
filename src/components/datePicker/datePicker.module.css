@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  width: 100px;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
@@ -24,4 +25,9 @@ input {
 
 input:hover {
   cursor: pointer;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
 }
