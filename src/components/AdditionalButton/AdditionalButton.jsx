@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './AdditionalButton.module.css';
 
-const AdditionalButton = () => {
+const AdditionalButton = ({ nameButton }) => {
   return (
-    <div className={styles.ContainerButton}>
-      <button className={styles.RateButton}>РАСХОД</button>
-      <button className={styles.IncomeButton}>ДОХОД</button>
+    <div className={styles.containerButton}>
+      <button className={styles.additionalButton}>{nameButton}</button>
     </div>
   );
 };
