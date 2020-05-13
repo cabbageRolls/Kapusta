@@ -1,7 +1,7 @@
 .form {
-  margin: 30px 0px 60px 30px;
-  width: 602px;
+  width: 600px;
   position: relative;
+  margin: 0 auto;
 }
 
 .descriptionInput {
@@ -11,6 +11,7 @@
   border: 2px solid #c7ccdc;
   border-right: none;
   border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   width: 475px;
 }
 
@@ -62,9 +63,28 @@
   display: inline-block;
 }
 
+@media (min-width: 767px) and (max-width: 991px) {
+  .form {
+    width: 490px;
+  }
+
+  .div {
+    width: 75%;
+  }
+
+  .iconCalculator {
+    top: 12px;
+    left: 432px;
+  }
+
+  .amountInput {
+    width: 115px;
+  }
+}
+
 /* tablet */
 
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .form {
     width: 500px;
   }

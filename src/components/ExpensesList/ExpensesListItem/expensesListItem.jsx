@@ -8,7 +8,7 @@ const classes = classLister(styles);
 
 const ExpensesListItem = ({ expenses }) => {
   const isMobileDevice = useMediaQuery({
-    query: '(max-device-width: 768px)',
+    query: '(max-device-width: 767px)',
   });
 
   const isDesktopOrTablet = useMediaQuery({
