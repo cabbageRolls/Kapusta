@@ -1,11 +1,11 @@
 [{
     "id": "1",
-    "mounth": "2",
+    "mounth": "nov",
     "cost": 5
   },
   {
     "id": "2",
-    "mounth": "5",
+    "mounth": "oct",
     "cost": 5
   }
 ]

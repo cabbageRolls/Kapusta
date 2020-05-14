@@ -4,14 +4,15 @@
 }
 
 .Form {
+  padding: 0px 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .ExpensesListContainer {
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .ExpensesList {
