@@ -1,10 +1,5 @@
 import React from 'react';
 import Styles from './setBalancePageMobile.module.css';
-<<<<<<< HEAD:src/pages/SetBalancePageMobile/index.jsx
-=======
-import SetBalanceForm from '../../components/SetBalanceForm';
->>>>>>> added SetBalanceForm mob tabl desk:src/components/SetBalancePageMobile/index.jsx
-
 import SetBalanceForm from '../../components/SetBalanceForm';
 
 // eslint-disable-next-line react/prefer-stateless-function

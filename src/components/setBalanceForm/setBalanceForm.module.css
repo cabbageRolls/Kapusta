@@ -1,3 +1,8 @@
+.mainContainer {
+  width: 280px;
+  margin: 0 auto;
+}
+
 .container {
   text-align: center;
   font-size: 10px;
@@ -12,10 +17,15 @@
   font-weight: normal;
   color: #52555f;
   margin-bottom: 20px;
+  grid-area: text;
+}
+
+.reportButton {
+  grid-area: button;
 }
 
 .form {
-  margin: 0 auto;
+  grid-area: form;
   height: 40px;
 }
 
@@ -58,8 +68,8 @@
   cursor: pointer;
   font-size: 14px;
   text-align: center;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
   border-width: 0px;
   outline: none;
 }
@@ -82,21 +92,24 @@
   color: #fff;
 }
 
-/* DESKTOP */
-@media (min-width: 992px) {
-  .container {
-    width: 760px;
-  }
-}
-
 /* TABLET */
 @media (min-width: 768px) and (max-width: 991px) {
+  .mainContainer {
+    width: 728px;
+  }
   .container {
-    width: 625px;
+    width: 688px;
   }
 
   .container_expenses {
     background-color: #dddddd;
+    padding: 32px;
+  }
+
+  .actionButton {
+    display: flex;
+    justify-content: center;
+    margin: 26px 0;
   }
 
   .button:hover {
@@ -104,26 +117,100 @@
     background-color: rgb(255, 108, 10);
   }
 
-  .reportButton {
-    grid-area: button;
-  }
-
   .text {
-    grid-area: text;
     margin: 0;
   }
 
   .form {
-    grid-area: form;
+    height: 45px;
+  }
+
+  .input {
+    width: 50%;
+    height: 45px;
+  }
+
+  .button {
+    width: 40%;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    height: 45px;
   }
 
   .balance_container {
     display: grid;
+    grid-template-columns: 28px 356px 180px;
     grid-template-areas: 'text form button';
     justify-content: end;
     align-items: center;
-    margin-top: 5px;
-    padding: 10px;
+    margin-bottom: 50px;
+  }
+
+  .datePickerExpensesForm_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .mainContainer {
+    width: 100%;
+  }
+
+  .container {
+    width: 1091px;
+  }
+
+  .container_expenses {
+    background-color: #dddddd;
+    padding: 32px;
+  }
+
+  .actionButton {
+    display: flex;
+    justify-content: center;
+    margin: 26px 0;
+  }
+
+  .button:hover {
+    transition: all 0.3s linear;
+    background-color: rgb(255, 108, 10);
+  }
+
+  .text {
+    margin: 0;
+  }
+
+  .form {
+    height: 45px;
+  }
+
+  .input {
+    width: 50%;
+    height: 45px;
+  }
+
+  .button {
+    width: 40%;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    height: 45px;
+  }
+
+  .container_reportButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .balance_container {
+    display: grid;
+    grid-template-columns: 28px 356px 290px;
+    grid-template-areas: 'text form button';
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 50px;
   }
 
   .datePickerExpensesForm_container {

@@ -7,12 +7,12 @@ const Index = ({ data }) => {
     <div className={Styles.container}>
       <h4 className={Styles.title}>СВОДКА</h4>
       <ul className={Styles.list}>
-        {data.map(item => (
+        {/* {data.map(item => (
           <li key={item.id} className={Styles.item}>
             <span>{item.mounth}</span>
             <span>{item.cost}</span>
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

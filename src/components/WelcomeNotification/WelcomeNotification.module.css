@@ -61,8 +61,10 @@
     width: 48%;
     margin-bottom: 0px;
     position: absolute;
-    left: 60px;
-    top: 46px;
+    left: 50%;
+    top: 34px;
+    transform: translate(-50%);
+    z-index: 1;
   }
 }
 
