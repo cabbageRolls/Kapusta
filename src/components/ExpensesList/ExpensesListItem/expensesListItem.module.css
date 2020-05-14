@@ -1,46 +1,76 @@
 .container {
+
   width: 760px;
+
   margin: 0 auto;
-  padding: 20px;
-}
-
-.expensesList {
-  margin: 0;
-}
-
-.title,
-.item {
   display: grid;
-  grid-template-columns: 2fr 3fr 2fr 2fr 1fr;
-  padding: 5px;
-  align-items: center;
 }
 
 .titleItem {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
+  font-style: 'Roboto';
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  grid-auto-rows: 30px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: 'Roboto';
+  color: #52555f;
+  align-items: center;
 }
 
 .expenseAmount {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(160, 102, 102);
-  font-weight: bold;
+  color: #e21e31;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: 'Roboto';
+}
+
+.expensesList {
+  margin: 0;
 }
 
 .btn {
+  position: relative;
   border-width: 0px;
   background-color: white;
-  width: 26px;
-  height: 23px;
   cursor: pointer;
   padding: 0;
   background-color: inherit;
 }
 
-.btn:hover {
-  transform: scale(1.1);
+.btnIcon {
+  position: absolute;
+  width: 14px;
+  height: 17px;
+  background-image: url('./img/deleteIcon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -9px;
+  left: 0;
+  opacity: 0.5;
+}
+
+.btn:hover .btnIcon {
+  transition: all 0.3s;
+  opacity: 1;
 }
 
 /* Scroll */
@@ -51,7 +81,7 @@
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 12px;
+  width: 7px;
   background-color: #f5f5f5;
 }
 
@@ -62,4 +92,72 @@
 
 .scrollbar::-webkit-scrollbar-track {
   border-radius: 10px;
+
+}
+
+
+
+
+/* DESKTOP */
+
+@media (min-width: 992px) {
+  .container {
+    width: 760px;
+    height: 388px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 767px) and (max-width: 991px) {
+  .container {
+    width: 625px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .container {
+    width: 280px;
+    margin: 0 auto;
+  }
+
+  .expensesList {
+    margin: 0;
+  }
+
+  .title,
+  .item {
+    grid-template-columns: 2fr 2fr 3fr 1fr;
+    padding: 9px;
+    align-items: flex-end;
+  }
+
+  .expenseDateContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expenseDate,
+  .expenseDescription {
+    font-style: 'Roboto';
+    color: #8a8c95;
+    font-size: 9px;
+    font-weight: normal;
+  }
+
+  .expenseCategory {
+    font-size: 12px;
+    color: #52555f;
+    font-weight: bold;
+  }
+
+  .expenseAmount {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .btnIcon {
+    top: -15px;
+  }
 }
