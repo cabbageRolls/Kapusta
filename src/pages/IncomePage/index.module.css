@@ -1,0 +1,53 @@
+@media (min-width: 767px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-around;
+  }
+  .DatePicker {
+  }
+  .wrap {
+    width: 520px;
+  }
+  .ExpensesForm {
+    /* margin-left: -30px; */
+    width: 500px;
+  }
+  .ActionButton {
+    margin-left: 40px;
+    width: 260px;
+    height: 44px;
+  }
+  .main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+  }
+
+  .ExpensesList {
+    width: 760px;
+  }
+
+  .MonthSummary {
+    /* display: inline-block; */
+    /* width: 230px; */
+  }
+}
+
+@media (min-width: 1279px) {
+  .wrap {
+    width: 920px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 520px;
+  }
+  .ExpensesForm {
+    width: 600px;
+    /* margin-left: -60px; */
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import SetBalancePage from './SetBalancePageMobile';
+import Router from '../router';
 
 function App() {
   return (
     <div>
-      <SetBalancePage />
+      <Router />
     </div>
   );
 }
