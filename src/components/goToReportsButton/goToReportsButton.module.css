@@ -1,5 +1,3 @@
-/* @import '../../CSS/fonts.css'; */
-
 .button,
 .disable {
   width: 280px;
@@ -7,6 +5,11 @@
   cursor: pointer;
   text-align: center;
   border-width: 0px;
+  background-color: inherit;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .button:hover {
@@ -50,5 +53,27 @@ svg {
   .button,
   .disable {
     margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .button,
+  .disable {
+    width: auto;
+    height: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .button,
+  .disable {
+    width: 150px;
+    height: 45px;
   }
 }

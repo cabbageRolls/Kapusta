@@ -1,7 +1,6 @@
 .ActionButton {
   width: 272px;
   padding: 0 2px;
-  margin: 38px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -21,21 +20,13 @@
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-.SignInButton:hover {
-  border: 2px rgb(244, 246, 251) solid;
-  border-radius: 16px;
-  background-color: rgb(255, 255, 255);
+.SignInButton:hover,
+.SignUpButton:hover {
+  background-color: rgb(252, 130, 42);
+  color: rgb(255, 255, 255);
   transition: all 0.3s linear;
 }
 
 .SignUpButton {
   composes: SignInButton;
-  background-color: rgb(252, 130, 42);
-  color: rgb(255, 255, 255);
-  box-shadow: 2px 2px 5px 0px rgba(255, 107, 8, 0.34);
-}
-
-.SignUpButton:hover {
-  border: none;
-  background-color: rgb(255, 108, 10);
 }

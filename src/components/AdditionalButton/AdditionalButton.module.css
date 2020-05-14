@@ -2,8 +2,6 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 0 1px 0 1px;
-  bottom: 1px;
 }
 
 .RateButton,
@@ -17,13 +15,14 @@
   border: none;
   outline: none;
   transition: all 0.3s linear;
+  background-color: rgb(255, 255, 255);
 }
 
 .RateButton:hover,
 .IncomeButton:hover {
   border: none;
-  background-color: rgb(255, 108, 10);
-  color: #fff;
+  background-color: rgb(252, 130, 42);
+  color: rgb(255, 255, 255);
   transition: all 0.3s linear;
 }
 
@@ -42,14 +41,34 @@
 @media (min-width: 767px) and (max-width: 991px) {
   .ContainerButton {
     justify-content: flex-start;
+    position: relative;
+    height: 42px;
   }
 
   .RateButton,
   .IncomeButton,
   .disable {
-    width: 130x;
-    height: 40px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    width: 125x;
+    height: 42px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .RateButton,
+  .IncomeButton {
+    position: absolute;
+    background-color: rgb(236, 236, 236);
+  }
+
+  .RateButton:hover,
+  .IncomeButton:hover {
+    background-color: #dddddd;
+    color: rgb(252, 130, 42);
+    transition: all 0.3s linear;
+    z-index: 2;
+  }
+
+  .IncomeButton {
+    left: 130px;
   }
 }
