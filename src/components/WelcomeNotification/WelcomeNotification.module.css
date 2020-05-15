@@ -50,8 +50,13 @@
 
 @media (min-width: 992px) {
   .containerNotification {
-    /* width: 80%;
-    margin-bottom: 0px; */
+    width: 33%;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 50%;
+    top: 34px;
+    transform: translate(-24%);
+    z-index: 1;
   }
 }
 

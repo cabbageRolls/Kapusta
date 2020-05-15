@@ -26,7 +26,8 @@
   transition: all 0.3s linear;
 }
 
-.disable {
+.disableRateButton,
+.disableIncomeButton {
   background-color: rgb(136, 136, 136);
   width: 138px;
   height: 53px;
@@ -38,7 +39,7 @@
   outline: none;
 }
 
-@media (min-width: 767px) and (max-width: 991px) {
+@media (min-width: 767px) {
   .ContainerButton {
     justify-content: flex-start;
     position: relative;
@@ -47,7 +48,8 @@
 
   .RateButton,
   .IncomeButton,
-  .disable {
+  .disableRateButton,
+  .disableIncomeButton {
     width: 125x;
     height: 42px;
     border-top-left-radius: 16px;
@@ -68,6 +70,11 @@
     z-index: 2;
   }
 
+  .disableIncomeButton {
+    position: absolute;
+  }
+
+  .disableIncomeButton,
   .IncomeButton {
     left: 130px;
   }
