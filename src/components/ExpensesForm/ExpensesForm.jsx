@@ -47,6 +47,7 @@ export default class ExpensesForm extends Component {
               type="text"
               name="amount"
               placeholder="0.00"
+              maxLength="8"
             />
             <div className={styles.border}></div>
             <div className={styles.iconCalculator}></div>
