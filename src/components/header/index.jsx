@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import styles from './Header.module.css';
 import Logo from '../logo';
 import ProfileName from '../ProfileName';
