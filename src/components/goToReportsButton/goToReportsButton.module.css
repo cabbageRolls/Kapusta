@@ -76,4 +76,8 @@ svg {
     width: 150px;
     height: 45px;
   }
+
+  .disable {
+    background-color: rgb(255, 255, 255);
+  }
 }

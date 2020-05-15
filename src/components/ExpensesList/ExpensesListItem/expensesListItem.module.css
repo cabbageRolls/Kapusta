@@ -104,6 +104,7 @@
   .container {
     width: 760px;
     height: 388px;
+    margin: 0;
   }
 
   .title {

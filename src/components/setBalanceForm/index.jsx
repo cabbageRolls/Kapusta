@@ -44,9 +44,11 @@ export default class setBalanceForm extends React.Component {
 
     return (
       <div className={Styles.mainContainer}>
+        {/* HEADER */}
         <Header />
         <div className={Styles.container}>
           <div className={Styles.balance_container}>
+            {/* BALANCE CONTAINER */}
             <div className={Styles.container_reportButton}>
               <ReportButton className={Styles.reportButton} active={balance} />
             </div>
@@ -71,6 +73,7 @@ export default class setBalanceForm extends React.Component {
               </button>
             </form>
           </div>
+
           <MediaQuery minDeviceWidth={768}>
             <AdditionalButton active={balance} />
           </MediaQuery>
@@ -83,23 +86,38 @@ export default class setBalanceForm extends React.Component {
               {!balance && <Notification />}
               <div className={Styles.datePickerExpensesForm_container}>
                 <DatePickerCustom />
-
                 <ExpensesForm />
-              </div>
 
+                <MediaQuery minDeviceWidth={991}>
+                  <div className={Styles.actionButton}>
+                    <ActionButton upButton={'Ввод'} inButton={'Очистить'} />
+                  </div>
+                </MediaQuery>
+              </div>
+            </MediaQuery>
+
+            <MediaQuery minDeviceWidth={768} and maxDeviceWidth={990}>
               <div className={Styles.actionButton}>
                 <ActionButton upButton={'Ввод'} inButton={'Очистить'} />
               </div>
             </MediaQuery>
 
-            <ExpensesList />
+            <div className={Styles.containerExpensesList}>
+              <ExpensesList />
+
+              <MediaQuery minDeviceWidth={991}>
+                <MonthSummary />
+              </MediaQuery>
+            </div>
+
             <MediaQuery maxDeviceWidth={767}>
               <AdditionalButton active={balance} />
             </MediaQuery>
+
+            <MediaQuery minDeviceWidth={768} and maxDeviceWidth={990}>
+              <MonthSummary />
+            </MediaQuery>
           </div>
-          <MediaQuery minDeviceWidth={768}>
-            <MonthSummary />
-          </MediaQuery>
         </div>
       </div>
     );

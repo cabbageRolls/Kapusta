@@ -163,9 +163,22 @@
     width: 1091px;
   }
 
+  .balance_container {
+    margin-bottom: 8px;
+  }
+
   .container_expenses {
     background-color: #dddddd;
     padding: 32px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+  }
+
+  .containerExpensesList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .actionButton {
@@ -206,11 +219,11 @@
 
   .balance_container {
     display: grid;
-    grid-template-columns: 28px 356px 290px;
+    grid-template-columns: 28px 280px 355px;
     grid-template-areas: 'text form button';
     justify-content: end;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 8px;
   }
 
   .datePickerExpensesForm_container {

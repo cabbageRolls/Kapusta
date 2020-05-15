@@ -10,8 +10,8 @@
 
 .iconDate {
   background-image: url('./img/9-512.png');
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-size: cover;
 }
 
@@ -32,8 +32,15 @@ input:hover {
   align-items: center;
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) {
   .container {
     margin: 0;
+  }
+
+  input {
+    width: 75px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Roboto';
   }
 }
