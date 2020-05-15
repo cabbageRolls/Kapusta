@@ -13,7 +13,7 @@
   border-radius: 16px;
   background-color: rgb(244, 246, 251);
   font-size: 11px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   color: rgb(82, 85, 95);
   font-weight: bold;
   text-transform: uppercase;
