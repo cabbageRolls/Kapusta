@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 
-const logic = (children = null, device) => {
+const logic = (children, device) => {
   return device ? children : null;
 };
 
