@@ -4,9 +4,9 @@ import styles from './GoBackButton.module.css';
 
 export default function GoBackButton() {
   const isTablet = useMediaQuery({
-    query: '(max-width: 768px) and (min-width: 480px)',
+    query: '(max-width: 1199px) and (min-width: 768px)',
   });
-  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   return (
     <div className={styles.divButton}>
       {' '}
