@@ -1,0 +1,49 @@
+.containerNotification {
+  padding-top: 20px;
+  margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.notification {
+  position: relative;
+  z-index: 999;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  font-family: 'Roboto';
+  padding: 35px;
+  background-color: #173563;
+  color: white;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.triangle {
+  display: block;
+  width: 31px;
+  height: 31px;
+  border: 15px solid transparent;
+  position: absolute;
+  border-bottom-color: #173563;
+  top: -31px;
+  left: 49px;
+}
+
+.notificationPartOne {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.notificationPartTwo {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: lighter;
+  text-align: left;
+}

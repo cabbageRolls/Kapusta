@@ -4,11 +4,10 @@ import Chart from 'chart.js';
 import Styles from './ExpensesChartBySpecificCategory.module.css';
 import './barRadius';
 
-Chart.defaults.global.defaultFontColor = '#7a7974';
-Chart.defaults.global.defaultFontFamily =
-  "Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
-Chart.defaults.global.defaultFontSize = 16;
-Chart.defaults.global.defaultFontStyle = '500';
+Chart.defaults.global.defaultFontColor = '#52555f';
+Chart.defaults.global.defaultFontFamily = 'Roboto, sans-serif';
+Chart.defaults.global.defaultFontSize = 11;
+Chart.defaults.global.defaultFontStyle = '400';
 
 const mapper = json => {
   return json
@@ -38,8 +37,8 @@ const bgColor = (lenght, firstColor, secondColor) => {
 const costFormat = cost =>
   cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const renderChart = ({ dom, data, isMobile = false }) => {
-  const backgroundColor = bgColor(data.length, '#f67626cc', '#f5cfb8cc');
+const renderChart = ({ dom, data, isMobile = false, currency }) => {
+  const backgroundColor = bgColor(data.length, '#ee7428cc', '#edcbbbcc');
   const res = mapper(data);
   const ctx = document.getElementById(dom).getContext('2d');
 
@@ -82,21 +81,18 @@ const renderChart = ({ dom, data, isMobile = false }) => {
               chartInstance.width < 500
                 ? chartInstance.width < 400
                   ? chartInstance.width < 300
-                    ? 0.3
-                    : 0.4
-                  : 0.5
-                : 0.6;
-            Chart.defaults.global.defaultFontSize = 14;
+                    ? 0.4
+                    : 0.5
+                  : 0.6
+                : 0.7;
             this.data.datasets.forEach(function (dataset, i) {
               const meta = chartInstance.controller.getDatasetMeta(i);
               meta.data.forEach(function (bar, index) {
-                data = `${costFormat(dataset.data[index]) + ' грн'}`;
+                data = `${costFormat(dataset.data[index]) + ` ${currency}`}`;
                 ctx.fillText(
                   bar._view.label,
                   20,
-                  bar._model.y -
-                    bar._view.height +
-                    Chart.defaults.global.defaultFontSize,
+                  bar._model.y - bar._view.height,
                 );
                 ctx.fillText(
                   data,
@@ -109,18 +105,17 @@ const renderChart = ({ dom, data, isMobile = false }) => {
                     : bar._model.x -
                         (data.length * Chart.defaults.global.defaultFontSize) /
                           2,
-                  bar._model.y -
-                    bar._view.height +
-                    Chart.defaults.global.defaultFontSize,
+                  bar._model.y - bar._view.height,
                 );
               });
             });
           } else {
             ctx.textAlign = 'center';
+            chartInstance.height = 428;
             this.data.datasets.forEach(function (dataset, i) {
               var meta = chartInstance.controller.getDatasetMeta(i);
               meta.data.forEach(function (bar, index) {
-                data = costFormat(dataset.data[index]) + ' грн';
+                data = costFormat(dataset.data[index]) + ` ${currency}`;
                 ctx.fillText(
                   data,
                   bar._model.x,
@@ -150,8 +145,8 @@ const renderChart = ({ dom, data, isMobile = false }) => {
         xAxes: [
           {
             maxBarThickness: 40,
-            barPercentage: 0.9,
-            categoryPercentage: 0.55,
+            barPercentage: 1,
+            categoryPercentage: 0.65,
             gridLines: {
               display: false,
               drawBorder: false,
@@ -163,7 +158,7 @@ const renderChart = ({ dom, data, isMobile = false }) => {
         ],
         yAxes: [
           {
-            barPercentage: 0.9,
+            barPercentage: 0.4,
             categoryPercentage: 0.55,
             gridLines: {
               display: true,
@@ -191,6 +186,7 @@ export default class ExpensesChartBySpecificCategory extends Component {
       }).isRequired,
     ).isRequired,
     isMobile: PropTypes.bool,
+    currency: PropTypes.string.isRequired,
   };
 
   componentDidMount() {
@@ -198,13 +194,14 @@ export default class ExpensesChartBySpecificCategory extends Component {
       dom: 'canvas',
       data: this.props.data,
       isMobile: this.props.isMobile,
+      currency: this.props.currency,
     });
   }
 
   render() {
     return (
       <section className={Styles.chart}>
-        <canvas id="canvas"></canvas>
+        <canvas className={Styles.canvas} id="canvas"></canvas>
       </section>
     );
   }

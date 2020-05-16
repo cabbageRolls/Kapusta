@@ -1,0 +1,17 @@
+.Button {
+  width: 34px;
+  height: 34px;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url('./svg/send-to-trash.svg');
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+}
+.Button:hover {
+  width: 34px;
+  height: 34px;
+  border-radius: 50px;
+  background-color: #f5f7fa;
+}
