@@ -1,7 +1,10 @@
-.button {
-  width: 320px;
+/* @import '../../CSS/fonts.css'; */
+
+.button,
+.disable {
+  width: 280px;
+  height: 40px;
   cursor: pointer;
-  font-size: 14px;
   text-align: center;
   border-width: 0px;
   margin-bottom: 35px;
@@ -12,28 +15,34 @@
   transition: all 0.3s linear;
 }
 
-.reports {
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  background-image: url('./img/bar_chart-24px.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
+.button:hover svg {
+  transition: all 0.3s linear;
+  fill: #fff;
+}
+
+.button:hover .text {
+  transition: all 0.3s linear;
+  color: #fff;
+}
+
+svg {
+  fill: #52555f;
 }
 
 .container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
+.text {
+  padding-bottom: 2px;
+  font-size: 13px;
+  font: 'Roboto';
+  font-weight: normal;
+  color: #52555f;
+}
+
 .disable {
-  width: 320px;
-  cursor: pointer;
-  font-size: 14px;
-  text-align: center;
-  border-width: 0px;
-  margin-bottom: 35px;
   background-color: rgb(136, 136, 136);
 }
