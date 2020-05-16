@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
+import { isMobile, isTablet } from '../../services/mediaQuery';
 import Styles from './TotalBalanceInfo.module.css';
 
-const TotalBalance = ({ data, cost }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+const TotalBalance = ({ data = '11.11.2020', cost = '45,000.00' }) => {
+  const Mobile = isMobile(useMediaQuery);
+  const Tablet = isTablet(useMediaQuery);
   return (
     <div
       className={
-        isMobile ? Styles.container : [Styles.container, Styles.row].join(' ')
+        Mobile
+          ? Styles.Mobile_container
+          : Tablet
+          ? Styles.Tablet_container
+          : Styles.Desktop_container
       }
     >
       <div>
