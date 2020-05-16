@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import Styles from './TotalBalanceInfo.module.css';
 
-const index = ({ data, cost }) => {
+const TotalBalance = ({ data, cost }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   return (
     <div
@@ -24,9 +23,9 @@ const index = ({ data, cost }) => {
   );
 };
 
-index.propTypes = {
+TotalBalance.propTypes = {
   data: PropTypes.string.isRequired,
   cost: PropTypes.string.isRequired,
 };
 
-export default index;
+export default TotalBalance;

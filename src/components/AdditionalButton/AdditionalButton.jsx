@@ -1,11 +1,21 @@
 import React from 'react';
 import styles from './AdditionalButton.module.css';
 
-const AdditionalButton = () => {
+const AdditionalButton = ({ active }) => {
   return (
     <div className={styles.ContainerButton}>
-      <button className={styles.RateButton}>РАСХОД</button>
-      <button className={styles.IncomeButton}>ДОХОД</button>
+      <button
+        className={active ? styles.RateButton : styles.disable}
+        disabled={!active}
+      >
+        РАСХОД
+      </button>
+      <button
+        className={active ? styles.IncomeButton : styles.disable}
+        disabled={!active}
+      >
+        ДОХОД
+      </button>
     </div>
   );
 };

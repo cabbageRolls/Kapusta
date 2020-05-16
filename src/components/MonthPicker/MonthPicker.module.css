@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  line-height: 45px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  color: #52555f;
+  font-weight: medium;
+}
+.data {
+  font-weight: bold;
+  color: #000;
+}
+.button {
+  border: 1px solid transparent;
+  background: none;
+}
+.svg {
+  fill: #ff812d;
+}
+.svgLeft {
+  transform: rotate(180deg);
+}

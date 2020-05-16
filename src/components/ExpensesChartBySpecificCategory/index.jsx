@@ -11,10 +11,10 @@ import { Mobile, Default } from '../../services/mediaQuery';
 const index = ({ data }) => (
   <div>
     <Mobile>
-      <ExpensesChartBySpecificCategory data={data} isMobile />
+      <ExpensesChartBySpecificCategory data={data} isMobile currency="грн" />
     </Mobile>
     <Default>
-      <ExpensesChartBySpecificCategory data={data} />
+      <ExpensesChartBySpecificCategory data={data} currency="грн" />
     </Default>
   </div>
 );
