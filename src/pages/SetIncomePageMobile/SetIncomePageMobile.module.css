@@ -1,0 +1,17 @@
+.containerSetIncomePageMobile {
+  margin: 0 auto;
+  background-color: #f4f6fb;
+  height: 256px;
+  border-bottom-left-radius: 30%;
+}
+
+.goBackButtonInSetIncomePageMobile {
+  width: fit-content;
+  padding-left: 20px;
+  color: blue;
+}
+
+.actionButtonInSetIncomePageMobile {
+  margin: 0 auto;
+  width: min-content;
+}

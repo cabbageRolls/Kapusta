@@ -1,21 +1,19 @@
-//   const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-//   return (
-//     <div>
-//       <ExpensesChartBySpecificCategory data={data} isMobile={true} />
-//     </div>
-//   );
 import React from 'react';
 import PropTypes from 'prop-types';
 import ExpensesChartBySpecificCategory from './ExpensesChartBySpecificCategory';
-import { Mobile, Default } from '../../services/mediaQuery';
+import { Mobile, Tablet, Desktop } from '../../services/mediaQuery';
+import Styles from './index.module.css';
 const index = ({ data }) => (
-  <div>
+  <div className={Styles.section}>
     <Mobile>
       <ExpensesChartBySpecificCategory data={data} isMobile currency="грн" />
     </Mobile>
-    <Default>
+    <Tablet>
       <ExpensesChartBySpecificCategory data={data} currency="грн" />
-    </Default>
+    </Tablet>
+    <Desktop>
+      <ExpensesChartBySpecificCategory data={data} currency="грн" />
+    </Desktop>
   </div>
 );
 index.propTypes = {
