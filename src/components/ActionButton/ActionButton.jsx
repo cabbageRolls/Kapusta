@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './ActionButton.module.css';
-
-const ActionButton = ({ upButton, inButton }) => (
+const ActionButton = ({ firstButtonText, secondButtonText }) => (
   <div className={styles.ActionButton}>
-    <button className={styles.SignUpButton}>{upButton}</button>
-    <button className={styles.SignInButton}>{inButton}</button>
+    <button className={styles.FirstButton}>{firstButtonText}</button>
+    <button className={styles.SecondButton}>{secondButtonText}</button>
   </div>
 );
 
