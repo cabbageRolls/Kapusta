@@ -1,4 +1,5 @@
 .containerNotification {
+  width: 280px;
   padding-top: 20px;
   text-align: center;
 }
@@ -63,12 +64,10 @@
 /* TABLET */
 @media (min-width: 768px) and (max-width: 991px) {
   .containerNotification {
-    width: 48%;
     margin-bottom: 0px;
     position: absolute;
-    left: 50%;
+    left: 353px;
     top: 34px;
-    transform: translate(-50%);
     z-index: 1;
   }
 }
@@ -77,6 +76,5 @@
 @media (max-width: 767px) {
   .containerNotification {
     margin-bottom: 50px;
-    width: 100%;
   }
 }

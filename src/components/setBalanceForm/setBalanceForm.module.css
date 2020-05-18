@@ -1,14 +1,18 @@
-.mainContainer {
+.setBalanceForm {
   width: 280px;
   margin: 0 auto;
 }
 
-.container {
-  text-align: center;
-  font-size: 10px;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 100px;
+.balance_container {
+  display: grid;
+  grid-template-columns: 280px;
+}
+
+.text_container,
+.form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text {
@@ -16,7 +20,7 @@
   font: 'Roboto';
   font-weight: normal;
   color: #52555f;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   grid-area: text;
 }
 
@@ -27,6 +31,9 @@
 .form {
   grid-area: form;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input {
@@ -54,6 +61,11 @@
 :focus::-webkit-input-placeholder {
   text-indent: 300px;
   transition: text-indent 1s ease;
+}
+
+.container_picker {
+  display: flex;
+  justify-content: center;
 }
 
 .label {
@@ -94,14 +106,20 @@
 
 /* TABLET */
 @media (min-width: 768px) and (max-width: 991px) {
-  .mainContainer {
+  .setBalanceForm {
     width: 728px;
   }
-  .container {
-    width: 688px;
+
+  .balance_container {
+    grid-template-columns: 70px 280px;
+    justify-content: center;
   }
 
-  .container_expenses {
+  .text {
+    margin: 0;
+  }
+
+  /* .container_expenses {
     background-color: #dddddd;
     padding: 32px;
   }
@@ -150,7 +168,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+  } */
 }
 
 /* DESKTOP */
@@ -234,9 +252,9 @@
 }
 
 /* MOBILE */
-
+/* 
 @media (max-width: 767px) {
   .container {
     width: 280px;
   }
-}
+} */
