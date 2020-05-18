@@ -1,0 +1,7 @@
+.logo {
+  width: 90px;
+  height: 30px;
+  background-image: url('./images/svg/logo-kapusta.svg');
+  background-repeat: no-repeat;
+  background-size: 90px 30px;
+}

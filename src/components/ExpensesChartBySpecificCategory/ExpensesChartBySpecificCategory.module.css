@@ -1,15 +1,17 @@
-.chart {
-  width: 100%;
-  min-width: 200px;
-  max-width: 100%;
-  padding: 1.32rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #f1f1f1;
-  border-radius: 1.32rem;
-}
 .canvas {
-  width: 100%;
-  max-width: 768px;
+  width: 280px;
+  height: 520px;
+}
+@media (min-width: 767px) {
+  .canvas {
+    width: 700px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .canvas {
+    width: 760px;
+    height: 430px;
+  }
 }
