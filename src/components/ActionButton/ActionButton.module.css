@@ -32,9 +32,13 @@
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-.SecondButton:hover {
-  border: 2px rgb(244, 246, 251) solid;
-  border-radius: 16px;
-  background-color: rgb(255, 255, 255);
+.SignInButton:hover,
+.SignUpButton:hover {
+  background-color: rgb(252, 130, 42);
+  color: rgb(255, 255, 255);
   transition: all 0.3s linear;
+}
+
+.SignUpButton {
+  composes: SignInButton;
 }
