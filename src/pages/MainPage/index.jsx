@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import SetBalanceForm from '../../components/SetBalanceForm';
 
 const MainPage = () => (
@@ -8,4 +9,6 @@ const MainPage = () => (
   </div>
 );
 
+
 export default MainPage;
+

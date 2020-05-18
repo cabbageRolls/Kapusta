@@ -1,11 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SetBalancePage from '../pages/SetBalancePageMobile';
+
+
+
+import MainPge from '../pages/MainPage/'
+
 const Router = () => {
   return (
     <Switch>
-      {/* <Route path="/main-page" component={MainPge} /> */}
-      <SetBalancePage />
+      <Route path="/main-page" component={MainPge}/>
     </Switch>
   );
 };
