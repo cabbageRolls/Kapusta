@@ -1,4 +1,4 @@
-.WelcomingPage {
+.AuthPage {
   width: 900px;
   min-height: 20vh;
   display: flex;
@@ -10,14 +10,14 @@
 }
 
 @media (max-width: 767px) {
-  .WelcomingPage {
+  .AuthPage {
     width: 304px;
     padding: 70px 0;
   }
 }
 
 @media (min-width: 767px) and (max-width: 1279px) {
-  .WelcomingPage {
+  .AuthPage {
     width: 420px;
     padding: 90px 0;
   }
