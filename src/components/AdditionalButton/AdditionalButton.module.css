@@ -19,8 +19,7 @@
   transition: all 0.3s linear;
 }
 
-.RateButton:hover,
-.IncomeButton:hover {
+.additionalButton:hover {
   border: none;
   background-color: rgb(255, 108, 10);
   color: #fff;
