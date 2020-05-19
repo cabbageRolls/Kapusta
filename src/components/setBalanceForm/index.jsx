@@ -4,13 +4,13 @@ import MediaQuery from 'react-responsive';
 import Styles from './setBalanceForm.module.css';
 import DatePickerCustom from '../datePicker';
 import Notification from '../WelcomeNotification/WelcomeNotification';
-// import AdditionalButton from '../AdditionalButton/AdditionalButton';
-// import ReportButton from '../goToReportsButton';
-// import ExpensesList from '../ExpensesList';
-// import ExpensesForm from '../ExpensesForm/ExpensesForm';
-// import ActionButton from '../ActionButton/ActionButton';
-// import MonthSummary from '../MonthSummary';
-// import Header from '../header';
+import AdditionalButton from '../AdditionalButton/AdditionalButton';
+import ReportButton from '../goToReportsButton';
+import ExpensesList from '../ExpensesList';
+import ExpensesForm from '../ExpensesForm/ExpensesForm';
+import ActionButton from '../ActionButton/ActionButton';
+import MonthSummary from '../MonthSummary/index';
+import Header from '../header';
 
 export default class setBalanceForm extends React.Component {
   state = {
