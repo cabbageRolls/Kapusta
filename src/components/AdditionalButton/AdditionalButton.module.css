@@ -18,8 +18,7 @@
   background-color: rgb(255, 255, 255);
 }
 
-.RateButton:hover,
-.IncomeButton:hover {
+.additionalButton:hover {
   border: none;
   background-color: rgb(252, 130, 42);
   color: rgb(255, 255, 255);

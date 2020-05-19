@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './ProfileName.module.css';
-import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
 const index = ({ userName }) => {
