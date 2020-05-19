@@ -123,3 +123,5 @@ export default class setBalanceForm extends React.Component {
     );
   }
 }
+
+// REBASE
