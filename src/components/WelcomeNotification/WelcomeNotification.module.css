@@ -63,10 +63,10 @@
 /* TABLET */
 @media (min-width: 768px) and (max-width: 991px) {
   .containerNotification {
-    width: 48%;
+    width: 300px;
     margin-bottom: 0px;
     position: absolute;
-    left: 50%;
+    left: 52%;
     top: 34px;
     transform: translate(-50%);
     z-index: 1;

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import MainPage from '../pages/MainPage';
+import SetBalanceForm from './SetBalanceForm';
 
 function App() {
   return (
     <div>
-      <MainPage />
+      <SetBalanceForm />
     </div>
   );
 }
