@@ -8,7 +8,7 @@ import ReportButton from '../goToReportsButton';
 import ExpensesList from '../ExpensesList';
 import ExpensesForm from '../ExpensesForm/ExpensesForm';
 import ActionButton from '../ActionButton/ActionButton';
-import MonthSummary from '../MonthSummary';
+import MonthSummary from '../MonthSummary/index';
 import Header from '../header';
 
 export default class setBalanceForm extends React.Component {
