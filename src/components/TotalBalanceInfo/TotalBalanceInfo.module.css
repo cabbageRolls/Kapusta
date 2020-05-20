@@ -22,7 +22,6 @@
 .Desktop_container {
   composes: Tablet_container;
 }
-
 .balanceOnDay {
   font-weight: medium;
   color: #52555f;
