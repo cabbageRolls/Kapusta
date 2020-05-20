@@ -1,0 +1,32 @@
+.button {
+  width: 120px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Roboto';
+  text-align: center;
+  color: black;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.button:hover {
+  border: 2px solid #ff812d;
+  transition: all 0.3s linear;
+}
+
+.google {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  background-image: url('./img/google_PNG19635.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
