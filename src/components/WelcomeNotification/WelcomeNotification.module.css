@@ -46,22 +46,8 @@
   text-align: left;
 }
 
-/* DESKTOP */
-
-@media (min-width: 992px) {
-  .containerNotification {
-    width: 33%;
-    margin-bottom: 0px;
-    position: absolute;
-    left: 50%;
-    top: 34px;
-    transform: translate(-24%);
-    z-index: 1;
-  }
-}
-
-/* TABLET */
-@media (min-width: 768px) and (max-width: 991px) {
+/* TABLET */ /* DESKTOP */
+@media (min-width: 768px) {
   .containerNotification {
     width: 300px;
     margin-bottom: 0px;
@@ -76,7 +62,6 @@
 /* MOBILE */
 @media (max-width: 767px) {
   .containerNotification {
-    margin-bottom: 50px;
     width: 100%;
   }
 }
