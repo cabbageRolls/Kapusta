@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import Chart from 'chart.js';
 
-const roundRect = function ({ ctx, x, y, width, height, radius }) {
+function roundRect({ ctx, x, y, width, height, radius }) {
   let cornerRadius = {
     upperLeft: 0,
     upperRight: 0,
@@ -28,9 +28,9 @@ const roundRect = function ({ ctx, x, y, width, height, radius }) {
   ctx.lineTo(x, y + cornerRadius.upperLeft);
   ctx.quadraticCurveTo(x, y, x + cornerRadius.upperLeft, y);
   ctx.closePath();
-};
+}
 
-Chart.elements.Rectangle.prototype.draw = function () {
+function draw() {
   const { ctx } = this._chart;
   const vm = this._view;
   let left;
@@ -167,4 +167,5 @@ Chart.elements.Rectangle.prototype.draw = function () {
   if (borderWidth) {
     ctx.stroke();
   }
-};
+}
+Chart.elements.Rectangle.prototype.draw = draw;
