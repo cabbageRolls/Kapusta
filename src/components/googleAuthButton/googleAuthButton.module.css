@@ -19,12 +19,12 @@
 }
 
 .google {
-  width: 23px;
+  width: 24px;
   height: 24px;
   margin: 0;
   padding: 0;
-  background-image: url('./img/google.png');
-  background-size: contain;
+  background-image: url('./img/google_PNG19635.png');
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
