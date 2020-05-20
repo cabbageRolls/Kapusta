@@ -1,16 +1,15 @@
+/* eslint-disable no-underscore-dangle */
 import Chart from 'chart.js';
 
 const roundRect = function ({ ctx, x, y, width, height, radius }) {
-  const cornerRadius = {
+  let cornerRadius = {
     upperLeft: 0,
     upperRight: 0,
     lowerLeft: 0,
     lowerRight: 0,
   };
   if (typeof radius === 'object') {
-    for (let side in radius) {
-      cornerRadius[side] = radius[side];
-    }
+    cornerRadius = { ...cornerRadius, ...radius };
   }
 
   ctx.beginPath();
@@ -32,10 +31,17 @@ const roundRect = function ({ ctx, x, y, width, height, radius }) {
 };
 
 Chart.elements.Rectangle.prototype.draw = function () {
-  const ctx = this._chart.ctx;
+  const { ctx } = this._chart;
   const vm = this._view;
-  let left, right, top, bottom, signX, signY, borderSkipped, radius;
-  let borderWidth = vm.borderWidth;
+  let left;
+  let right;
+  let top;
+  let bottom;
+  let signX;
+  let signY;
+  let borderSkipped;
+  let radius;
+  let { borderWidth } = vm;
   radius = 20;
 
   if (!vm.horizontal) {
@@ -115,7 +121,7 @@ Chart.elements.Rectangle.prototype.draw = function () {
   let corner = cornerAt(0);
   ctx.moveTo(corner[0], corner[1]);
 
-  for (let i = 1; i < 4; i++) {
+  for (let i = 1; i < 4; i += 1) {
     corner = cornerAt(i);
     let nextCornerId = i + 1;
     if (nextCornerId === 4) {
