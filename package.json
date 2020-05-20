@@ -24,7 +24,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/"
   },
   "eslintConfig": {
@@ -53,12 +52,5 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
     "prettier": "^2.0.5"
-  },
-  "lint-staged": {
-    "*.{js, jsx}": [
-      "node_modules/.bin/eslint --max-warnings=0",
-      "prettier --write",
-      "git add"
-    ]
   }
 }
