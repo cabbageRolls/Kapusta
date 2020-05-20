@@ -1,24 +1,26 @@
 .button {
-  width: 200px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: #ffffff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
+  font-family: 'Roboto';
   text-align: center;
-  border-radius: 50px;
-  border-width: 0px;
-  background-color: rgba(199, 199, 199, 0.6);
+  color: black;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 
 .button:hover {
-  background-color: rgba(78, 78, 78, 0.6);
+  border: 2px solid #ff812d;
   transition: all 0.3s linear;
 }
 
 .google {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   margin: 0;
   padding: 0;
-  background-image: url("./img/google_PNG19635.png");
+  background-image: url('./img/google_PNG19635.png');
   background-size: cover;
   background-repeat: no-repeat;
 }

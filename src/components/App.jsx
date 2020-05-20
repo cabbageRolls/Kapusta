@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import SetBalanceForm from './SetBalanceForm';
+import GoogleBtn from './googleAuthButton';
 
 function App() {
   return (
     <div>
-      <SetBalanceForm />
+      <GoogleBtn />
     </div>
   );
 }
