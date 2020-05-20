@@ -9,6 +9,8 @@
   text-align: center;
   color: black;
   border: 2px solid rgba(255, 255, 255, 0);
+  padding: 0;
+  outline: none;
 }
 
 .button:hover {
@@ -17,17 +19,19 @@
 }
 
 .google {
-  width: 24px;
+  width: 23px;
   height: 24px;
   margin: 0;
   padding: 0;
-  background-image: url('./img/google_PNG19635.png');
-  background-size: cover;
+  background-image: url('./img/google.png');
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
 .container {
+  width: 78px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
