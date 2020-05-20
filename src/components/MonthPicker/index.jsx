@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Default } from '../../services/mediaQuery';
 import Styles from './MonthPicker.module.css';
+
 const Icon = ({ className }) => (
   <svg
     className={className}
