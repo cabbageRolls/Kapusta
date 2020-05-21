@@ -20,11 +20,11 @@
 
 .google {
   width: 24px;
-  height: 24px;
+  height: 25px;
   margin: 0;
   padding: 0;
-  background-image: url('./img/google_PNG19635.png');
-  background-size: cover;
+  background-image: url('./img/google.png');
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
