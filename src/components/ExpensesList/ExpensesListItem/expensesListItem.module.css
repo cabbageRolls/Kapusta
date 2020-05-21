@@ -1,82 +1,3 @@
-.container {
-  margin: 0 auto;
-  display: grid;
-}
-
-.titleItem {
-  font-size: 11px;
-  font-weight: bold;
-  font-style: 'Roboto';
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.title {
-  display: grid;
-  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  align-items: center;
-}
-
-.item {
-  display: grid;
-  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
-  grid-auto-rows: 30px;
-  font-size: 13px;
-  font-weight: normal;
-  font-style: 'Roboto';
-  color: #52555f;
-  align-items: center;
-  margin: 0 5px 0 5px;
-  border-bottom: 2px solid rgba(82, 85, 95, 0.22);
-}
-
-.expenseAmount {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #e21e31;
-  font-size: 13px;
-  font-weight: normal;
-  font-style: 'Roboto';
-}
-
-.expensesList {
-  margin: 0;
-  position: relative;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-left: 0.5px solid rgba(82, 85, 95, 0.22);
-  border-right: 0.5px solid rgba(82, 85, 95, 0.22);
-}
-
-.btn {
-  position: relative;
-  border-width: 0px;
-  background-color: white;
-  cursor: pointer;
-  padding: 0;
-  background-color: inherit;
-}
-
-.btnIcon {
-  position: absolute;
-  width: 14px;
-  height: 17px;
-  background-image: url('./img/deleteIcon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  top: -9px;
-  left: 0;
-  opacity: 0.5;
-}
-
-.btn:hover .btnIcon {
-  transition: all 0.3s;
-  opacity: 1;
-}
-
 /* Scroll */
 
 .scrollbar {
@@ -98,94 +19,155 @@
   border-radius: 10px;
 }
 
-/* DESKTOP */
+/* first mobile */
+.Mobile_container {
+  width: 280px;
+}
 
-@media (min-width: 992px) {
-  .container {
-    width: 760px;
-    height: 388px;
-    margin: 0;
-  }
+.Mobile_expensesList {
+  margin: 0;
+}
 
-  .title {
-    background-color: rgb(236, 236, 236);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
+.titleItem {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: 'Roboto';
+  padding-left: 5px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.Mobile_title,
+.Mobile_item {
+  grid-template-columns: 2fr 2fr 3fr 1fr;
+  padding: 9px;
+  align-items: center;
+  display: grid;
+  grid-auto-rows: 30px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: 'Roboto';
+  color: #52555f;
+  margin: 0 5px 0 5px;
+  border-bottom: 2px solid rgba(82, 85, 95, 0.22);
+}
+
+.expenseDateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.expenseDate,
+.expenseDescription {
+  font-style: 'Roboto';
+  color: #8a8c95;
+  font-size: 9px;
+  font-weight: ;
+}
+
+.expenseCategory {
+  font-size: 12px;
+  color: #52555f;
+  font-weight: bold;
+}
+
+.Mobile_expenseAmount {
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e21e31;
+  font-style: 'Roboto';
+}
+
+.btn {
+  position: relative;
+  border-width: 0px;
+  background-color: white;
+  cursor: pointer;
+  padding: 0;
+  background-color: inherit;
+}
+
+.btnIcon {
+  position: absolute;
+  width: 14px;
+  height: 17px;
+  background-image: url('./img/deleteIcon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn:hover .btnIcon {
+  transition: all 0.3s;
+  opacity: 1;
 }
 
 /* TABLET */
-@media (min-width: 767px) and (max-width: 991px) {
-  .container {
-    width: 625px;
-    position: relative;
-    overflow: auto;
-  }
 
-  .expensesList {
-    margin: 0;
-    /* position: relative;
-    z-index: 100;
-    overflow: auto; */
-  }
-
-  .title {
-    background-color: rgb(236, 236, 236);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
+.Tablet_container {
+  composes: Mobile_container;
+  display: grid;
+  width: 625px;
+  position: relative;
+  overflow: auto;
 }
 
-/* MOBILE */
+.Tablet_title {
+  composes: Mobile_title;
+  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  grid-auto-rows: 10px;
+  background-color: rgb(236, 236, 236);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
 
-@media (max-width: 767px) {
-  .container {
-    width: 280px;
-    margin: 0 auto;
-  }
+.Tablet_item {
+  composes: Mobile_item;
+  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  align-items: center;
+  grid-auto-rows: 20px;
+}
 
-  .expensesList {
-    margin: 0;
-  }
+.Tablet_expenseAmount {
+  composes: Mobile_expenseAmount;
+  font-size: 13px;
+  font-weight: normal;
+}
 
-  .title,
-  .item {
-    grid-template-columns: 2fr 2fr 3fr 1fr;
-    padding: 9px;
-    align-items: flex-end;
-  }
+.Tablet_expensesList {
+  composes: Mobile_expensesList;
+  position: relative;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-left: 0.5px solid rgba(82, 85, 95, 0.22);
+  border-right: 0.5px solid rgba(82, 85, 95, 0.22);
+}
 
-  .expenseDateContainer {
-    display: flex;
-    flex-direction: column;
-  }
+/* DESKTOP */
 
-  .expenseDate,
-  .expenseDescription {
-    font-style: 'Roboto';
-    color: #8a8c95;
-    font-size: 9px;
-    font-weight: normal;
-  }
+.Desktop_container {
+  composes: Tablet_container;
+  width: 792px;
+}
 
-  .expenseCategory {
-    font-size: 12px;
-    color: #52555f;
-    font-weight: bold;
-  }
-
-  .expenseAmount {
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  .btnIcon {
-    top: -15px;
-  }
+.Desktop_title {
+  composes: Tablet_title;
+  background-color: rgb(236, 236, 236);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }

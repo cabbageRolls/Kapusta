@@ -1,12 +1,13 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import GoogleBtn from './googleAuthButton';
+import ExpensesList from './ExpensesList';
+import expensesData from './ExpensesList/expensesData.json';
 
 function App() {
   return (
     <div>
-      <GoogleBtn />
+      <ExpensesList expenses={expensesData} />
     </div>
   );
 }
