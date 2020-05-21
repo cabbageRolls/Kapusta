@@ -1,13 +1,11 @@
 .wrapper {
   font-size: 13px;
-  font-family: 'Roboto';
   color: rgb(82, 85, 95);
   font-weight: 600;
   max-width: 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 56px;
 }
 
 .firstLetter {
@@ -26,8 +24,9 @@
   width: fit-content;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-    margin-right: 20px;
-  }
+.Tablet_container {
+  margin-right: 20px;
+}
+.Desktop_container {
+  margin-right: 56px;
 }
