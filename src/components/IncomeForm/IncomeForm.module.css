@@ -12,7 +12,6 @@
   border-right: none;
   border-top-left-radius: 10px;
   width: 475px;
-
 }
 
 .amountInput {
@@ -23,7 +22,6 @@
   border-bottom-right-radius: 10px;
   outline: none;
   width: 125px;
-
 }
 
 .iconCalculator {
@@ -85,9 +83,9 @@
 /* mobile */
 @media (max-width: 480px) {
   .form {
-    padding: 15px 0px 50px;
+    padding: 15px 0px 18px;
     width: 280px;
-    background-color: #c7ccdc;
+    background-color: #f4f6fb;
   }
 
   .descriptionInput {
@@ -144,12 +142,11 @@
   }
 
   .div {
-    position: relative
+    position: relative;
   }
 
   .placeholder {
     color: #9a9a9b;
     padding: 17px 10px 0px 20px;
   }
-
 }

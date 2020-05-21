@@ -1,14 +1,26 @@
-.container {
+.row {
+  flex-direction: row;
+}
+.Mobile_container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  width: 280px;
+  height: 90px;
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
   line-height: 45px;
 }
-.row {
+.Tablet_container {
+  composes: Mobile_container;
   flex-direction: row;
+  width: 300px;
+  height: 45px;
+}
+.Desktop_container {
+  composes: Tablet_container;
 }
 .balanceOnDay {
   font-weight: medium;
@@ -17,4 +29,8 @@
 .balanceCost {
   font-weight: 700;
   color: #000;
+}
+.balance {
+  border-radius: 30px;
+  background-color: white;
 }

@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
-  line-height: 45px;
+  /* line-height: 45px; */
+  width: 280px;
+  height: 30px;
 }
 .wrapper {
   display: flex;
@@ -13,10 +17,11 @@
 }
 .title {
   color: #52555f;
-  font-weight: medium;
+  font-weight: 500;
+  margin-right: 18px;
 }
 .data {
-  font-weight: bold;
+  font-weight: 900;
   color: #000;
 }
 .button {
@@ -27,5 +32,13 @@
   fill: #ff812d;
 }
 .svgLeft {
+  composes: svg;
   transform: rotate(180deg);
+}
+@media (min-width: 768px) {
+  .container {
+    height: 50px;
+    align-items: flex-end;
+    margin: 0 0 0 auto;
+  }
 }
