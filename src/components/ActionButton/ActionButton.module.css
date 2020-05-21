@@ -1,7 +1,7 @@
 .ActionButton {
   width: 272px;
   padding: 0 2px;
-  margin: 38px 0;
+  /* margin: 38px 0; */
   display: flex;
   justify-content: space-between;
 }
