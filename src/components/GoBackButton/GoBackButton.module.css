@@ -1,6 +1,5 @@
 .GoBackButtonMobile {
   padding: 0;
-  margin: 20px 0px 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -9,7 +8,6 @@
 
 .GoBackButtonTablet {
   padding: 0;
-  margin: 68px 0px 68px 20px;
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
   line-height: 1.2;
@@ -23,7 +21,6 @@
 
 .GoBackButton {
   padding: 0;
-  margin: 55px 0px 55px 133px;
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
   line-height: 1.2;
