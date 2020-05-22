@@ -1,0 +1,12 @@
+.BudgetSummaryContainer{
+    max-width: 942px;
+    margin: 0 auto;
+}
+
+.boxTotalMonthTablet {
+  display: flex;
+}
+
+.boxTotalMonthTablet .MonthPicker {
+  order: 1;
+}
