@@ -30,7 +30,15 @@ const ExpensesListItem = ({ expenses }) => {
               : styles.Desktop_container
           }
         >
-          <div className={styles.scrollbar}>
+          <div
+            className={
+              MobileClass
+                ? styles.Mobile_scrollbar
+                : TabletClass
+                ? styles.Tablet_scrollbar
+                : styles.Desktop_scrollbar
+            }
+          >
             <ul
               className={
                 MobileClass
@@ -54,7 +62,6 @@ const ExpensesListItem = ({ expenses }) => {
                   <div className={styles.titleItem}>Описание</div>
                   <div className={styles.titleItem}>Категория</div>
                   <div className={styles.titleItem}>Сумма</div>
-                  <div className={styles.titleItem}> </div>
                 </div>
               </Default>
 
@@ -125,7 +132,7 @@ ExpensesListItem.propTypes = {
       date: T.string.isRequired,
       description: T.string.isRequired,
       category: T.string.isRequired,
-      amount: T.number.isRequired,
+      amount: T.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

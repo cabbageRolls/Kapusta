@@ -1,22 +1,22 @@
 /* Scroll */
-
-.scrollbar {
-  height: 300px;
+.Mobile_scrollbar {
+  height: 190px;
   overflow-y: scroll;
 }
 
-.scrollbar::-webkit-scrollbar {
-  width: 7px;
+.Mobile_scrollbar::-webkit-scrollbar {
+  width: 6px;
   background-color: inherit;
 }
 
-.scrollbar::-webkit-scrollbar-thumb {
+.Mobile_scrollbar::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #f97a2c;
 }
 
-.scrollbar::-webkit-scrollbar-track {
+.Mobile_scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
+  background-color: #f97a2c;
+  visibility: hidden;
 }
 
 /* first mobile */
@@ -32,15 +32,18 @@
   font-size: 11px;
   font-weight: bold;
   font-style: 'Roboto';
-  padding-left: 5px;
   color: #000000;
   text-transform: uppercase;
 }
 
+.Mobile_item div:nth-child(4) {
+  text-align: right;
+}
+
 .Mobile_title,
 .Mobile_item {
-  grid-template-columns: 2fr 2fr 3fr 1fr;
-  padding: 9px;
+  grid-template-columns: 68px 72px 115px 20px;
+  padding: 9px 0 9px 0;
   align-items: center;
   display: grid;
   grid-auto-rows: 30px;
@@ -48,13 +51,18 @@
   font-weight: normal;
   font-style: 'Roboto';
   color: #52555f;
-  margin: 0 5px 0 5px;
-  border-bottom: 2px solid rgba(82, 85, 95, 0.22);
+  border-bottom: 1px solid rgba(82, 85, 95, 0.22);
+}
+
+.Mobile_title {
+  grid-template-columns: 2fr 2fr 3fr 1fr;
 }
 
 .expenseDateContainer {
   display: flex;
   flex-direction: column;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .expenseDate,
@@ -62,7 +70,7 @@
   font-style: 'Roboto';
   color: #8a8c95;
   font-size: 9px;
-  font-weight: ;
+  font-weight: normal;
 }
 
 .expenseCategory {
@@ -75,7 +83,7 @@
   font-size: 12px;
   font-weight: bold;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: #e21e31;
   font-style: 'Roboto';
@@ -98,7 +106,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.5;
-  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -110,6 +117,29 @@
 
 /* TABLET */
 
+.Tablet_scrollbar,
+.Desktop_scrollbar {
+  height: 386px;
+  overflow-y: scroll;
+}
+
+.Tablet_scrollbar::-webkit-scrollbar,
+.Desktop_scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background-color: inherit;
+}
+
+.Tablet_scrollbar::-webkit-scrollbar-track,
+.Desktop_scrollbar::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.Tablet_scrollbar::-webkit-scrollbar-thumb,
+.Desktop_scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f97a2c;
+}
+
 .Tablet_container {
   composes: Mobile_container;
   display: grid;
@@ -120,7 +150,8 @@
 
 .Tablet_title {
   composes: Mobile_title;
-  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  /* grid-template-columns: 3fr 4fr 3fr 3fr 1fr; */
+  grid-template-columns: 120px 220px 120px 146px;
   grid-auto-rows: 10px;
   background-color: rgb(236, 236, 236);
   border-top-left-radius: 16px;
@@ -128,18 +159,33 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 5px;
+}
+
+.Tablet_title div:nth-child(4) {
+  padding-left: 40px;
+}
+
+.Tablet_title div:nth-child(1) {
+  padding-left: 25px;
 }
 
 .Tablet_item {
   composes: Mobile_item;
-  grid-template-columns: 3fr 4fr 3fr 3fr 1fr;
+  /* grid-template-columns: 3fr 4fr 3fr 3fr 1fr; */
+  grid-template-columns: 120px 220px 120px 100px 49px;
   align-items: center;
   grid-auto-rows: 20px;
 }
 
+.Tablet_item span {
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Roboto';
+}
+
+.Tablet_item div:nth-child(1) {
+  padding-left: 25px;
+}
 .Tablet_expenseAmount {
   composes: Mobile_expenseAmount;
   font-size: 13px;
@@ -159,15 +205,23 @@
 
 .Desktop_container {
   composes: Tablet_container;
-  width: 792px;
+  width: 760px;
 }
 
 .Desktop_title {
   composes: Tablet_title;
-  background-color: rgb(236, 236, 236);
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  grid-template-columns: 170px 248px 164px 170px;
+}
+
+.Desktop_item {
+  composes: Tablet_item;
+  grid-template-columns: 170px 248px 164px 116px 50px;
+}
+
+.Desktop_expenseAmount {
+  composes: Tablet_expenseAmount;
+}
+
+.Desktop_expensesList {
+  composes: Tablet_expensesList;
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ExpensesListItem from './ExpensesListItem/expensesListItem';
 
+// Принимает проп expenses
+
 export default class ExpensesList extends React.Component {
   static propTypes = {
     expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
