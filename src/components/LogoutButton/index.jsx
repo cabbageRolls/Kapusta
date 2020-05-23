@@ -1,19 +1,20 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { isMobile } from '../../services/mediaQuery';
 import styles from './LogoutButton.module.css';
-import MediaQuery from 'react-responsive';
 import svg from './images/logout.svg';
 
 const index = () => {
+  const Mobile = isMobile(useMediaQuery);
   return (
-    <button className={styles.button}>
-      <MediaQuery minDeviceWidth={768}>
-        <span className={styles.text}>Выйти</span>
-      </MediaQuery>
-      <MediaQuery maxDeviceWidth={767}>
+    <button type="button" className={styles.button}>
+      {Mobile ? (
         <svg className={styles.icon}>
-          <use href={svg + '#Capa_1'} />
+          <use href={`${svg}#Capa_1`} />
         </svg>
-      </MediaQuery>
+      ) : (
+        <span className={styles.text}>Выйти</span>
+      )}
     </button>
   );
 };
