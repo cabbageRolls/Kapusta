@@ -1,11 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import {
-  isMobile,
-  isNotMobile,
-  isTablet,
-  isDesktop,
-} from '../../services/mediaQuery';
+import { isDesktop } from '../../services/mediaQuery';
 import styles from './Header.module.css';
 import Logo from '../logo';
 import ProfileName from '../ProfileName';
@@ -15,10 +10,7 @@ const index = () => {
   const Desktop = isDesktop(useMediaQuery);
   return (
     <div
-      className={[
-        Desktop ? styles.Desktop_container : styles.Tablet_container,
-        styles.header,
-      ].join(' ')}
+      className={Desktop ? styles.Desktop_container : styles.Tablet_container}
     >
       <div className={styles.logo}>
         <Logo />
