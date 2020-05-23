@@ -21,7 +21,7 @@ export default function GoBackButton() {
       >
         {' '}
         <div className={styles.GoBackButtonImg} />{' '}
-        {Mobile ? '' : Tablet ? 'Вернуться' : 'Вернуться на главную'}{' '}
+        {Mobile ? '' : Tablet ? 'На главную' : 'Вернуться на главную'}{' '}
       </button>{' '}
     </div>
   );
