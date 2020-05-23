@@ -1,25 +1,5 @@
-.GoBackButtonMobile {
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.GoBackButtonTablet {
-  padding: 0;
-  font-size: 13px;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.2;
-  font-weight: 400;
-  color: #52555f;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
 .GoBackButton {
+  width: max-content;
   padding: 0;
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
@@ -41,14 +21,6 @@
   width: 16px;
   height: 10px;
   display: inline-block;
-}
-
-.GoBackButtonMobile:hover .GoBackButtonImg {
-  background-image: url(./img/arrow.png);
-}
-
-.GoBackButtonTablet:hover .GoBackButtonImg {
-  background-image: url(./img/arrow.png);
 }
 
 .GoBackButton:hover .GoBackButtonImg {
