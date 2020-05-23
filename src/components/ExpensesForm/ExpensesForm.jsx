@@ -22,6 +22,7 @@ export default class ExpensesForm extends Component {
       inputValue: '',
     });
   };
+
   render() {
     const { inputValue } = this.state;
     return (
@@ -47,8 +48,8 @@ export default class ExpensesForm extends Component {
             name="amount"
             placeholder="0.00"
           />
-          <div className={styles.border}></div>
-          <div className={styles.iconCalculator}></div>
+          <div className={styles.border} />
+          <div className={styles.iconCalculator} />
         </form>
       </>
     );

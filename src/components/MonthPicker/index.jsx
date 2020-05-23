@@ -1,31 +1,24 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
+import { Default } from '../../services/mediaQuery';
 import Styles from './MonthPicker.module.css';
+import Icon from './Icon';
 
-const index = ({ month, year, increment, decrement }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+const index = ({ month = 'сентябрь', year = '2020', increment, decrement }) => {
   return (
     <div className={Styles.container}>
-      {isMobile ? '' : <h4 className={Styles.title}>Текущий период:</h4>}
+      <Default>
+        <h4 className={Styles.title}>Текущий период:</h4>
+      </Default>
       <div className={Styles.wrapper}>
-        <button className={Styles.button} onClick={decrement}>
-          <img
-            className={[Styles.svg, Styles.svgLeft].join(' ')}
-            src="./images/svg/arrow_right-24px.svg"
-            alt="arrowLeft"
-          />
+        <button type="button" className={Styles.button} onClick={decrement}>
+          <Icon className={Styles.svgLeft} />
         </button>
         <div className={Styles.data}>
           {month} {year}
         </div>
-        <button className={Styles.button} onClick={increment}>
-          <img
-            className={Styles.svg}
-            src="./images/svg/arrow_right-24px.svg"
-            alt="arrowRigth"
-          />
+        <button type="button" className={Styles.button} onClick={increment}>
+          <Icon className={Styles.svg} />
         </button>
       </div>
     </div>
