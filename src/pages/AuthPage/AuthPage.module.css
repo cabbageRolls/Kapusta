@@ -1,24 +1,22 @@
-.AuthPage {
-  width: 900px;
+.AuthPage_mobile {
+  width: 304px;
+  padding: 70px 0;
   min-height: 20vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+}
+
+.AuthPage_tablet {
+  composes: AuthPage_mobile;
+  width: 420px;
+  padding: 90px 0;
+}
+
+.AuthPage_desktop {
+  composes: AuthPage_mobile;
+  width: 950px;
   padding: 110px 0;
-}
-
-@media (max-width: 767px) {
-  .AuthPage {
-    width: 304px;
-    padding: 70px 0;
-  }
-}
-
-@media (min-width: 767px) and (max-width: 1279px) {
-  .AuthPage {
-    width: 420px;
-    padding: 90px 0;
-  }
 }
