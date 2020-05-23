@@ -1,0 +1,26 @@
+.className {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 40px;
+  border-radius: 25px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid transparent;
+  color: #000000;
+  background: #f8f9fd;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.activeClassName {
+  z-index: 2;
+  composes: className;
+  color: #fa7c2e;
+  background: #ffffff;
+}
+
+.className:last-child {
+  margin-left: -10px;
+}

@@ -1,39 +1,8 @@
-.ContainerButton {
-  margin: 0 auto;
+.Mobile_Container {
+  width: 280px;
+}
+.Tablet_Container {
   display: flex;
-  justify-content: space-between;
-  padding: 0 1px 0 1px;
-  bottom: 1px;
-}
-
-.RateButton,
-.IncomeButton {
-  width: 138px;
-  height: 53px;
-  font-size: 11px;
-  font-family: 'Roboto';
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: all 0.3s linear;
-}
-
-.additionalButton:hover {
-  border: none;
-  background-color: rgb(255, 108, 10);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-
-.disable {
-  background-color: rgb(136, 136, 136);
-  width: 138px;
-  height: 53px;
-  font-size: 11px;
-  font-family: 'Roboto';
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  outline: none;
+  flex-wrap: nowrap;
+  width: 270px;
 }
