@@ -1,0 +1,16 @@
+@media (min-width: 768px) {
+}
+@media (min-width: 1240px) {
+}
+.GoBackButton {
+  padding-left: 20px;
+}
+.BudgetSummary {
+  margin-bottom: 40px;
+}
+.ExpensesList {
+  margin-bottom: 39px;
+}
+.ExpensesChart {
+  padding-bottom: 40px;
+}
