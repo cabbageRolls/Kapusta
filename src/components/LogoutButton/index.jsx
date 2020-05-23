@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Mobile, Default } from '../../services/mediaQuery';
 import styles from './LogoutButton.module.css';
 import svg from './images/logout.svg';
 
-const index = () => {
-  return (
+const index = ({ isRendered }) => {
+  return isRendered ? (
     <button type="button" className={styles.button}>
       <Mobile>
         <svg className={styles.icon}>
@@ -15,7 +16,15 @@ const index = () => {
         <span className={styles.text}>Выйти</span>
       </Default>
     </button>
-  );
+  ) : null;
+};
+
+index.propTypes = {
+  isRendered: PropTypes.bool,
+};
+
+index.defaultProps = {
+  isRendered: true,
 };
 
 export default index;

@@ -4,10 +4,10 @@ import { useMediaQuery } from 'react-responsive';
 import { isTablet, isMobile } from '../../services/mediaQuery';
 import styles from './ProfileName.module.css';
 
-const index = ({ userName }) => {
+const index = ({ userName, isRendered }) => {
   const Tablet = isTablet(useMediaQuery);
   const Mobile = isMobile(useMediaQuery);
-  return (
+  return isRendered ? (
     <div
       className={[
         Tablet || Mobile ? styles.Tablet_container : styles.Desktop_container,
@@ -17,15 +17,17 @@ const index = ({ userName }) => {
       <div className={styles.firstLetter}>{userName[0]}</div>
       {Tablet ? <span className={styles.text}>{userName}</span> : null}
     </div>
-  );
+  ) : null;
 };
 
 index.propTypes = {
   userName: PropTypes.string,
+  isRendered: PropTypes.bool,
 };
 
 index.defaultProps = {
   userName: 'User Name',
+  isRendered: true,
 };
 
 export default index;

@@ -9,7 +9,6 @@ export default function GoBackButton() {
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   return (
     <div className={styles.divButton}>
-      {' '}
       <button
         type="button"
         className={
@@ -20,10 +19,9 @@ export default function GoBackButton() {
             : styles.GoBackButton
         }
       >
-        {' '}
-        <div className={styles.GoBackButtonImg}></div>{' '}
-        {isMobile ? '' : isTablet ? 'Вернуться' : 'Вернуться на главную'}{' '}
-      </button>{' '}
+        <div className={styles.GoBackButtonImg} />
+        {isMobile ? '' : isTablet ? 'Вернуться' : 'Вернуться на главную'}
+      </button>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import SetExpensesPageMobile from '../pages/SetExpensesPageMobile';
+import Header from './Header';
 
 function App() {
   return (
     <>
-      <SetExpensesPageMobile />
+      <Header />
     </>
   );
 }
