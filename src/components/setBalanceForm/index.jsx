@@ -3,7 +3,7 @@ import Styles from './setBalanceForm.module.css';
 import DatePickerCustom from '../datePicker';
 import Notification from '../WelcomeNotification/WelcomeNotification';
 import AdditionalButton from '../AdditionalButton/AdditionalButton';
-import ReportButton from '../goToReportsButton';
+import ReportButton from '../GoToReportsButton';
 import ExpensesList from '../ExpensesList';
 
 export default class setBalanceForm extends React.Component {
