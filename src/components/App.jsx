@@ -1,16 +1,13 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-
-import { BrowserRouter } from 'react-router-dom';
-import Router from '../router';
-import GoBackButton from './GoBackButton/GoBackButton';
+import Header from './Header';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <>
+      <Header />
+    </>
   );
 }
 
