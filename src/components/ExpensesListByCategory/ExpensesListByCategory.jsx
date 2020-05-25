@@ -28,15 +28,7 @@ const ExpensesListByCategory = () => {
           : styles.ListBackgroundDesktop
       }
     >
-      <ul
-        className={
-          Mobile
-            ? styles.ItemList
-            : Tablet
-            ? styles.ItemListTablet
-            : styles.ItemListTablet
-        }
-      >
+      <ul className={Mobile ? styles.ItemList : styles.ItemListTablet}>
         <li className={Mobile ? styles.Item : styles.ItemTablet}>
           <Item name="Продукты" amount={'5,000.00'} icon={food} />
         </li>
