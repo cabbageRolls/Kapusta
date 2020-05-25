@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Styles from './MonthSummary.module.css';
 
-const Index = ({ data }) => {
+const MonthSummary = ({ data }) => {
   return (
     <div className={Styles.container}>
       <h4 className={Styles.title}>СВОДКА</h4>
@@ -17,8 +17,22 @@ const Index = ({ data }) => {
     </div>
   );
 };
+MonthSummary.defaultProps = {
+  data: [
+    {
+      id: '1',
+      mounth: 'nov',
+      cost: 5,
+    },
+    {
+      id: '2',
+      mounth: 'oct',
+      cost: 5,
+    },
+  ],
+};
 
-Index.propTypes = {
+MonthSummary.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -28,4 +42,4 @@ Index.propTypes = {
   ),
 };
 
-export default Index;
+export default MonthSummary;
