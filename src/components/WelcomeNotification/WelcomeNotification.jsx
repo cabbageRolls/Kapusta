@@ -9,9 +9,9 @@ const WelcomeNotification = () => {
           Привет! Для начала работы внеси текущий баланс своего счета!
         </p>
         <p className={styles.notificationPartTwo}>
-          Ты не можешь тратить деньги пока их у тебя нет
+          Ты не можешь тратить деньги пока их у тебя нет:)
         </p>
-        <span class={styles.triangle}></span>
+        <span className={styles.triangle} />
       </div>
     </div>
   );
