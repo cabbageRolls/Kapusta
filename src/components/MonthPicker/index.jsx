@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Default } from '../../services/mediaQuery';
+import { useMediaQuery } from 'react-responsive';
+import { Default, isNotMobile } from '../../services/mediaQuery';
 import Styles from './MonthPicker.module.css';
 import Icon from './Icon';
 
 const index = ({ month = 'сентябрь', year = '2020', increment, decrement }) => {
+  const IsDefault = isNotMobile(useMediaQuery);
   return (
-    <div className={Styles.container}>
+    <div className={IsDefault ? Styles.Default_container : Styles.container}>
       <Default>
         <h4 className={Styles.title}>Текущий период:</h4>
       </Default>
