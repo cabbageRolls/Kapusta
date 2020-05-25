@@ -16,10 +16,12 @@
   justify-content: space-between;
 }
 .Desktop_container {
+  composes: header;
   padding-left: 36px;
   padding-right: 62px;
 }
 .Tablet_container {
+  composes: header;
   padding-left: 20px;
   padding-right: 20px;
 }
