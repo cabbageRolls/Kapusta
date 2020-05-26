@@ -3,7 +3,6 @@ import DatePicker from 'react-datepicker';
 import Styles from './datePicker.module.css';
 import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 import './stylesDataPicker.css';
-// import './node_modules/react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const DatePickerCustom = () => {
   const [startDate, setStartDate] = useState(new Date());
