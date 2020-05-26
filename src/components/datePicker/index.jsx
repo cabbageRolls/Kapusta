@@ -1,46 +1,30 @@
-// import React from 'react';
-import Styles from './datePicker.module.css';
-
-// export default function DatePicker() {
-//   return (
-//     <div className={Styles.container}>
-//       <span>{new Date().getDate()}.</span>
-//       <span>{new Date().getMonth() + 1}.</span>
-//       <span>{new Date().getFullYear()}</span>
-//     </div>
-//   );
-// }
-
-import React from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import Styles from './datePicker.module.css';
+import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
+import './stylesDataPicker.css';
+// import './node_modules/react-datepicker/dist/react-datepicker-cssmodules.css';
 
-import 'react-datepicker/dist/react-datepicker.css';
+const DatePickerCustom = () => {
+  const [startDate, setStartDate] = useState(new Date());
 
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
-export default class DatePickerCustom extends React.Component {
-  state = {
-    startDate: new Date(),
+  const handleChange = date => {
+    setStartDate(date);
   };
 
-  handleChange = date => {
-    this.setState({
-      startDate: date,
-    });
-  };
+  return (
+    <div className={Styles.container}>
+      <div className={Styles.iconDate} />
+      <DatePicker
+        className={Styles.picker}
+        selected={startDate}
+        onChange={handleChange}
+        dateFormat="dd.MM.yyyy"
+        fixedHeight
+        withPortal
+      />
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className={Styles.container}>
-        <div className={Styles.iconDate}></div>
-        <DatePicker
-          className={Styles.picker}
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-          dateFormat="dd.MM.yyyy"
-          fixedHeight
-        />
-      </div>
-    );
-  }
-}
+export default DatePickerCustom;
