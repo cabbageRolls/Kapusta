@@ -2,7 +2,7 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { isDesktop } from '../../services/mediaQuery';
 import styles from './Header.module.css';
-import Logo from '../logo';
+import Logo from '../Logo';
 import ProfileName from '../ProfileName';
 import LogoutButton from '../LogoutButton';
 

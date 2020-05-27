@@ -4,7 +4,7 @@ import { isMobile, isTablet } from '../../services/mediaQuery';
 import styles from './AuthForm.module.css';
 
 import GoogleButton from '../googleAuthButton/GoogleButton';
-import AuthInput from '../AuthInput/AuthInput';
+import AuthInput from '../AuthInput';
 import ActionButton from '../ActionButton/ActionButton';
 
 const AuthForm = () => {
