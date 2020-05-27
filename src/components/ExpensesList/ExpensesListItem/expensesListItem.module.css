@@ -1,4 +1,7 @@
 .container {
+
+  width: 760px;
+
   margin: 0 auto;
   display: grid;
 }
@@ -89,7 +92,11 @@
 
 .scrollbar::-webkit-scrollbar-track {
   border-radius: 10px;
+
 }
+
+
+
 
 /* DESKTOP */
 

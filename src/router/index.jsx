@@ -1,12 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+// import WelcomingPage from '../pages/WelcomingPage/WelcomingPage';
+import ExpensesPage from '../pages/ExpensesPage/ExpensesPage';
 
-import MainPge from '../pages/MainPage/'
+import MainPage from '../pages/MainPage';
+import GoBackButton from '../components/GoBackButton/GoBackButton';
 
 const Router = () => {
   return (
     <Switch>
-      <Route path="/main-page" component={MainPge}/>
+      <Route path="/" exact component={GoBackButton} />
+      <Route path="/main" exact component={MainPage} />
+      <Route path="/expensespage" component={ExpensesPage} />
     </Switch>
   );
 };

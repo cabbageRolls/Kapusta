@@ -1,109 +1,133 @@
-@import '../../CSS/fonts.css';
-
-.ProjectTitle {
-  width: 380px;
+.ProjectTitle_mobile {
+  width: 304px;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  letter-spacing: 2px;
 }
 
-.Kapusta {
-  font-size: 102px;
+.ProjectTitle_tablet {
+  composes: ProjectTitle_mobile;
+  width: 420px;
+}
+
+.ProjectTitle_desktop {
+  composes: ProjectTitle_tablet;
+  width: 420px;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 4px;
+}
+
+.Kapusta_mobile {
   font-family: 'Roboto';
   font-weight: 900;
   color: rgb(0, 0, 0);
   text-align: left;
   line-height: 120%;
+  font-size: 50px;
+  padding-left: 29px;
 }
 
-.SmartFinance {
-  font-size: 15px;
+.Kapusta_tablet {
+  composes: Kapusta_mobile;
+  padding-left: 0;
+  font-size: 75px;
+}
+
+.Kapusta_desktop {
+  composes: Kapusta_tablet;
+  font-size: 102px;
+}
+
+.SmartFinance_mobile {
   font-family: 'Roboto';
   color: rgb(82, 85, 95);
   font-weight: 700;
   text-transform: uppercase;
   text-align: left;
-  letter-spacing: 4px;
-  line-height: 150%;
-  padding-left: 60px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 190%;
+  padding-left: 43px;
 }
 
-.KapustaSign {
+.SmartFinance_tablet {
+  composes: SmartFinance_mobile;
+  font-size: 15px;
+  line-height: 150%;
+  padding-left: 36px;
+}
+
+.SmartFinance_desktop {
+  composes: SmartFinance_tablet;
+  letter-spacing: 4px;
+  padding-left: 68px;
+}
+
+.KapustaSign_mobile {
   display: inline-block;
 }
 
-.KapustaSign::before {
+.KapustaSign_mobile::before {
   content: '';
   display: block;
+  position: absolute;
+  background-color: rgb(0, 1, 7);
+  width: 4px;
+  height: 5px;
+  margin-top: 16px;
+  margin-left: 11px;
+}
+
+.KapustaSign_mobile::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgb(0, 1, 7);
+  width: 4px;
+  height: 5px;
+  margin-top: -12px;
+  margin-left: 11px;
+}
+
+.KapustaSign_tablet {
+  composes: KapustaSign_mobile;
+}
+
+.KapustaSign_tablet::before {
   width: 8px;
   height: 11px;
   background-color: rgb(0, 0, 0);
-  position: absolute;
+  margin-top: 22px;
+  margin-left: 16px;
+}
+
+.KapustaSign_tablet::after {
+  width: 8px;
+  height: 11px;
+  background-color: rgb(0, 0, 0);
+  margin-top: -21px;
+  margin-left: 16px;
+}
+
+.KapustaSign_desktop {
+  composes: KapustaSign_mobile;
+}
+
+.KapustaSign_desktop::before {
+  width: 8px;
+  height: 11px;
+  background-color: rgb(0, 0, 0);
   margin-top: 32px;
   margin-left: 22px;
 }
 
-.KapustaSign::after {
-  content: '';
-  display: block;
+.KapustaSign_desktop::after {
   width: 8px;
   height: 11px;
   background-color: rgb(0, 0, 0);
-  position: absolute;
   margin-top: -26px;
   margin-left: 22px;
-}
-
-@media (max-width: 767px) {
-  .ProjectTitle {
-    width: 304px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-  }
-
-  .Kapusta {
-    font-size: 50px;
-    padding-left: 29px;
-  }
-
-  .KapustaSign::before {
-    background-color: rgb(0, 1, 7);
-    width: 4px;
-    height: 5px;
-    margin-top: 16px;
-    margin-left: 11px;
-  }
-
-  .KapustaSign::after {
-    background-color: rgb(0, 1, 7);
-    width: 4px;
-    height: 5px;
-    margin-top: -12px;
-    margin-left: 11px;
-  }
-
-  .SmartFinance {
-    font-size: 12px;
-    letter-spacing: 2px;
-    line-height: 190%;
-    padding-left: 43px;
-  }
-}
-
-@media (min-width: 767px) and (max-width: 1279px) {
-  .ProjectTitle {
-    width: 420px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-  }
-
-  .Kapusta {
-    font-size: 75px;
-  }
-
-  .SmartFinance {
-    font-size: 15px;
-    letter-spacing: 2px;
-    line-height: 150%;
-    padding-left: 36px;
-  }
 }

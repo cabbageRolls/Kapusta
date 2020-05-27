@@ -5,8 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 36px;
-  padding-right: 62px;
+  font-family: 'Roboto', sans-serif;
 }
 .logo {
   width: 90px;
@@ -16,10 +15,13 @@
   display: flex;
   justify-content: space-between;
 }
-
-@media (max-width: 1200px) {
-  .header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.Desktop_container {
+  composes: header;
+  padding-left: 36px;
+  padding-right: 62px;
+}
+.Tablet_container {
+  composes: header;
+  padding-left: 20px;
+  padding-right: 20px;
 }

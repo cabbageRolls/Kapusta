@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './goToReportsButton.module.css';
+
 export default function ButtonReports({ active }) {
   return (
     <button

@@ -1,21 +1,33 @@
 import React from 'react';
-import styles from './ProfileName.module.css';
 import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
+import { isTablet, isMobile } from '../../services/mediaQuery';
+import styles from './ProfileName.module.css';
 
-const index = ({ userName }) => {
-  return (
-    <div className={styles.wrapper}>
+const index = ({ userName, isRendered }) => {
+  const Tablet = isTablet(useMediaQuery);
+  const Mobile = isMobile(useMediaQuery);
+  return isRendered ? (
+    <div
+      className={[
+        Tablet || Mobile ? styles.Tablet_container : styles.Desktop_container,
+        styles.wrapper,
+      ].join(' ')}
+    >
       <div className={styles.firstLetter}>{userName[0]}</div>
-      <MediaQuery minDeviceWidth={768}>
-        <span className={styles.text}>{userName}</span>
-      </MediaQuery>
+      {Tablet ? <span className={styles.text}>{userName}</span> : null}
     </div>
-  );
+  ) : null;
+};
+
+index.propTypes = {
+  userName: PropTypes.string,
+  isRendered: PropTypes.bool,
 };
 
 index.defaultProps = {
   userName: 'User Name',
+  isRendered: true,
 };
 
 export default index;

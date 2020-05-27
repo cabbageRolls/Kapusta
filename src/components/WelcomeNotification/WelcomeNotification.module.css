@@ -1,8 +1,8 @@
 .containerNotification {
-  padding-top: 20px;
-  margin-bottom: 50px;
-  width: 100%;
+  width: 280px;
+  height: 166px;
   text-align: center;
+  padding-top: 16px;
 }
 
 .notification {
@@ -34,6 +34,8 @@
 }
 
 .notificationPartOne {
+  width: 238px;
+  height: 37px;
   font-family: 'Roboto';
   font-size: 14px;
   font-weight: normal;
@@ -42,6 +44,8 @@
 }
 
 .notificationPartTwo {
+  width: 192px;
+  height: 27px;
   font-family: 'Roboto';
   font-size: 12px;
   font-weight: lighter;
