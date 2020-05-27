@@ -1,0 +1,159 @@
+.container {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.balance_container {
+  width: 280px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.text,
+.input {
+  font-size: 13px;
+  font: 'Roboto';
+}
+
+.text {
+  font-weight: normal;
+  color: #52555f;
+  margin-bottom: 20px;
+  grid-area: text;
+}
+
+.form {
+  grid-area: form;
+  width: 236px;
+  height: 40px;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.input {
+  position: relative;
+  width: 50%;
+  height: 40px;
+  border-width: 0px;
+  border: 0;
+  padding: 0;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  text-transform: uppercase;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border: 2px solid #ffffff;
+  border-right: 0px solid #ffffff;
+  background-color: #f4f6fb;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+}
+
+:focus::-webkit-input-placeholder {
+  text-indent: 300px;
+  transition: text-indent 1s ease;
+}
+
+.label {
+  position: absolute;
+  left: 50px;
+}
+
+.button {
+  width: 50%;
+  padding: 10px;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  border-width: 0px;
+  outline: none;
+  border: 2px solid #ffffff;
+  background-color: #f4f6fb;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.containerBtn {
+  text-transform: uppercase;
+  color: #52555f;
+  font-weight: 500;
+}
+
+.button:hover {
+  transition: all 0.3s linear;
+  background-color: rgb(255, 108, 10);
+}
+
+.button:hover .containerBtn {
+  transition: all 0.3s linear;
+  color: #fff;
+}
+
+.notification {
+  position: absolute;
+  width: 280px;
+  left: 50%;
+  top: 67px;
+  transform: translate(-50%);
+  z-index: 1;
+}
+
+.default_container {
+  composes: container;
+  width: auto;
+  text-align: center;
+}
+
+.default_balance_container {
+  composes: balance_container;
+  display: grid;
+  width: 350px;
+  grid-template-columns: 66px 284px;
+  grid-template-areas: 'text form button';
+  align-items: center;
+}
+
+.default_text {
+  composes: text;
+  margin: 0;
+}
+
+.default_form {
+  composes: form;
+  width: 284px;
+}
+
+.default_input {
+  composes: input;
+  width: 148px;
+  border-right: 2px solid #ffffff;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.default_button {
+  composes: button;
+  width: 120px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.default_notification {
+  composes: notification;
+  left: 53%;
+  top: 30px;
+}
+
+.datePicker {
+  margin: 0 auto;
+}
