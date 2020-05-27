@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { isNotMobile } from '../../services/mediaQuery';
-import Styles from './setBalanceForm.module.css';
-import DatePickerCustom from '../datePicker';
-import Notification from '../WelcomeNotification/WelcomeNotification';
+import Styles from './SetBalanceForm.module.css';
+import DatePickerCustom from '../DatePicker';
+import Notification from '../WelcomeNotification';
 
 const SetBalanceForm = () => {
   const [inputValue, setInputValue] = useState('');

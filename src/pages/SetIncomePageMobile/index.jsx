@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './SetIncomePageMobile.module.css';
-import ActionButton from '../../components/ActionButton/ActionButton';
-import GoBackButton from '../../components/GoBackButton/GoBackButton';
-import IncomeForm from '../../components/IncomeForm/IncomeForm';
+import ActionButton from '../../components/ActionButton';
+import GoBackButton from '../../components/GoBackButton';
+import IncomeForm from '../../components/IncomeForm';
 
 const SetIncomePageMobile = () => (
   <div className={styles.containerSetIncomePageMobile}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import ExpensesForm from '../../components/ExpensesForm/ExpensesForm';
-import GoBackButton from '../../components/GoBackButton/GoBackButton';
-import ActionButton from '../../components/ActionButton/ActionButton';
+import ExpensesForm from '../../components/ExpensesForm';
+import GoBackButton from '../../components/GoBackButton';
+import ActionButton from '../../components/ActionButton';
 import styles from './SetExpensesPageMobile.module.css';
 
 const index = () => {
