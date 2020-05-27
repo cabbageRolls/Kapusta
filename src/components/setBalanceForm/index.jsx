@@ -31,8 +31,6 @@ const SetBalanceForm = () => {
             : Styles.balance_container
         }
       >
-        {/* BALANCE CONTAINER */}
-
         <p className={isDefault ? Styles.default_text : Styles.text}>Баланс:</p>
         <form
           onSubmit={handleSubmit}

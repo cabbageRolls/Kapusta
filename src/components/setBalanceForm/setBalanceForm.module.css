@@ -108,8 +108,6 @@
   z-index: 1;
 }
 
-/* TABLET */
-/* @media (min-width: 768px) { */
 .default_container {
   composes: container;
   width: auto;
@@ -124,12 +122,6 @@
   grid-template-areas: 'text form button';
   align-items: center;
 }
-
-/* .text,
-  .input,
-  .button {
-    font-size: 11px;
-  } */
 
 .default_text {
   composes: text;
@@ -165,4 +157,3 @@
 .datePicker {
   margin: 0 auto;
 }
-/* /* } */
