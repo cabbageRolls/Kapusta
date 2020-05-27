@@ -1,66 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { isNotMobile } from '../../services/mediaQuery';
 import Styles from './setBalanceForm.module.css';
 import DatePickerCustom from '../datePicker';
 import Notification from '../WelcomeNotification/WelcomeNotification';
-import AdditionalButton from '../AdditionalButton/AdditionalButton';
-import ReportButton from '../goToReportsButton';
-import ExpensesList from '../ExpensesList';
 
-export default class setBalanceForm extends React.Component {
-  state = {
-    balance: false,
-    inputValue: '',
+const SetBalanceForm = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [balance, setBalance] = useState(null);
+
+  const isDefault = isNotMobile(useMediaQuery);
+
+  const handleChange = e => {
+    setInputValue(e.target.value);
   };
 
-  handleChange = e => {
-    this.setState({ inputValue: e.target.value });
-  };
-
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    const { inputValue } = this.state;
-
-    this.setState(prevState => ({
-      balance: prevState.balance + Number(inputValue),
-    }));
-
-    this.resetForm();
+    setBalance(+balance + +inputValue);
+    setInputValue('');
   };
 
-  resetForm = () => {
-    this.setState({
-      inputValue: '',
-    });
-  };
-
-  render() {
-    const { inputValue, balance } = this.state;
-
-    return (
-      <div className={Styles.container}>
-        <ReportButton active={balance} />
-        <p className={Styles.text}>Баланс:</p>
-        <form onSubmit={this.handleSubmit} action="" className={Styles.form}>
+  return (
+    <div className={isDefault ? Styles.default_container : Styles.container}>
+      <div
+        className={
+          isDefault
+            ? Styles.default_balance_container
+            : Styles.balance_container
+        }
+      >
+        <p className={isDefault ? Styles.default_text : Styles.text}>Баланс:</p>
+        <form
+          onSubmit={handleSubmit}
+          action=""
+          className={isDefault ? Styles.default_form : Styles.form}
+        >
           <input
-            className={Styles.input}
+            className={isDefault ? Styles.default_input : Styles.input}
             type="text"
             value={inputValue}
-            onChange={this.handleChange}
+            onChange={handleChange}
             placeholder={
               balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
             }
             pattern="\d+(\.\d{2})?"
           />
-
-          <button className={Styles.button}>
+          <button
+            type="submit"
+            className={isDefault ? Styles.default_button : Styles.button}
+          >
             <div className={Styles.containerBtn}>подтвердить</div>
           </button>
         </form>
-        {balance ? <DatePickerCustom /> : <Notification />}
-        <ExpensesList />
-        <AdditionalButton active={balance} />
       </div>
-    );
-  }
-}
+
+      {balance ? (
+        <div className={Styles.datePicker}>
+          <DatePickerCustom />
+        </div>
+      ) : (
+        <div
+          className={
+            isDefault ? Styles.default_notification : Styles.notification
+          }
+        >
+          <Notification />
+        </div>
+      )}
+    </div>
+  );
+};
+export default SetBalanceForm;
