@@ -11,6 +11,7 @@ import {
 import MonthPicker from '../MonthPicker';
 import TotalBalanceInfo from '../TotalBalanceInfo';
 import BalanceDetails from '../BalanceDetails';
+import GoBackButton from '../GoBackButton/GoBackButton';
 import styles from './BudgetSummary.module.css';
 
 const BudgetSummary = () => {
@@ -19,7 +20,7 @@ const BudgetSummary = () => {
   // const Desktop = isDesktop(useMediaQuery);
   const Default = isNotMobile(useMediaQuery);
   return (
-    <div className ={styles.BudgetSummaryContainer}>
+    <div className={styles.BudgetSummaryContainer}>
       <div
         className={
           Mobile
@@ -27,6 +28,7 @@ const BudgetSummary = () => {
             : Default && styles.boxTotalMonthTablet
         }
       >
+        <GoBackButton />
         <div className={styles.MonthPicker}>
           <MonthPicker />
         </div>
