@@ -6,9 +6,6 @@ import {
   Default,
   isMobile,
   isTablet,
-  // Tablet,
-  // isDesktop,
-  // isNotMobile,
 } from '../../../services/mediaQuery';
 
 import styles from './expensesListItem.module.css';
@@ -16,8 +13,6 @@ import styles from './expensesListItem.module.css';
 const ExpensesListItem = ({ expenses }) => {
   const MobileClass = isMobile(useMediaQuery);
   const TabletClass = isTablet(useMediaQuery);
-  // const DesktopClass = isDesktop(useMediaQuery);
-  // const DefaultClass = isNotMobile(useMediaQuery);
   return (
     <>
       {expenses && (
