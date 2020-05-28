@@ -4,7 +4,11 @@ import '../CSS/index.css';
 import List from './ExpensesList';
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <List />
+    </>
+  );
 }
 
 export default App;
