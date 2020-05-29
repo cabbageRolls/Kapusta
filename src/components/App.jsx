@@ -1,9 +1,13 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-
+import BudgetSummary from '../components/BudgetSummary';
 function App() {
-  return <></>;
+  return (
+    <>
+      <BudgetSummary />
+    </>
+  );
 }
 
 export default App;

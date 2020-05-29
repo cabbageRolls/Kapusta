@@ -1,6 +1,19 @@
-.BudgetSummaryContainer{
-    max-width: 1440px;
-    margin: 0 auto;
+.BudgetSummaryContainerDekstop,
+.BudgetSummaryContainerTablet,
+.BudgetSummaryContainerMobile {
+  margin: 0 auto;
+}
+
+.BudgetSummaryContainerDekstop {
+  width: 943px;
+}
+
+.BudgetSummaryContainerTablet {
+  width: 689px;
+}
+
+.BudgetSummaryContainerMobile {
+  width: 278px;
 }
 
 .boxTotalMonthTablet {
