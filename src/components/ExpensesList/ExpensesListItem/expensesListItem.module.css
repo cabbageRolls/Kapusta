@@ -1,28 +1,17 @@
-/* Scroll */
-/* .Mobile_scrollbar {
-  height: 190px;
-  overflow-y: scroll;
+/* first mobile */
+
+.Mobile_scrollbar {
+  display: block;
+  overflow: auto;
+  height: 200px;
 }
 
 .Mobile_scrollbar::-webkit-scrollbar {
-  width: 6px;
-  background-color: inherit;
+  width: 0;
 }
 
-.Mobile_scrollbar::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-.Mobile_scrollbar::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #f97a2c;
-  visibility: hidden;
-  position: absolute;
-  height: 10%;
-} */
-
-/* first mobile */
 .Mobile_container {
+  display: block;
   width: 320px;
   padding: 0 20px 0 20px;
 }
@@ -130,7 +119,7 @@
 .Desktop_scrollbar {
   display: block;
   overflow: auto;
-  height: 440px;
+  height: 388px;
 }
 
 .Tablet_scrollbar::-webkit-scrollbar,
