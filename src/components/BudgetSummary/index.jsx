@@ -11,7 +11,7 @@ import {
 import MonthPicker from '../MonthPicker';
 import TotalBalanceInfo from '../TotalBalanceInfo';
 import BalanceDetails from '../BalanceDetails';
-import GoBackButton from '../GoBackButton/';
+import GoBackButton from '../GoBackButton';
 import styles from './BudgetSummary.module.css';
 
 const BudgetSummary = () => {
@@ -20,7 +20,7 @@ const BudgetSummary = () => {
   const Desktop = isDesktop(useMediaQuery);
   const Default = isNotMobile(useMediaQuery);
   return (
-    <div 
+    <div
       className={
         Desktop
           ? styles.BudgetSummaryContainerDekstop
