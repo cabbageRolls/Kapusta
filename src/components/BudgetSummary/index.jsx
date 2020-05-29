@@ -11,7 +11,7 @@ import {
 import MonthPicker from '../MonthPicker';
 import TotalBalanceInfo from '../TotalBalanceInfo';
 import BalanceDetails from '../BalanceDetails';
-import GoBackButton from '../GoBackButton/GoBackButton';
+import GoBackButton from '../GoBackButton';
 import styles from './BudgetSummary.module.css';
 
 const BudgetSummary = () => {

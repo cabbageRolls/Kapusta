@@ -1,0 +1,26 @@
+.MobileContainer {
+  padding-top: 23px;
+  background-color: #f4f6fb;
+  height: 229px;
+}
+.TabletContainer {
+  padding-top: 67px;
+  background-color: #f4f6fb;
+  height: 520px;
+  border-radius: 0px 0px 0px 90px;
+}
+.BudgetMobileContainer {
+  margin-bottom: 42px;
+}
+.ExpensesMobileContainer {
+  margin-bottom: 39px;
+}
+.ChartMobileContainer {
+  padding-bottom: 21px;
+}
+.ChartTabletContainer {
+  padding-bottom: 76px;
+}
+.ChartDesktopContainer {
+  padding-bottom: 81px;
+}

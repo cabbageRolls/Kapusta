@@ -11,7 +11,7 @@ import utilities from './svg/utilities.svg';
 import car from './svg/car.svg';
 import couch from './svg/couch.svg';
 import styles from '../ExpensesListByCategory/ExpensesListByCategory.module.css';
-import Item from '../ExpensesListItemByCategory/ExpensesListItemByCategory';
+import Item from '../ExpensesListItemByCategory';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile, isTablet } from '../../services/mediaQuery';
 
