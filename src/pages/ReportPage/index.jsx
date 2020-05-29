@@ -1,9 +1,9 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import Styles from './ReportPage.module.css';
 import BudgetSummary from '../../components/BudgetSummary';
 import ExpensesListByCategory from '../../components/ExpensesListByCategory';
 import ExpensesListChart from '../../components/ExpensesChartBySpecificCategory';
-import { useMediaQuery } from 'react-responsive';
 import { isMobile, isTablet } from '../../services/mediaQuery';
 
 const ReportPage = () => {
