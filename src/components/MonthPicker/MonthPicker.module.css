@@ -10,7 +10,7 @@
   height: 30px;
 }
 .Default_container {
-  composes: container
+  composes: container;
   height: 50px;
   align-items: flex-end;
   margin: 0 0 0 auto;
