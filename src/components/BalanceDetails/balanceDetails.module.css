@@ -1,67 +1,92 @@
 .MobileContainer {
-  display: flex;
-  width: 265px;
-  height: 78px;
-  justify-content: space-around;
-  align-items: center;
+  width: 278px;
+  height: 85px;
   box-shadow: 7px 12.5px 12.5px rgba(179, 185, 200, 0.25);
   border-radius: 25px;
   margin: 0 auto;
   background-color: #fff;
-}
-.TabletContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.TabletContainer {
   width: 689px;
   height: 51px;
-  align-items: center;
   box-shadow: 7px 12.5px 12.5px rgba(179, 185, 200, 0.25);
   border-radius: 25px;
   margin: 0 auto;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .DesktopContainer {
   width: 942px;
   height: 51px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   box-shadow: 7px 12.5px 12.5px rgba(179, 185, 200, 0.25);
   border-radius: 25px;
   margin: 0 auto;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.line {
-  width: 2px;
-  height: 68px;
-  background-color: #f4f6fb;
+.ExpensesMobile::before {
+  right: 50%;
+  top: 2%;
+  position: absolute;
+  content: '';
+  height: 60px;
+  border-right: 3px solid #f4f6fb;
 }
-.expensesNumber {
-  display: inline-block;
-  color: #da1818;
-  margin-top: 10px;
-  font-size: 14px;
-}
-.incomeNumber {
-  display: inline-block;
-  color: seagreen;
-  margin-top: 10px;
-  font-size: 14px;
+.ExpensesTablet::before {
+  right: 50%;
+  top: 10px;
+  position: absolute;
+  content: '';
+  height: 31px;
+  border-right: 3px solid #f4f6fb;
 }
 
-@media (min-width: 768px) {
-  .line {
-    height: 40px;
-    margin-right: 30px;
-  }
-  .expenses {
-    margin-right: 30px;
-  }
-  .incomeNumber {
-    margin-left: 15px;
-  }
-  .expensesNumber {
-    margin-left: 15px;
-  }
+.ExpensesMobile,
+.IncomeMobile {
+  color: #52555f;
+  display: flex;
+  flex-wrap: wrap;
+  width: 120px;
+  justify-content: center;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+}
+.ExpensesTablet,
+.IncomeTablet {
+  color: #52555f;
+  width: 260px;
+  justify-content: center;
+  display: flex;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+}
+.ExpensesNumberMobile {
+  color: #e21e31;
+  font-weight: 500;
+}
+.IncomeNumberMobile {
+  color: #447b46;
+  font-weight: 500;
+}
+.ExpensesNumberTablet {
+  color: #e21e31;
+  font-weight: 500;
+  padding-left: 16px;
+}
+.IncomeNumberTablet {
+  color: #447b46;
+  font-weight: 500;
+  padding-left: 16px;
 }

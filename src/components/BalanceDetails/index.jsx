@@ -16,15 +16,25 @@ const BalanceDetails = () => {
           : styles.DesktopContainer
       }
     >
-      <div className={styles.expenses}>
+      <div className={Mobile ? styles.ExpensesMobile : styles.ExpensesTablet}>
         <span>Расходы:</span>
-        <span className={styles.expensesNumber}>- 18,000.00 грн</span>
+        <span
+          className={
+            Mobile ? styles.ExpensesNumberMobile : styles.ExpensesNumberTablet
+          }
+        >
+          - 18,000.00 грн
+        </span>
       </div>
-
-      <div className={styles.line}></div>
-      <div className={styles.income}>
+      <div className={Mobile ? styles.IncomeMobile : styles.IncomeTablet}>
         <span>Доходы:</span>
-        <span className={styles.incomeNumber}>+ 45,000.00 грн</span>
+        <span
+          className={
+            Mobile ? styles.IncomeNumberMobile : styles.IncomeNumberTablet
+          }
+        >
+          + 45,000.00 грн
+        </span>
       </div>
     </div>
   );
