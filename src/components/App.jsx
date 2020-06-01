@@ -3,9 +3,7 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 
 function App() {
-  return (
-    <></>
-  );
+  return <></>;
 }
 
 export default App;
