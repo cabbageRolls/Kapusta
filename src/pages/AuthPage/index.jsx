@@ -2,7 +2,6 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile, isTablet } from '../../services/mediaQuery';
 import styles from './AuthPage.module.css';
-
 import Header from '../../components/Header';
 import ProjectTitle from '../../components/ProjectTitle';
 import AuthForm from '../../components/AuthForm';
