@@ -1,36 +1,41 @@
-.row {
-  flex-direction: row;
-}
-.Mobile_container {
+.MobileContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 280px;
-  height: 90px;
-  font-size: 13px;
+  width: 278px;
+  height: 73px;
   font-family: 'Roboto', sans-serif;
-  line-height: 45px;
 }
-.Tablet_container {
-  composes: Mobile_container;
+.TabletContainer {
+  composes: MobileContainer;
   flex-direction: row;
-  width: 300px;
+  width: 313px;
   height: 45px;
 }
-.Desktop_container {
-  composes: Tablet_container;
-}
-.balanceOnDay {
-  font-weight: medium;
+.MobileBalanceOnDay {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
   color: #52555f;
 }
-.balanceCost {
+.TabletBalanceOnDay {
+  composes: MobileBalanceOnDay;
+  text-transform: none;
+}
+.BalanceCost {
   font-weight: 700;
   color: #000;
 }
-.balance {
+.MobileBalance {
+  font-size: 15px;
+  border: 1px solid rgb(250, 250, 250);
   border-radius: 30px;
-  background-color: white;
+  padding: 14px 47px;
+}
+.TabletBalance {
+  composes: MobileBalance;
+  padding: 14px 29px;
+  font-size: 13px;
 }

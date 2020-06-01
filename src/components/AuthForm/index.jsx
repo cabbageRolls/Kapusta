@@ -3,9 +3,9 @@ import { useMediaQuery } from 'react-responsive';
 import { isMobile, isTablet } from '../../services/mediaQuery';
 import styles from './AuthForm.module.css';
 
-import GoogleButton from '../googleAuthButton/GoogleButton';
+import GoogleButton from '../GoogleAuthButton';
 import AuthInput from '../AuthInput';
-import ActionButton from '../ActionButton/ActionButton';
+import ActionButton from '../ActionButton';
 
 const AuthForm = () => {
   const Mobile = isMobile(useMediaQuery);
