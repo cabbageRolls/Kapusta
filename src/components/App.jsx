@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import Balance from './TotalBalanceInfo';
+import Page from '../pages/ReportPage';
 
 function App() {
   return (
     <>
-      <Balance />
+      <Page />
     </>
   );
 }
