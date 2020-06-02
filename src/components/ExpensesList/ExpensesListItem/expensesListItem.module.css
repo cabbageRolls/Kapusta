@@ -12,12 +12,18 @@
 
 .Mobile_container {
   display: block;
-  width: 320px;
-  padding: 0 20px 0 20px;
+  width: 280px;
+  margin: 0 auto;
 }
 
 .Mobile_expensesList {
   margin: 0;
+}
+
+.mobileWrapp {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 8px;
 }
 
 .titleItem {
@@ -25,6 +31,7 @@
   font-weight: bold;
   font-style: 'Roboto';
   color: #000000;
+  padding: 0 8px;
   text-transform: uppercase;
 }
 
@@ -32,9 +39,9 @@
   text-align: right;
 }
 
-.Mobile_title,
 .Mobile_item {
-  grid-template-columns: 68px 72px 115px 20px;
+  grid-template-columns: 140px 115px 20px;
+  grid-template-columns: 5fr 4fr 1fr;
   align-items: center;
   display: grid;
   font-size: 13px;
@@ -42,13 +49,6 @@
   font-style: 'Roboto';
   color: #52555f;
   border-bottom: 1px solid rgba(82, 85, 95, 0.22);
-}
-
-.Mobile_title {
-  grid-template-columns: 2fr 2fr 3fr 1fr;
-}
-
-.Mobile_item {
   height: 54px;
 }
 
@@ -59,17 +59,23 @@
   font-weight: bold;
 }
 
-.expenseDate,
-.expenseDescription {
+.expenseDate {
   font-style: 'Roboto';
   color: #8a8c95;
   font-size: 9px;
   font-weight: normal;
+  padding-right: 8px;
 }
-
+.expenseDescription {
+  composes: expenseDate;
+  padding-left: 8px;
+}
+.DexpenseDate {
+  composes: expenseDate;
+  padding-left: 8px;
+}
 .expenseDescription {
   vertical-align: bottom;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -78,19 +84,21 @@
 .expenseCategory {
   font-size: 12px;
   color: #52555f;
-  font-weight: bold;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-right: 8px;
 }
 
 .Mobile_expenseAmount {
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   color: #e21e31;
+  padding: 0 8px;
   font-style: 'Roboto';
 }
 
@@ -112,7 +120,15 @@
   background-repeat: no-repeat;
   opacity: 0.5;
   top: 50%;
-  transform: translate(-50%, -50%);
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.defBtnIcon {
+  composes: btnIcon;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
 
 .btn:hover .btnIcon {
@@ -155,8 +171,8 @@
   padding: 0;
 }
 
-.Tablet_title {
-  composes: Mobile_title;
+/* .Tablet_title {
+  grid-template-columns: 2fr 2fr 3fr 1fr;
   grid-template-columns: 120px 220px 120px 146px;
   background-color: rgb(236, 236, 236);
   border-top-left-radius: 16px;
@@ -164,18 +180,19 @@
   top: 0;
   z-index: 1;
   height: 38px;
-}
+} */
 
-.Tablet_title div:nth-child(4) {
+/* .Tablet_title div:nth-child(4) {
   padding-left: 40px;
 }
 
 .Tablet_title div:nth-child(1) {
   padding-left: 25px;
-}
+} */
 
 .Tablet_item {
   composes: Mobile_item;
+  /* grid-template-columns: 4fr 3fr 1fr; */
   grid-template-columns: 120px 220px 120px 100px 49px;
   height: 38px;
 }
@@ -195,6 +212,11 @@
   font-weight: normal;
 }
 
+.Tablet_expenseCategory {
+  composes: expenseCategory;
+  padding-left: 8px;
+}
+
 .Tablet_expensesList {
   composes: Mobile_expensesList;
   position: relative;
@@ -211,10 +233,10 @@
   width: 760px;
 }
 
-.Desktop_title {
+/* .Desktop_title {
   composes: Tablet_title;
   grid-template-columns: 170px 248px 164px 170px;
-}
+} */
 
 .Desktop_item {
   composes: Tablet_item;

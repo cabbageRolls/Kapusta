@@ -27,18 +27,13 @@ const ExpensesListItem = ({ expenses }) => {
         >
           <Default>
             <div
-              className={
-                MobileClass
-                  ? styles.Mobile_title
-                  : TabletClass
-                  ? styles.Tablet_title
-                  : styles.Desktop_title
-              }
+              className={TabletClass ? styles.Tablet_item : styles.Desktop_item}
             >
               <div className={styles.titleItem}>Дата</div>
               <div className={styles.titleItem}>Описание</div>
               <div className={styles.titleItem}>Категория</div>
               <div className={styles.titleItem}>Сумма</div>
+              <div className={styles.titleItem} />
             </div>
           </Default>
           <div
@@ -70,32 +65,30 @@ const ExpensesListItem = ({ expenses }) => {
                   }
                   key={expense.id}
                 >
-                  <div className={styles.expenseDateContainer}>
-                    <Mobile>
-                      <span
-                        className={
-                          MobileClass
-                            ? styles.Mobile_expenseCategory
-                            : TabletClass
-                            ? styles.Tablet_expenseCategory
-                            : styles.Desktop_expenseCategory
-                        }
-                      >
+                  <Mobile>
+                    <div className={styles.expenseDateContainer}>
+                      <span className={styles.expenseCategory}>
                         {expense.category}
                       </span>
-                    </Mobile>
-                    <span className={styles.expenseDate}>{expense.date}</span>
-                  </div>
-                  <span className={styles.expenseDescription}>
-                    {expense.description}
-                  </span>
-
+                      <div className={styles.mobileWrapp}>
+                        <span className={styles.expenseDate}>
+                          {expense.date}
+                        </span>
+                        <span className={styles.expenseDescription}>
+                          {expense.description}
+                        </span>
+                      </div>
+                    </div>
+                  </Mobile>
                   <Default>
-                    <span className={styles.expenseCategory}>
+                    <span className={styles.DexpenseDate}>{expense.date}</span>
+                    <span className={styles.expenseDescription}>
+                      {expense.description}
+                    </span>
+                    <span className={styles.Tablet_expenseCategory}>
                       {expense.category}
                     </span>
                   </Default>
-
                   <span
                     className={
                       MobileClass
@@ -108,7 +101,13 @@ const ExpensesListItem = ({ expenses }) => {
                     {expense.amount} грн.
                   </span>
                   <button className={styles.btn} type="button">
-                    <span className={styles.btnIcon}> </span>
+                    <span
+                      className={
+                        MobileClass ? styles.btnIcon : styles.defBtnIcon
+                      }
+                    >
+                      {' '}
+                    </span>
                   </button>
                 </li>
               ))}
