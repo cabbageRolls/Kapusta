@@ -1,0 +1,162 @@
+.TextInput_mobile {
+  width: 274px;
+  min-height: 71px;
+  background-color: rgb(244, 246, 251);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 19px;
+  border-bottom-left-radius: 0;
+  outline: none;
+  padding: 14px;
+}
+
+.TextInput_mobile::placeholder {
+  font-size: 13px;
+  font-family: 'Roboto';
+  line-height: 1.692;
+  text-align: left;
+  color: rgb(199, 204, 220);
+}
+
+.AmountLabel_mobile {
+  width: 178px;
+  min-height: 40px;
+  display: flex;
+  margin-top: 26px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 24px;
+}
+
+.AmountInput_mobile {
+  width: 110px;
+  background-color: rgb(244, 246, 251);
+  border: 1px solid rgb(255, 255, 255);
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  padding: 0 16px;
+  outline: none;
+}
+
+.AmountInput_mobile[placeholder] {
+  font-size: 15px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  line-height: 3;
+  text-align: right;
+}
+
+.AmountInput_mobile::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.IconFrame_mobile {
+  width: 66px;
+  border: 1px solid rgb(255, 255, 255);
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  background-color: rgb(244, 246, 251);
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.IconCalculator {
+  background-image: url(./iconcalculator.png);
+  width: 20px;
+  height: 20px;
+}
+
+.TextInput_tablet {
+  composes: TextInput_mobile;
+  width: 376px;
+  min-height: 42px;
+  background-color: #ffffff;
+  border: 1px solid rgb(244, 246, 251);
+  border-radius: 0;
+  border-top-left-radius: 16px;
+}
+
+.TextInput_tablet::placeholder {
+  color: rgb(199, 204, 220);
+  line-height: 3.462;
+}
+
+.AmountLabel_tablet {
+  composes: AmountLabel_mobile;
+  width: 116px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  border: 1px solid rgb(244, 246, 251);
+  border-right-width: 2px;
+  border-radius: 0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.AmountInput_tablet {
+  composes: AmountInput_mobile;
+  width: 70px;
+  background-color: #ffffff;
+  border: none;
+  padding: 0 8px;
+}
+
+.AmountInput_tablet[placeholder] {
+  font-size: 13px;
+  line-height: 3.462;
+}
+
+.AmountInput_tablet::placeholder {
+  color: rgb(199, 204, 220);
+}
+
+.IconFrame_tablet {
+  composes: IconFrame_mobile;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #fff;
+  padding: 0;
+  margin: 8px;
+}
+
+.Text_input {
+  border-width: 2px;
+  border-color: rgb(244, 246, 251);
+  border-style: solid;
+  position: absolute;
+  left: 257px;
+  top: 220px;
+  width: 595px;
+  height: 41px;
+  z-index: 91;
+}
+
+.TextInput_desktop {
+  composes: TextInput_tablet;
+  width: 472px;
+}
+
+.AmountLabel_desktop {
+  composes: AmountLabel_tablet;
+  width: 128px;
+  min-height: 42px;
+  margin-top: 0;
+  border: 1px solid rgb(244, 246, 251);
+  border-right-width: 2px;
+  border-radius: 0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.AmountInput_desktop {
+  composes: AmountInput_tablet;
+  width: 74px;
+  padding: 0 10px;
+}
+
+.IconFrame_desktop {
+  composes: IconFrame_tablet;
+  margin: 10px;
+}
