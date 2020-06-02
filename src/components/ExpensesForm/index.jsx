@@ -1,55 +1,68 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './ExpensesForm.module.css';
+import ExpensesFormInputs from '../ExpensesFormInputs';
 
 export default class ExpensesForm extends Component {
   state = {
-    inputValue: '',
+    descriptionValue: '',
+    amountValue: '',
   };
 
-  handleChange = e => {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
+  handleDescriptionChange = e => {
+    const { value } = e.target;
+
     this.setState({
-      inputValue: e.target.value,
+      descriptionValue: value,
     });
+  };
+
+  handleAmountChange = e => {
+    const { value } = e.target;
+    const regexp = /^[0-9?.]*$/;
+
+    if (regexp.test(value)) {
+      this.setState({
+        amountValue: value,
+      });
+    } else {
+      this.setState(prevState => ({
+        amountValue: prevState.amountValue,
+      }));
+    }
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const { inputValue } = this.state;
+
+    const { descriptionValue, amountValue } = this.state;
     const { onSubmit } = this.props;
-    onSubmit(inputValue);
+
+    onSubmit(descriptionValue, amountValue);
 
     this.setState({
-      inputValue: '',
+      descriptionValue: '',
+      amountValue: '',
     });
   };
 
   render() {
-    const { inputValue } = this.state;
+    const { descriptionValue, amountValue } = this.state;
+
     return (
       <>
-        <form action="" className={styles.form} onSubmit={this.handleSubmit}>
-          <div className={styles.div}>
-            <input
-              className={styles.descriptionInput}
-              type="text"
-              name="description"
-              value={inputValue}
-              onChange={this.handleChange}
-            />
-            {inputValue.length === 0 && (
-              <span className={styles.placeholder}>
-                Здесь ты будешь вносить на что ты тратишь деньги
-              </span>
-            )}
-          </div>
-          <input
-            className={styles.amountInput}
-            type="text"
-            name="amount"
-            placeholder="0.00"
+        <form action="" className={styles.Form} onSubmit={this.handleSubmit}>
+          <ExpensesFormInputs
+            descriptionValue={descriptionValue}
+            amountValue={amountValue}
+            onDescriptionChange={this.handleDescriptionChange}
+            onAmountChange={this.handleAmountChange}
           />
-          <div className={styles.border} />
-          <div className={styles.iconCalculator} />
         </form>
       </>
     );
