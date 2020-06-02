@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import Page from '../pages/ReportPage';
+import MobilePage from '../pages/SetBalancePageMobile';
 
 function App() {
   return (
     <>
-      <Page />
+      <MobilePage />
     </>
   );
 }
