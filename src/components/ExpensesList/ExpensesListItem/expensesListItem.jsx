@@ -25,6 +25,22 @@ const ExpensesListItem = ({ expenses }) => {
               : styles.Desktop_container
           }
         >
+          <Default>
+            <div
+              className={
+                MobileClass
+                  ? styles.Mobile_title
+                  : TabletClass
+                  ? styles.Tablet_title
+                  : styles.Desktop_title
+              }
+            >
+              <div className={styles.titleItem}>Дата</div>
+              <div className={styles.titleItem}>Описание</div>
+              <div className={styles.titleItem}>Категория</div>
+              <div className={styles.titleItem}>Сумма</div>
+            </div>
+          </Default>
           <div
             className={
               MobileClass
@@ -43,23 +59,6 @@ const ExpensesListItem = ({ expenses }) => {
                   : styles.Desktop_expensesList
               }
             >
-              <Default>
-                <div
-                  className={
-                    MobileClass
-                      ? styles.Mobile_title
-                      : TabletClass
-                      ? styles.Tablet_title
-                      : styles.Desktop_title
-                  }
-                >
-                  <div className={styles.titleItem}>Дата</div>
-                  <div className={styles.titleItem}>Описание</div>
-                  <div className={styles.titleItem}>Категория</div>
-                  <div className={styles.titleItem}>Сумма</div>
-                </div>
-              </Default>
-
               {expenses.map(expense => (
                 <li
                   className={
