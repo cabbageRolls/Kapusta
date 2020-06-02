@@ -69,7 +69,7 @@ const ExpensesFormInputs = ({
               ? styles.IconFrame_mobile
               : Tablet
               ? styles.IconFrame_tablet
-              : styles.IconFrame_tablet
+              : styles.IconFrame_desktop
           }
         >
           <div className={styles.IconCalculator} />
