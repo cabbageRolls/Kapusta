@@ -27,7 +27,9 @@ const ExpensesListItem = ({ expenses }) => {
         >
           <Default>
             <div
-              className={TabletClass ? styles.Tablet_item : styles.Desktop_item}
+              className={
+                TabletClass ? styles.Tablet_title : styles.Desktop_title
+              }
             >
               <div className={styles.titleItem}>Дата</div>
               <div className={styles.titleItem}>Описание</div>
@@ -100,15 +102,14 @@ const ExpensesListItem = ({ expenses }) => {
                   >
                     {expense.amount} грн.
                   </span>
-                  <button className={styles.btn} type="button">
-                    <span
-                      className={
-                        MobileClass ? styles.btnIcon : styles.defBtnIcon
-                      }
+                  <div>
+                    <button
+                      className={MobileClass ? styles.btn : styles.defBtn}
+                      type="button"
                     >
-                      {' '}
-                    </span>
-                  </button>
+                      <span className={styles.btnIcon} />
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

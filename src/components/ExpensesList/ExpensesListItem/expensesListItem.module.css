@@ -48,7 +48,7 @@
   font-weight: normal;
   font-style: 'Roboto';
   color: #52555f;
-  border-bottom: 1px solid rgba(82, 85, 95, 0.22);
+  border-bottom: 1px solid #f4f6fb;
   height: 54px;
 }
 
@@ -103,37 +103,34 @@
 }
 
 .btn {
-  position: relative;
-  border-width: 0px;
-  background-color: white;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  background: transparent;
   cursor: pointer;
   padding: 0;
-  background-color: inherit;
+  transition: all, 0.3s;
+  border-radius: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 0 0 auto;
 }
-
+.defBtn {
+  composes: btn;
+  margin: 0 auto;
+  justify-content: center;
+}
 .btnIcon {
-  position: absolute;
   width: 14px;
   height: 17px;
   background-image: url('./img/deleteIcon.png');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.5;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
 }
 
-.defBtnIcon {
-  composes: btnIcon;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
-
-.btn:hover .btnIcon {
-  transition: all 0.3s;
-  opacity: 1;
+.defBtn:hover {
+  background-color: #f4f6fb;
 }
 
 /* TABLET */
@@ -171,17 +168,6 @@
   padding: 0;
 }
 
-/* .Tablet_title {
-  grid-template-columns: 2fr 2fr 3fr 1fr;
-  grid-template-columns: 120px 220px 120px 146px;
-  background-color: rgb(236, 236, 236);
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  top: 0;
-  z-index: 1;
-  height: 38px;
-} */
-
 /* .Tablet_title div:nth-child(4) {
   padding-left: 40px;
 }
@@ -195,6 +181,13 @@
   /* grid-template-columns: 4fr 3fr 1fr; */
   grid-template-columns: 120px 220px 120px 100px 49px;
   height: 38px;
+}
+
+.Tablet_title {
+  composes: Tablet_item;
+  background-color: #f4f6fb;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
 }
 
 .Tablet_item span {
@@ -222,8 +215,8 @@
   position: relative;
   /* border-top-left-radius: 16px;
   border-top-right-radius: 16px; */
-  border-left: 0.5px solid rgba(82, 85, 95, 0.22);
-  border-right: 0.5px solid rgba(82, 85, 95, 0.22);
+  border-left: 1px solid #f4f6fb;
+  border-right: 1px solid #f4f6fb;
 }
 
 /* DESKTOP */
@@ -242,7 +235,11 @@
   composes: Tablet_item;
   grid-template-columns: 170px 248px 164px 116px 50px;
 }
-
+.Desktop_title {
+  composes: Desktop_item;
+  composes: Tablet_title;
+  background-color: #f4f6fb;
+}
 .Desktop_expenseAmount {
   composes: Tablet_expenseAmount;
 }
