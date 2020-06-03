@@ -7,10 +7,12 @@ import styles from './SetExpensesPageMobile.module.css';
 const index = () => {
   return (
     <div className={styles.formWrapper}>
-      <div className={styles.goBackButton}>
-        <GoBackButton />
+      <div className={styles.formContent}>
+        <div className={styles.goBackButton}>
+          <GoBackButton />
+        </div>
+        <ExpensesForm />
       </div>
-      <ExpensesForm />
       <div className={styles.buttons}>
         <ActionButton firstButtonText="ввод" secondButtonText="очистить" />
       </div>

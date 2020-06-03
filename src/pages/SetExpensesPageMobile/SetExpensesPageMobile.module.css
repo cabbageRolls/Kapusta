@@ -10,6 +10,9 @@
 }
 .goBackButton {
   width: fit-content;
-  padding-left: 20px;
   color: blue;
+  padding: 18px 20px;
+}
+.formContent {
+  margin-bottom: 80px;
 }
