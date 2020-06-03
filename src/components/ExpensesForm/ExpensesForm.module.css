@@ -3,34 +3,37 @@
   margin: 0 auto;
   padding: 20px;
 }
-
-.form {
-
-  /* margin-top: 38px; */
-  width: 602px;
+.amountInputWrapper {
   position: relative;
+  width: fit-content;
+  margin: 0 auto;
 }
-
 .descriptionInput {
-  padding: 15px;
-  margin: 0;
+  padding: 0 15px;
+  margin: 0 auto;
   outline: none;
-  border: 2px solid #c7ccdc;
   border-right: none;
   border-top-left-radius: 10px;
-  width: 475px;
+  height: 76px;
+  display: block;
+  width: 80%;
+  border: 2px solid #fff;
+  border-radius: 12px 12px 12px 0;
 }
-
 .amountInput {
   padding: 15px;
-  margin: 0;
-  border: 2px solid #c7ccdc;
+  padding-right: 58px;
+  border: 2px solid #fff;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   outline: none;
-  width: 125px;
+  width: 180px;
+  background-color: transparent;
+  display: block;
+  border-radius: 17px;
+  margin: 30px auto 0;
+  text-align: center;
 }
-
 .iconCalculator {
   background-image: url(./iconcalculator.png);
   background-position: center;
@@ -38,122 +41,91 @@
   background-size: cover;
   width: 20px;
   height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 140px;
+  transform: translateY(-50%);
+}
+
+.descriptionInputWrapper {
   display: inline-block;
-  vertical-align: middle;
-  position: absolute;
-  top: 12px;
-  left: 555px;
 }
-
-.amountInput::placeholder {
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  line-height: 45px;
-  color: #c7ccdc;
-}
-
-.placeholder {
-  padding: 15px 10px 0px 20px;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+.descriptionInput::placeholder {
+  width: 100%;
+  display: block;
+  white-space: pre-line;
+  text-align: left;
   font-size: 13px;
   line-height: 16px;
-  color: #c7ccdc;
-  font-family: 'Roboto', sans-serif;
+  color: #9a9a9b;
+  position: relative;
+  top: -10px;
 }
-
-.div {
-  display: inline-block;
+.amountInputWrapper::after {
+  width: 2px;
+  height: 48px;
+  content: '';
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 122px;
 }
-
-/* tablet */
-
-@media (min-width: 480px) and (max-width: 768px) {
+input[type='text'] {
+  background: transparent;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+.amountInput::placeholder {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 45px;
+  color: #000;
+}
+.descriptionInputWrapper {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+@media (min-width: 768px) {
   .form {
-    width: 500px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 46px;
   }
-
   .descriptionInput {
-    width: 375px;
+    width: 100%;
+    height: 100%;
+    border: #f4f6fb 2px solid;
+    background-color: transparent;
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
-
-  .iconCalculator {
-    position: absolute;
-    top: 14px;
-    left: 450px;
-  }
-}
-
-/* mobile */
-@media (max-width: 480px) {
-  .form {
-    padding: 15px 0px 50px;
-    width: 280px;
-    margin: 0 auto;
-  }
-
-  .descriptionInput {
-    width: 280px;
-    border: 2px solid #fff;
-    border-radius: 12px 12px 12px 0;
-  }
-
   .amountInput {
-    width: 180px;
-    border: 2px solid #fff;
-    border-radius: 17px;
-    margin: 30px 0 0 50px;
-    text-align: center;
+    height: 100%;
+    margin-top: 0;
+    border: #f4f6fb 2px solid;
+    background-color: transparent;
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
-
-  .iconCalculator {
-    position: absolute;
-    top: 108px;
-    left: 190px;
-    width: 18px;
-    height: 18px;
+  .amountInputWrapper::after {
+    left: 0;
+    height: 100%;
+    background-color: #f4f6fb;
   }
-
-  input[type='text'] {
-    background: transparent;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-  }
-
-  .descriptionInput::placeholder {
-    font-size: 13px;
-    line-height: 16px;
-    color: #9a9a9b;
-    text-align: center;
-  }
-
   .amountInput::placeholder {
+    color: #c7ccdc;
+  }
+  .descriptionInput::placeholder {
+    color: #c7ccdc;
     font-size: 15px;
     font-weight: 600;
     line-height: 45px;
-    color: #000;
-  }
-
-  .border::after {
-    width: 2px;
-    height: 46px;
-    content: '';
-    display: block;
-    background-color: #fff;
-    position: absolute;
-    top: 96px;
-    left: 170px;
-  }
-
-  .div {
-    position: relative;
-  }
-
-  .placeholder {
-    color: #9a9a9b;
-    padding: 10px 10px 0px 20px;
+    position: static;
   }
 }
