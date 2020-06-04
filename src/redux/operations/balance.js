@@ -5,6 +5,7 @@ import * as API from '../../services/api';
 const postBalance = value => {
   return dispatch => {
     dispatch(actions.POST_BALANCE_STARTED());
+
     axios
       .post(
         API.userBalance,
