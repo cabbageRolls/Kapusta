@@ -1,81 +1,115 @@
 import React from 'react';
 import T from 'prop-types';
-import styles from './expensesListItem.module.css';
-import classLister from 'css-module-class-lister';
 import { useMediaQuery } from 'react-responsive';
+import {
+  Mobile,
+  Default,
+  isMobile,
+  isTablet,
+} from '../../../services/mediaQuery';
 
-const classes = classLister(styles);
+import styles from './expensesListItem.module.css';
 
 const ExpensesListItem = ({ expenses }) => {
-  const isMobileDevice = useMediaQuery({
-    query: '(max-device-width: 768px)',
-  });
-
-  const isDesktopOrTablet = useMediaQuery({
-    query: '(min-device-width: 768px)',
-  });
+  const MobileClass = isMobile(useMediaQuery);
+  const TabletClass = isTablet(useMediaQuery);
   return (
     <>
       {expenses && (
-        <div className={styles.container}>
-          <div className={styles.scrollbar}>
-            <ul className={styles.expensesList}>
-              {isDesktopOrTablet && (
-                <div className={styles.title}>
-                  <div className={classes('titleItem', 'date')}>Дата</div>
-                  <div className={classes('titleItem', 'descr')}>Описание</div>
-                  <div className={classes('titleItem', 'category')}>
-                    Категория
-                  </div>
-                  <div className={classes('titleItem', 'amount')}>Сумма</div>
-                  <div className={classes('titleItem', 'delete')}></div>
-                </div>
-              )}
-
+        <div
+          className={
+            MobileClass
+              ? styles.Mobile_container
+              : TabletClass
+              ? styles.Tablet_container
+              : styles.Desktop_container
+          }
+        >
+          <Default>
+            <div
+              className={
+                TabletClass ? styles.Tablet_title : styles.Desktop_title
+              }
+            >
+              <div className={styles.titleItem}>Дата</div>
+              <div className={styles.titleItem}>Описание</div>
+              <div className={styles.titleItem}>Категория</div>
+              <div className={styles.titleItem}>Сумма</div>
+              <div className={styles.titleItem} />
+            </div>
+          </Default>
+          <div
+            className={
+              MobileClass
+                ? styles.Mobile_scrollbar
+                : TabletClass
+                ? styles.Tablet_scrollbar
+                : styles.Desktop_scrollbar
+            }
+          >
+            <ul
+              className={
+                MobileClass
+                  ? styles.Mobile_expensesList
+                  : TabletClass
+                  ? styles.Tablet_expensesList
+                  : styles.Desktop_expensesList
+              }
+            >
               {expenses.map(expense => (
-                <li className={styles.item} key={expense.id}>
-                  {isMobileDevice ? (
-                    <>
-                      <div className={styles.expenseDateContainer}>
-                        <span className={styles.expenseCategory}>
-                          {expense.category}
-                        </span>
-                        <span className={styles.expenseDate}>
-                          {expense.date}
-                        </span>
-                      </div>
-                      <span className={styles.expenseDescription}>
-                        {expense.description}
-                      </span>
-
-                      <span className={styles.expenseAmount}>
-                        {expense.amount} грн.
-                      </span>
-                      <button className={styles.btn}>
-                        <span className={styles.btnIcon}></span>
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <div className={styles.expenseDateContainer}>
-                        <span className={styles.expenseDate}>
-                          {expense.date}
-                        </span>
-                      </div>
-                      <span className={styles.expenseDescription}>
-                        {expense.description}
-                      </span>
+                <li
+                  className={
+                    MobileClass
+                      ? styles.Mobile_item
+                      : TabletClass
+                      ? styles.Tablet_item
+                      : styles.Desktop_item
+                  }
+                  key={expense.id}
+                >
+                  <Mobile>
+                    <div className={styles.expenseDateContainer}>
                       <span className={styles.expenseCategory}>
                         {expense.category}
                       </span>
-                      <span className={styles.expenseAmount}>
-                        {expense.amount} грн.
-                      </span>
-                      <button className={styles.btn}>
-                        <span className={styles.btnIcon}></span>
-                      </button>
-                    </>
-                  )}
+                      <div className={styles.mobileWrapp}>
+                        <span className={styles.expenseDate}>
+                          {expense.date}
+                        </span>
+                        <span className={styles.expenseDescription}>
+                          {expense.description}
+                        </span>
+                      </div>
+                    </div>
+                  </Mobile>
+                  <Default>
+                    <span className={styles.DexpenseDate}>{expense.date}</span>
+                    <span className={styles.expenseDescription}>
+                      {expense.description}
+                    </span>
+                    <span className={styles.Tablet_expenseCategory}>
+                      {expense.category}
+                    </span>
+                  </Default>
+                  <span
+                    className={
+                      MobileClass
+                        ? styles.Mobile_expenseAmount
+                        : TabletClass
+                        ? styles.Tablet_expenseAmount
+                        : styles.Desktop_expenseAmount
+                    }
+                  >
+                    {expense.amount} грн.
+                  </span>
+                  <div>
+                    <button
+                      className={MobileClass ? styles.btn : styles.defBtn}
+                      type="button"
+                    >
+                      <span className={styles.btnIcon} />
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -92,7 +126,7 @@ ExpensesListItem.propTypes = {
       date: T.string.isRequired,
       description: T.string.isRequired,
       category: T.string.isRequired,
-      amount: T.number.isRequired,
+      amount: T.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
