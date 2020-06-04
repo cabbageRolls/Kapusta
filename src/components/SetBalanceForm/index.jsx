@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
+import postBalance from '../../redux/operations/balance';
+import * as selectors from '../../redux/selectors';
 import { isNotMobile } from '../../services/mediaQuery';
 import Styles from './SetBalanceForm.module.css';
 import DatePickerCustom from '../DatePicker';
 import Notification from '../WelcomeNotification';
 
-const SetBalanceForm = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [balance, setBalance] = useState(null);
-
+const SetBalanceForm = ({ balance, error, sendBalance }) => {
+  const [inputValue, setInputValue] = useState(balance);
+  useEffect(() => {
+    setInputValue(balance);
+  }, [balance]);
   const isDefault = isNotMobile(useMediaQuery);
 
   const handleChange = e => {
@@ -17,9 +22,11 @@ const SetBalanceForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    sendBalance(+inputValue);
 
-    setBalance(+balance + +inputValue);
-    setInputValue('');
+    if (error && error.message) {
+      setInputValue(balance);
+    }
   };
 
   return (
@@ -72,4 +79,16 @@ const SetBalanceForm = () => {
     </div>
   );
 };
-export default SetBalanceForm;
+SetBalanceForm.propTypes = {
+  balance: PropTypes.number.isRequired,
+  error: PropTypes.shape(PropTypes.any).isRequired,
+  sendBalance: PropTypes.func.isRequired,
+};
+const MSTP = store => ({
+  balance: selectors.getBalance(store),
+  error: selectors.getError(store),
+});
+const MDTP = {
+  sendBalance: postBalance,
+};
+export default connect(MSTP, MDTP)(SetBalanceForm);
