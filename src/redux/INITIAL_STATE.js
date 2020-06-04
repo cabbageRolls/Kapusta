@@ -6,5 +6,6 @@ const initState = {
     costs: [],
   },
   error: {},
+  loader: false,
 };
 export default initState;
