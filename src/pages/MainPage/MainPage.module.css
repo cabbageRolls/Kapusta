@@ -1,0 +1,17 @@
+.MainPageContainerDekstop,
+.MainPageContainerTablet,
+.MainPageContainerMobile {
+  margin: 0 auto;
+}
+
+.MainPageContainerDekstop {
+  width: 1092px;
+}
+
+.MainPageContainerTablet {
+  width: 690px;
+}
+
+.MainPageContainerMobile {
+  width: 278px;
+}

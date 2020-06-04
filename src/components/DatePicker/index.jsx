@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import Styles from './datePicker.module.css';
+import Styles from './DatePicker.module.css';
 import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 import './stylesDataPicker.css';
 
