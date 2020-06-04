@@ -8,9 +8,9 @@ const MAIN_PAGE = React.lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "MAIN_PAGE" */),
 );
 
-const REPORT_PAGE = React.lazy(() =>
-  import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
-);
+// const REPORT_PAGE = React.lazy(() =>
+//   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
+// );
 
 const REPORT_PAGE = React.lazy(() =>
   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
@@ -41,6 +41,14 @@ export default {
     path: '/', // redirect to exp_page
     component: MAIN_PAGE,
   },
+  EXPENSES: {
+    path: '/expenses',
+    component: 1,
+  },
+  INCOME: {
+    path: '/income',
+    component: 1,
+  },
   REPORT_PAGE: {
     path: '/report',
     component: REPORT_PAGE,
@@ -51,11 +59,11 @@ export default {
     component: SET_BALANCE_PAGE_MOBILE,
   },
   SET_EXPENSES_PAGE_MOBILE: {
-    path: '/expenses',
+    path: '/expenses-form',
     component: SET_EXPENSES_PAGE_MOBILE,
   },
   SET_INCOME_PAGE_MOBILE: {
-    path: '/income',
+    path: '/income-form',
     component: SET_INCOME_PAGE_MOBILE,
   },
 };
