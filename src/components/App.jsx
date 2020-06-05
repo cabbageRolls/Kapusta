@@ -15,11 +15,14 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 import SetBalanceForm from './SetBalanceForm';
 import MainPage from '../pages/MainPage';
+import A from '../pages/SetExpensesPageMobile';
+
 function App({ init }) {
   init();
   return (
     <>
-      <MainPage />
+      <A />
+      {/* <MainPage /> */}
       {/* <SetBalanceForm /> */}
     </>
   );
