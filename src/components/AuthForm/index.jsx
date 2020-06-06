@@ -15,7 +15,7 @@ const AuthForm = () => {
   const signUp = 'регистрация';
 
   return (
-    <div
+    <form
       className={
         Mobile
           ? styles.AuthForm_mobile
@@ -39,7 +39,7 @@ const AuthForm = () => {
       </p>
       <AuthInput />
       <ActionButton firstButtonText={signIn} secondButtonText={signUp} />
-    </div>
+    </form>
   );
 };
 

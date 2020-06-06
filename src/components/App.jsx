@@ -16,14 +16,14 @@ import '../CSS/index.css';
 import SetBalanceForm from './SetBalanceForm';
 import MainPage from '../pages/MainPage';
 
-import GoogleAuthButton from './GoogleAuthButton';
+import AuthForm from './AuthForm';
 
 function App({ init }) {
   init();
   return (
     <>
       <MainPage />
-      <GoogleAuthButton />
+      <AuthForm />
       {/* <SetBalanceForm /> */}
     </>
   );
