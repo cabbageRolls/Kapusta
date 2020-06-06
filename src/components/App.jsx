@@ -15,11 +15,15 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 import SetBalanceForm from './SetBalanceForm';
 import MainPage from '../pages/MainPage';
+
+import GoogleAuthButton from './GoogleAuthButton';
+
 function App({ init }) {
   init();
   return (
     <>
       <MainPage />
+      <GoogleAuthButton />
       {/* <SetBalanceForm /> */}
     </>
   );
