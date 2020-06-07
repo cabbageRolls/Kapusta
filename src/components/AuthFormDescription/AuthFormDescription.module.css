@@ -1,0 +1,31 @@
+.TextGoogle_mobile {
+  width: 250px;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 11px;
+  padding-top: 34px;
+  padding-bottom: 24px;
+  font-family: 'Roboto';
+  color: rgb(82, 85, 95);
+}
+
+.TextGoogle_default {
+  composes: TextGoogle_mobile;
+  width: 280px;
+  padding-top: 52px;
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.TextAuth_mobile {
+  composes: TextGoogle_mobile;
+  padding-bottom: 0;
+  width: 274px;
+  text-align: left;
+}
+
+.TextAuth_default {
+  composes: TextGoogle_default;
+  padding-top: 26px;
+}

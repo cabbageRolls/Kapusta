@@ -1,46 +1,63 @@
-import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { isMobile, isTablet } from '../../services/mediaQuery';
+import React, { Component } from 'react';
 import styles from './AuthForm.module.css';
 
+import Form from '../AuthFormComponent';
+import AuthFormDescription from '../AuthFormDescription';
 import GoogleButton from '../GoogleAuthButton';
+import AuthLabel from '../AuthLabel';
 import AuthInput from '../AuthInput';
 import ActionButton from '../ActionButton';
 
-const AuthForm = () => {
-  const Mobile = isMobile(useMediaQuery);
-  const Tablet = isTablet(useMediaQuery);
+const signIn = 'войти';
+const signUp = 'регистрация';
 
-  const signIn = 'войти';
-  const signUp = 'регистрация';
+export default class AuthForm extends Component {
+  state = {
+    email: '',
+    password: '',
+  };
 
-  return (
-    <form
-      className={
-        Mobile
-          ? styles.AuthForm_mobile
-          : Tablet
-          ? styles.AuthForm_tablet
-          : styles.AuthForm_desktop
-      }
-    >
-      <p
-        className={
-          Mobile ? styles.TextGoogle_mobile : styles.TextGoogle_default
-        }
-      >
-        Вы можете авторизироваться с помощью google account:
-      </p>
-      <GoogleButton />
+  handleSubmit = e => {
+    e.preventDefault();
+  };
 
-      <p className={Mobile ? styles.TextAuth_mobile : styles.TextAuth_default}>
-        Или зайти в приложение с помощью имейла и пароля, сперва
-        зарегистрировавшись:
-      </p>
-      <AuthInput />
-      <ActionButton firstButtonText={signIn} secondButtonText={signUp} />
-    </form>
-  );
-};
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-export default AuthForm;
+  render() {
+    const { email, password } = this.state;
+
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <AuthFormDescription GoogleAuth />
+        <GoogleButton />
+
+        <AuthFormDescription />
+        <div className={styles.FormLabels}>
+          <AuthLabel htmlFor="email">
+            Электронная почта
+            <AuthInput
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </AuthLabel>
+          <AuthLabel htmlFor="password">
+            Пароль
+            <AuthInput
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </AuthLabel>
+        </div>
+        <ActionButton firstButtonText={signIn} secondButtonText={signUp} />
+      </Form>
+    );
+  }
+}
