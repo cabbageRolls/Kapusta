@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import styles from './AuthForm.module.css';
+import * as sessionOperations from '../../redux/operations/session';
 
 import Form from '../AuthFormComponent';
 import AuthFormDescription from '../AuthFormDescription';
@@ -11,14 +15,21 @@ import ActionButton from '../ActionButton';
 const signIn = 'войти';
 const signUp = 'регистрация';
 
-export default class AuthForm extends Component {
+class AuthForm extends Component {
   state = {
     email: '',
     password: '',
   };
 
+  static propTypes = {
+    onLogin: PropTypes.func.isRequired,
+  };
+
   handleSubmit = e => {
     e.preventDefault();
+
+    this.props.onLogin({ ...this.state });
+    this.setState({ email: '', password: '' });
   };
 
   handleChange = e => {
@@ -61,3 +72,9 @@ export default class AuthForm extends Component {
     );
   }
 }
+
+const mapDispatchToProps = {
+  onLogin: sessionOperations.login,
+};
+
+export default connect(null, mapDispatchToProps)(AuthForm);

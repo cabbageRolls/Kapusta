@@ -4,3 +4,5 @@ export const getBalance = store => {
 export const getError = store => {
   return store.error;
 };
+
+export const isAuthenticated = state => state.session.authenticated;

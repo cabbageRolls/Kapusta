@@ -4,7 +4,7 @@ import * as types from '../types';
 const user = (state = null, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
-      return payload.response.user;
+      return payload.response.user.userData;
 
     case types.LOGOUT:
       return null;
@@ -30,7 +30,7 @@ const authenticated = (state = false, { type, payload }) => {
 const token = (state = null, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
-      return payload.response.token;
+      return payload.response.user.token;
 
     case types.LOGOUT:
       return null;

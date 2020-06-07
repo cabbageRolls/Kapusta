@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import PropTypes from 'prop-types';
 import { isDesktop } from '../../services/mediaQuery';
@@ -7,7 +8,9 @@ import Logo from '../Logo';
 import ProfileName from '../ProfileName';
 import LogoutButton from '../LogoutButton';
 
-const index = ({ isAuthenticated }) => {
+import * as sessionActions from '../../redux/actions/session';
+
+const index = ({ isAuthenticated, onLogOut }) => {
   const Desktop = isDesktop(useMediaQuery);
   return (
     <div
@@ -19,7 +22,7 @@ const index = ({ isAuthenticated }) => {
       {isAuthenticated ? (
         <div className={styles.rightBar}>
           <ProfileName />
-          <LogoutButton />
+          <LogoutButton onLogOut={onLogOut} />
         </div>
       ) : null}
     </div>
@@ -28,10 +31,15 @@ const index = ({ isAuthenticated }) => {
 
 index.propTypes = {
   isAuthenticated: PropTypes.bool,
+  onLogOut: PropTypes.func.isRequired,
 };
 
 index.defaultProps = {
   isAuthenticated: true,
 };
 
-export default index;
+const mapDispatchToProps = {
+  onLogOut: sessionActions.logout,
+};
+
+export default connect(null, mapDispatchToProps)(index);
