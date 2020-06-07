@@ -128,3 +128,8 @@ table {
 .MuiInputBase-input.MuiOutlinedInput-input {
   color: white !important;
 }
+
+button:active,
+button:focus {
+  outline: none;
+}
