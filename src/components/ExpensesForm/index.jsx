@@ -7,7 +7,7 @@ import { isMobile } from '../../services/mediaQuery';
 import fetchCategories from '../../redux/operations/categories';
 import { getCategories } from '../../redux/selectors';
 
-const ExpensesForm = ({ handleSubmit, onFetchGategories, categories }) => {
+const ExpensesForm = ({ handleSubmit, onFetchGategories, products }) => {
   const [input, handleInputChange] = useInputChange();
   const Mobile = isMobile(useMediaQuery);
   useEffect(() => onFetchGategories(), []);
@@ -25,7 +25,7 @@ const ExpensesForm = ({ handleSubmit, onFetchGategories, categories }) => {
         onSubmit={handleSubmit}
       >
         <div className={styles.descriptionInputWrapper}>
-          <select
+          <input
             className={
               !Mobile
                 ? styles.descriptionInput_Desktop
@@ -35,15 +35,24 @@ const ExpensesForm = ({ handleSubmit, onFetchGategories, categories }) => {
             value={input.description}
             onChange={handleInputChange}
             placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
-          >
-            {categories.map(({ name, _id }) => (
-              <option value={_id} key={_id}>
-                {name}
+            list="expenses"
+            pattern="[A-Za-zА-Яа-яЁё]"
+          />
+          <datalist id="expenses" className={styles.expensesDataList}>
+            {products.map(({ name, _id, category }) => (
+              <option key={_id} className={styles.expensesOption}>
+                {name} &#x2192; {category.name}
               </option>
             ))}
-          </select>
+          </datalist>
         </div>
-        <div className={styles.amountInputWrapper}>
+        <div
+          className={
+            !Mobile
+              ? styles.amountInputWrapper_Desktop
+              : styles.amountInputWrapper
+          }
+        >
           <input
             className={
               !Mobile ? styles.amountInput_Desktop : styles.amountInput
@@ -62,7 +71,7 @@ const ExpensesForm = ({ handleSubmit, onFetchGategories, categories }) => {
 };
 
 const mstp = state => ({
-  categories: getCategories(state),
+  products: getCategories(state),
 });
 
 const mdtp = dispatch => ({
