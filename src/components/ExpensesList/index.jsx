@@ -10,6 +10,6 @@ export default class ExpensesList extends React.Component {
   state = {};
 
   render() {
-    return <ExpensesListItem />;
+    return <ExpensesListItem expenses={expensesData} />;
   }
 }
