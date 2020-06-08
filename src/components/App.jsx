@@ -14,13 +14,13 @@ axios.defaults.headers.common.Authorization =
 import '../CSS/normilize.css';
 import '../CSS/index.css';
 import SetBalanceForm from './SetBalanceForm';
-import MainPage from '../pages/MainPage';
+import ExpensesForm from './ExpensesForm';
 
 function App({ init }) {
   init();
   return (
     <>
-      <MainPage />
+      <ExpensesForm />
       {/* <SetBalanceForm /> */}
     </>
   );
