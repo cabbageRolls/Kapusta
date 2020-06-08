@@ -13,14 +13,15 @@ axios.defaults.headers.common.Authorization =
 // Временная заглушка пока нет регистрации конец
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import P from '../pages/SetBalancePageMobile';
-// import MainPage from '../pages/MainPage';
+import SetBalanceForm from './SetBalanceForm';
+import ExpensesForm from './ExpensesForm';
 
 function App({ init }) {
   init();
   return (
     <>
-      <P />
+      <ExpensesForm />
+      {/* <SetBalanceForm /> */}
     </>
   );
 }

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { connect } from 'react-redux';
 import styles from './ExpensesForm.module.css';
 import useInputChange from './useInputChange';
 import { isMobile } from '../../services/mediaQuery';
+import fetchCategories from '../../redux/operations/categories';
+import { getCategories } from '../../redux/selectors';
 
-const ExpensesForm = ({ handleSubmit }) => {
+const ExpensesForm = ({ handleSubmit, onFetchGategories, products }) => {
   const [input, handleInputChange] = useInputChange();
   const Mobile = isMobile(useMediaQuery);
+  useEffect(() => onFetchGategories(), []);
   return (
     <>
       <form
@@ -27,14 +31,28 @@ const ExpensesForm = ({ handleSubmit }) => {
                 ? styles.descriptionInput_Desktop
                 : styles.descriptionInput
             }
-            type="text"
             name="description"
             value={input.description}
             onChange={handleInputChange}
             placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
+            list="expenses"
+            pattern="[A-Za-zА-Яа-яЁё]"
           />
+          <datalist id="expenses" className={styles.expensesDataList}>
+            {products.map(({ name, _id, category }) => (
+              <option key={_id} className={styles.expensesOption}>
+                {name} &#x2192; {category.name}
+              </option>
+            ))}
+          </datalist>
         </div>
-        <div className={styles.amountInputWrapper}>
+        <div
+          className={
+            !Mobile
+              ? styles.amountInputWrapper_Desktop
+              : styles.amountInputWrapper
+          }
+        >
           <input
             className={
               !Mobile ? styles.amountInput_Desktop : styles.amountInput
@@ -51,21 +69,13 @@ const ExpensesForm = ({ handleSubmit }) => {
     </>
   );
 };
-export default ExpensesForm;
-//  handleChange = e => {
-//   this.setState({
-//     [e.target.name]: e.target.value,
-//   });
-// };
 
-// handleSubmit = e => {
-//   e.preventDefault();
-//   const { description, amount } = this.state;
-//   const { onSubmit } = this.props;
-//   onSubmit(description, amount);
+const mstp = state => ({
+  products: getCategories(state),
+});
 
-//   this.setState({
-//     inputValue: '',
-//     amount: null,
-//   });
-// };
+const mdtp = dispatch => ({
+  onFetchGategories: () => dispatch(fetchCategories()),
+});
+
+export default connect(mstp, mdtp)(ExpensesForm);
