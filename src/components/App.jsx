@@ -15,6 +15,7 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 // import SetBalanceForm from './SetBalanceForm';
 import ReportPage from '../pages/ReportPage';
+
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 

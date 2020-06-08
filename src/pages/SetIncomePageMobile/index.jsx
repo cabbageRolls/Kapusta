@@ -3,17 +3,21 @@ import styles from './SetIncomePageMobile.module.css';
 import ActionButton from '../../components/ActionButton';
 import GoBackButton from '../../components/GoBackButton';
 import IncomeForm from '../../components/IncomeForm';
+import Header from '../../components/Header';
 
 const SetIncomePageMobile = () => (
-  <div className={styles.containerSetIncomePageMobile}>
-    <div className={styles.goBackButtonInSetIncomePageMobile}>
-      <GoBackButton />
+  <>
+    <Header />
+    <div className={styles.containerSetIncomePageMobile}>
+      <div className={styles.goBackButtonInSetIncomePageMobile}>
+        <GoBackButton />
+      </div>
+      <IncomeForm />
     </div>
-    <IncomeForm />
     <div className={styles.actionButtonInSetIncomePageMobile}>
-      <ActionButton />
+      <ActionButton firstButtonText="ввод" secondButtonText="очистить" />
     </div>
-  </div>
+  </>
 );
 
 export default SetIncomePageMobile;
