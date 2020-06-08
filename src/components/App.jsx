@@ -14,15 +14,11 @@ axios.defaults.headers.common.Authorization =
 import '../CSS/normilize.css';
 import '../CSS/index.css';
 import SetBalanceForm from './SetBalanceForm';
+// import ReportPage from '../pages/ReportPage';
 // import MainPage from '../pages/MainPage';
 function App({ init }) {
   init();
-  return (
-    <>
-      {/* <MainPage /> */}
-      <SetBalanceForm />
-    </>
-  );
+  return <>{/* <MainPage /> */}</>;
 }
 App.propTypes = {
   init: PropTypes.func.isRequired,
