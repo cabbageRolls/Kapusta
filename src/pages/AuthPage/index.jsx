@@ -10,21 +10,19 @@ class AuthPage extends Component {
   state = {};
 
   static propTypes = {
-    authenticated: PropTypes.func.isRequired,
+    authenticated: PropTypes.bool.isRequired,
     history: PropTypes.shape({
       replace: PropTypes.func.isRequired,
     }).isRequired,
   };
 
-  // componentDidMount() {
-  //   const { authenticated, history } = this.props;
+  componentDidMount() {
+    const { authenticated, history } = this.props;
 
-  //   console.log(authenticated());
-
-  //   if (authenticated) {
-  //     history.replace('/expensespage');
-  //   }
-  // }
+    if (authenticated) {
+      history.replace('/expensespage');
+    }
+  }
 
   componentDidUpdate(prevProps) {
     const { authenticated, history } = this.props;
@@ -45,7 +43,7 @@ class AuthPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  authenticated: selectors.isAuthenticated,
+  authenticated: selectors.isAuthenticated(state),
 });
 
 export default connect(mapStateToProps)(AuthPage);

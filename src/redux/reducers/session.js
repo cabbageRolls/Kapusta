@@ -4,6 +4,7 @@ import * as types from '../types';
 const user = (state = null, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
+    case types.SIGNUP_USER_SUCCESS:
       return payload.response.user.userData;
 
     case types.LOGOUT:
@@ -17,6 +18,7 @@ const user = (state = null, { type, payload }) => {
 const authenticated = (state = false, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
+    case types.SIGNUP_USER_SUCCESS:
       return true;
 
     case types.LOGOUT:
@@ -30,6 +32,7 @@ const authenticated = (state = false, { type, payload }) => {
 const token = (state = null, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
+    case types.SIGNUP_USER_SUCCESS:
       return payload.response.user.token;
 
     case types.LOGOUT:
@@ -40,21 +43,10 @@ const token = (state = null, { type, payload }) => {
   }
 };
 
-const error = (state = null, { type, payload }) => {
-  switch (type) {
-    case types.LOGIN_USER_ERROR:
-      return payload.error;
-
-    default:
-      return state;
-  }
-};
-
 const session = combineReducers({
   user,
   authenticated,
   token,
-  error,
 });
 
 export default session;

@@ -23,6 +23,21 @@ class AuthForm extends Component {
 
   static propTypes = {
     onLogin: PropTypes.func.isRequired,
+    onSignup: PropTypes.func.isRequired,
+  };
+
+  handleSignup = e => {
+    const credentials = {
+      ...this.state,
+      name: {
+        fullName: `User ${this.state.email}`,
+        firstName: 'User',
+        lastName: this.state.email,
+      },
+    };
+
+    this.props.onSignup(credentials);
+    this.setState({ email: '', password: '' });
   };
 
   handleSubmit = e => {
@@ -67,7 +82,11 @@ class AuthForm extends Component {
             />
           </AuthLabel>
         </div>
-        <ActionButton firstButtonText={signIn} secondButtonText={signUp} />
+        <ActionButton
+          firstButtonText={signIn}
+          secondButtonText={signUp}
+          onSignup={this.handleSignup}
+        />
       </Form>
     );
   }
@@ -75,6 +94,7 @@ class AuthForm extends Component {
 
 const mapDispatchToProps = {
   onLogin: sessionOperations.login,
+  onSignup: sessionOperations.signup,
 };
 
 export default connect(null, mapDispatchToProps)(AuthForm);

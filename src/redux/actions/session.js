@@ -14,18 +14,18 @@ export const loginUserError = error => ({
   payload: { error },
 });
 
-export const signupUserRequest = response => ({
+export const signupUserRequest = () => ({
   type: types.SIGNUP_USER_REQUEST,
+});
+
+export const signupUserSuccess = response => ({
+  type: types.SIGNUP_USER_SUCCESS,
   payload: { response },
 });
 
-export const signupUserSuccess = error => ({
-  type: types.SIGNUP_USER_SUCCES,
-  payload: { error },
-});
-
-export const signupUserError = () => ({
+export const signupUserError = error => ({
   type: types.SIGNUP_USER_ERROR,
+  payload: { error },
 });
 
 export const logout = () => ({
