@@ -4,3 +4,7 @@ export const getBalance = store => {
 export const getError = store => {
   return store.error;
 };
+
+export const loader = store => {
+  return store.loader;
+};

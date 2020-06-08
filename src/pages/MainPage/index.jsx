@@ -28,8 +28,11 @@ const MainPage = () => {
         </div>
         <AdditionalButton />
         <Switch>
-          <Route path={routes.EXPENSES.path} component={() => <div>exr</div>} />
-          <Route path={routes.INCOME.path} component={() => <div>inc</div>} />
+          <Route
+            path={routes.EXPENSES.path}
+            component={routes.EXPENSES.component}
+          />
+          <Route path={routes.INCOME.path} component={routes.INCOME.component} />
         </Switch>
       </div>
     </Default>
