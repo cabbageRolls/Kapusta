@@ -17,12 +17,13 @@ import '../CSS/index.css';
 import ReportPage from '../pages/ReportPage';
 
 // import MainPage from '../pages/MainPage';
-import SetIncomePageMobile from '../pages/SetIncomePageMobile';
+import ExpensesComponents from './ExpensesComponents';
+
 function App({ init }) {
   init();
   return (
     <>
-      <SetIncomePageMobile />
+      <ExpensesComponents />
       {/* <ReportPage /> */}
       {/* <SetBalanceForm /> */}
       {/* <MainPage /> */}
