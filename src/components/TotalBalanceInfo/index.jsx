@@ -6,7 +6,7 @@ import Styles from './TotalBalanceInfo.module.css';
 import { connect } from 'react-redux';
 import * as balanceSelectors from '../../redux/selectors';
 
-const TotalBalance = ({ date = '11.11.2020', balance = '45,000.00' }) => {
+const TotalBalance = ({ date = '11.11.2020', balance }) => {
   const Mobile = isMobile(useMediaQuery);
 
   return (
