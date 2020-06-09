@@ -1,32 +1,49 @@
-import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { isMobile, isTablet } from '../../services/mediaQuery';
-import styles from './AuthPage.module.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as selectors from '../../redux/selectors';
+
 import Header from '../../components/Header';
-import ProjectTitle from '../../components/ProjectTitle';
-import AuthForm from '../../components/AuthForm';
+import AuthPageModule from '../../components/AuthPageModule';
 
-const AuthPage = () => {
-  const Mobile = isMobile(useMediaQuery);
-  const Tablet = isTablet(useMediaQuery);
+class AuthPage extends Component {
+  state = {};
 
-  return (
-    <>
-      <Header />
-      <div
-        className={
-          Mobile
-            ? styles.AuthPage_mobile
-            : Tablet
-            ? styles.AuthPage_tablet
-            : styles.AuthPage_desktop
-        }
-      >
-        <ProjectTitle />
-        <AuthForm />
-      </div>
-    </>
-  );
-};
+  static propTypes = {
+    authenticated: PropTypes.bool.isRequired,
+    history: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
-export default AuthPage;
+  componentDidMount() {
+    const { authenticated, history } = this.props;
+
+    if (authenticated) {
+      history.replace('/expensespage');
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { authenticated, history } = this.props;
+
+    if (authenticated) {
+      history.replace('/expensespage');
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <Header />
+        <AuthPageModule />
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  authenticated: selectors.isAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(AuthPage);
