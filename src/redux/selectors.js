@@ -6,3 +6,6 @@ export const getError = store => {
 };
 
 export const isAuthenticated = state => state.session.authenticated;
+export const getCategories = store => {
+  return store.categories;
+};

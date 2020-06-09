@@ -65,12 +65,14 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
           <DatePickerCustom />
         </div>
       ) : (
-        <div
-          className={
-            isDefault ? Styles.default_notification : Styles.notification
-          }
-        >
-          <Notification />
+        <div className={Styles.notification_container}>
+          <div
+            className={
+              isDefault ? Styles.default_notification : Styles.notification
+            }
+          >
+            <Notification />
+          </div>
         </div>
       )}
     </div>

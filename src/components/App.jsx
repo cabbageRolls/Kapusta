@@ -13,14 +13,21 @@ import getTransactions from '../redux/operations/transactions';
 // Временная заглушка пока нет регистрации конец
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-
-import Router from '../router';
+// import SetBalanceForm from './SetBalanceForm';
+import ReportPage from '../pages/ReportPage';
+import Alert from './Alert';
+// import MainPage from '../pages/MainPage';
+import ExpensesComponents from './ExpensesComponents';
 
 function App({ init }) {
   init();
   return (
     <>
-      <Router />
+      {/* <ExpensesComponents /> */}
+      {/* <ReportPage /> */}
+      {/* <SetBalanceForm /> */}
+      {/* <MainPage /> */}
+      <Alert />
     </>
   );
 }

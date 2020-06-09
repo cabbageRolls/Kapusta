@@ -17,5 +17,6 @@ const initState = {
   },
   error: {},
   loader: false,
+  categories: [],
 };
 export default initState;

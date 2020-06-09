@@ -1,15 +1,10 @@
 .link {
-  width: 280px;
+  /* width: 280px; */
   height: 40px;
   cursor: pointer;
   text-align: center;
   border-width: 0px;
   text-decoration: none;
-}
-
-.link:hover {
-  background-color: rgb(255, 108, 10);
-  transition: all 0.3s linear;
 }
 
 .link:hover svg,
