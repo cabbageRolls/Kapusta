@@ -4,13 +4,7 @@
   justify-content: center;
   margin: 0 auto;
   width: 100px;
-  margin-top: 50px;
-  /* margin-bottom: 150px; */
-
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
-
 .iconDate {
   background-image: url('./img/9-512.png');
   width: 20px;

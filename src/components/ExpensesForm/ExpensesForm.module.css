@@ -69,7 +69,63 @@ input {
 }
 .amountInputWrapper::after {
   width: 2px;
-  height: 48px;
+  height: 100%;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 122px;
+  background-color: #fff;
+}
+.amountInput::placeholder {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 45px;
+  color: #000;
+}
+.descriptionInputWrapper {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+.form_Desktop {
+  display: flex;
+  max-width: 600px;
+  justify-content: center;
+  height: 46px;
+  margin: 0 auto;
+}
+.descriptionInput_Desktop {
+  width: 100%;
+  height: 100%;
+  border: #f4f6fb 2px solid;
+  background-color: transparent;
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  composes: descriptionInput;
+}
+.amountInput_Desktop {
+  height: 100%;
+  margin-top: 0;
+  border: #f4f6fb 2px solid;
+  background-color: transparent;
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  composes: amountInput;
+}
+.amountInputWrapper_Desktop {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+.amountInputWrapper_Desktop::after {
+  left: 0;
+  background-color: #f4f6fb;
+  width: 2px;
+  height: 100%;
   content: '';
   display: block;
   position: absolute;
@@ -118,8 +174,6 @@ input {
 /*  */
 .amountInputWrapper::after {
   left: 0;
-  height: 100%;
-  background-color: #f4f6fb;
 }
 .amountInput_Desktop::placeholder {
   color: #c7ccdc;
@@ -130,4 +184,10 @@ input {
   font-weight: 600;
   line-height: 45px;
   position: static;
+}
+.expensesOption {
+  text-align: justify;
+}
+.expensesDataList {
+  width: 100%;
 }

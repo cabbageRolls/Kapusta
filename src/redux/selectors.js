@@ -7,4 +7,8 @@ export const getError = store => {
 
 export const loader = store => {
   return store.loader;
+  
+export const getCategories = store => {
+  return store.categories;
+
 };

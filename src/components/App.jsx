@@ -21,6 +21,12 @@ import Header from './Header';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
 
+// import SetBalanceForm from './SetBalanceForm';
+import ReportPage from '../pages/ReportPage';
+import Alert from './Alert';
+// import MainPage from '../pages/MainPage';
+import ExpensesComponents from './ExpensesComponents';
+
 function App({ init, isLoading }) {
   init();
   const Mobile = isMobile(useMediaQuery);
@@ -59,6 +65,11 @@ function App({ init, isLoading }) {
         </Suspense>
       </Switch>
       {isLoading && <Loader />}
+      {/* <ExpensesComponents /> */}
+      {/* <ReportPage /> */}
+      {/* <SetBalanceForm /> */}
+      {/* <MainPage /> */}
+      <Alert />
     </>
   );
 }
