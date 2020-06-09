@@ -27,8 +27,8 @@ import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 
-function App({ init, isLoading }) {
-  init();
+function App({ isLoading }) {
+
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
@@ -81,7 +81,7 @@ App.propTypes = {
 const MDTP = {
   init: getTransactions,
 };
-const MSTP = () => ({
-  isLoading: loader,
+const MSTP = (store) => ({
+  isLoading: loader(store),
 });
 export default connect(MSTP, MDTP)(App);

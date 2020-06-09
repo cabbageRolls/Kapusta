@@ -8,11 +8,9 @@ export const getError = store => {
 
 export const isAuthenticated = state => state.session.authenticated;
 
-
 export const loader = store => {
   return store.loader;
-
+};
 export const getCategories = store => {
   return store.categories;
-
 };
