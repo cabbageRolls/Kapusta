@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../../services/mediaQuery';
 import Styles from './TotalBalanceInfo.module.css';
+import { connect } from 'react-redux';
+import * as balanceSelectors from '../../redux/selectors';
 
-const TotalBalance = ({ data = '11.11.2020', cost = '45,000.00' }) => {
+const TotalBalance = ({ date = '11.11.2020', balance = '45,000.00' }) => {
   const Mobile = isMobile(useMediaQuery);
 
   return (
@@ -15,19 +17,23 @@ const TotalBalance = ({ data = '11.11.2020', cost = '45,000.00' }) => {
         }
       >
         <span>Баланс на </span>
-        <span>{data}:</span>
+        <span>{date}:</span>
       </div>
       <div className={Mobile ? Styles.MobileBalance : Styles.TabletBalance}>
-        <span className={Styles.BalanceCost}>{cost} </span>
+        <span className={Styles.BalanceCost}>{balance} </span>
         <span className={Styles.BalanceCost}>UAH</span>
       </div>
     </div>
   );
 };
+const mapStateToProps = store => ({
+  // date: balanceSelectors.getData(store),
+  balance: balanceSelectors.getBalance(store),
+});
 
 TotalBalance.propTypes = {
-  data: PropTypes.string.isRequired,
-  cost: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  balance: PropTypes.number.isRequired,
 };
 
-export default TotalBalance;
+export default connect(mapStateToProps, null)(TotalBalance);

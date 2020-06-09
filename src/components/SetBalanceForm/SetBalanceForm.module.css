@@ -99,12 +99,13 @@
   color: #fff;
 }
 
+.notification_container {
+  display: flex;
+  justify-content: center;
+}
+
 .notification {
-  position: absolute;
   width: 280px;
-  left: 50%;
-  top: 67px;
-  transform: translate(-50%);
   z-index: 1;
 }
 
@@ -150,8 +151,6 @@
 
 .default_notification {
   composes: notification;
-  left: 53%;
-  top: 30px;
 }
 
 .datePicker {
