@@ -1,5 +1,15 @@
 const initState = {
   public: {},
+  session: {
+    email: '',
+    password: '',
+    name: {
+      fullName: '',
+      firstName: '',
+      lastName: '',
+    },
+    token: null,
+  },
   transactions: {
     balance: 0,
     income: [],
@@ -7,5 +17,6 @@ const initState = {
   },
   error: {},
   loader: false,
+  categories: [],
 };
 export default initState;
