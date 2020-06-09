@@ -15,7 +15,7 @@ import '../CSS/normilize.css';
 import '../CSS/index.css';
 // import SetBalanceForm from './SetBalanceForm';
 import ReportPage from '../pages/ReportPage';
-
+import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 
@@ -23,10 +23,11 @@ function App({ init }) {
   init();
   return (
     <>
-      <ExpensesComponents />
+      {/* <ExpensesComponents /> */}
       {/* <ReportPage /> */}
       {/* <SetBalanceForm /> */}
       {/* <MainPage /> */}
+      <Alert />
     </>
   );
 }
