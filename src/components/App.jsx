@@ -20,6 +20,7 @@ import Loader from './Loader';
 import Header from './Header';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
+
 // import SetBalanceForm from './SetBalanceForm';
 import ReportPage from '../pages/ReportPage';
 import Alert from './Alert';
