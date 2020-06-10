@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './ExpensesForm.module.css';
 import useInputChange from './useInputChange';
 import { isMobile } from '../../services/mediaQuery';
 import fetchCategories from '../../redux/operations/categories';
 import { getCategories } from '../../redux/selectors';
 
-const ExpensesForm = ({ handleSubmit, onFetchGategories, products }) => {
+const ExpensesForm = ({
+  handleSubmit,
+  onFetchGategories,
+  products,
+  isExpensesForm,
+}) => {
   const [input, handleInputChange] = useInputChange();
   const Mobile = isMobile(useMediaQuery);
   useEffect(() => onFetchGategories(), []);
+
   return (
     <>
       <form
@@ -37,6 +44,7 @@ const ExpensesForm = ({ handleSubmit, onFetchGategories, products }) => {
             placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
             list="expenses"
             pattern="[A-Za-zА-Яа-яЁё]"
+            disabled={!isExpensesForm}
           />
           <datalist id="expenses" className={styles.expensesDataList}>
             {products.map(({ name, _id, category }) => (
@@ -68,6 +76,14 @@ const ExpensesForm = ({ handleSubmit, onFetchGategories, products }) => {
       </form>
     </>
   );
+};
+
+ExpensesForm.propTypes = {
+  isExpensesForm: PropTypes.bool,
+};
+
+ExpensesForm.defaultProps = {
+  isExpensesForm: true,
 };
 
 const mstp = state => ({
