@@ -7,3 +7,6 @@ export const getError = store => {
 export const getCategories = store => {
   return store.categories;
 };
+export const getCosts = store => {
+  return store.transactions.costs;
+};
