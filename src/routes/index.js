@@ -8,8 +8,15 @@ const MAIN_PAGE = React.lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "MAIN_PAGE" */),
 );
 
-// const REPORT_PAGE = React.lazy(() =>
-//   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
+const SET_EXPENSES_PAGE = React.lazy(() =>
+  import(
+    '../components/ExpensesComponents' /* webpackChunkName: "SET_EXPENSES_PAGE" */
+  ),
+);
+// const SET_INCOME_PAGE = React.lazy(() =>
+//   import(
+//     '../pages/' /* webpackChunkName: "SET_INCOME_PAGE" */
+//   ),
 // );
 
 const REPORT_PAGE = React.lazy(() =>
@@ -34,24 +41,24 @@ const SET_INCOME_PAGE_MOBILE = React.lazy(() =>
 
 export default {
   AUTH_PAGE: {
-    path: 'auth',
+    path: '/auth',
     component: AUTH_PAGE,
   },
   MAIN_PAGE: {
     path: '/', // redirect to exp_page
     component: MAIN_PAGE,
   },
-  EXPENSES: {
-    path: '/expenses',
-    component: 1,
-  },
-  INCOME: {
-    path: '/income',
-    component: 1,
-  },
   REPORT_PAGE: {
     path: '/report',
     component: REPORT_PAGE,
+  },
+  EXPENSES: {
+    path: '/expenses',
+    component: SET_EXPENSES_PAGE,
+  },
+  INCOME: {
+    path: '/income',
+    component: SET_EXPENSES_PAGE,
   },
 
   SET_BALANCE_PAGE_MOBILE: {
