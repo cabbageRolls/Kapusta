@@ -28,7 +28,6 @@ import Alert from './Alert';
 import ExpensesComponents from './ExpensesComponents';
 
 function App({ isLoading }) {
-
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
@@ -38,7 +37,7 @@ function App({ isLoading }) {
           <Route
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
-          ></Route>
+          />
           {/* <Redirect from={routes.MAIN_PAGE.path} to={routes.EXPENSES.path}/> */}
           <Route
             exact
@@ -81,7 +80,7 @@ App.propTypes = {
 const MDTP = {
   init: getTransactions,
 };
-const MSTP = (store) => ({
+const MSTP = store => ({
   isLoading: loader(store),
 });
 export default connect(MSTP, MDTP)(App);
