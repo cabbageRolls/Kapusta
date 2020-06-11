@@ -37,7 +37,7 @@ const BudgetSummary = () => {
         }
       >
         <GoBackButton />
-        <div className={styles.MonthPicker}>
+        <div className={Mobile ? styles.MonthPickerMobile : styles.MonthPicker}>
           <MonthPicker />
         </div>
         <TotalBalanceInfo />
