@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
 import { loader } from '../redux/selectors';
 import { Switch, Route, Redirect } from 'react-router-dom';
+// import ExpensesList from 'react-router-dom';
 import routes from '../routes';
 
 // axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -26,6 +27,7 @@ import ReportPage from '../pages/ReportPage';
 import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
+import ExpensesList from './ExpensesList';
 
 function App({ isLoading }) {
   const Mobile = isMobile(useMediaQuery);
@@ -64,6 +66,8 @@ function App({ isLoading }) {
         </Suspense>
       </Switch>
       {isLoading && <Loader />}
+
+      <ExpensesList />
       {/* <ExpensesComponents /> */}
       {/* <ReportPage /> */}
       {/* <SetBalanceForm /> */}
