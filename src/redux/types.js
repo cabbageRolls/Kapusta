@@ -19,3 +19,6 @@ export const GET_CATEGORIES_FAILURE = 'GET_CATEGORIES_FAILURE';
 
 export const SET_ALERT_ON = 'SET_ALERT';
 export const SET_ALERT_OFF = 'SET_ALERT_OFF';
+
+export const DO_INCREMENT = 'DO_INCREMENT';
+export const DO_DECREMENT = 'DO_DECREMENT';

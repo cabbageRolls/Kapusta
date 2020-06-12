@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "css-module-class-lister": "^1.2.0",
+    "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-datepicker": "^2.14.1",
     "react-dom": "^16.13.1",
