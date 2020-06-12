@@ -1,5 +1,9 @@
 @import '../../CSS/fonts.css';
 
+button {
+  cursor: pointer;
+  outline: none;
+}
 .ActionButton {
   width: 272px;
   display: flex;

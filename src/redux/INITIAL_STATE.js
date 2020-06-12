@@ -22,6 +22,7 @@ const initState = {
   error: {},
   loader: false,
   categories: [],
+  costs: null,
   dataPicker: {
     month: currentMonth,
     year: currentYear,

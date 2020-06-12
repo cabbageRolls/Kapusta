@@ -10,10 +10,11 @@ import { loader } from '../redux/selectors';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ExpensesList from 'react-router-dom';
 import routes from '../routes';
+import axios from 'axios';
 
-// axios.defaults.headers.post['Content-Type'] = 'application/json';
-// axios.defaults.headers.common.Authorization =
-//   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDg5ZmIzMTcyZWU3MTJlOTFhMGZmMiIsImlhdCI6MTU5MTI1NDk2NH0.kVS-3m5n2bVnDtNhxWhX9iSZ7QPnhr0DaiSm1eWp4HA';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.common.Authorization =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDg5ZmIzMTcyZWU3MTJlOTFhMGZmMiIsImlhdCI6MTU5MTI1NDk2NH0.kVS-3m5n2bVnDtNhxWhX9iSZ7QPnhr0DaiSm1eWp4HA';
 // Временная заглушка пока нет регистрации конец
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';

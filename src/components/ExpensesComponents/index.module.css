@@ -40,16 +40,9 @@
   width: 500px;
 }
 .D_ExpensesForm {
-  width: 600px;
+  width: 100%;
 }
-.ActionButton {
-  width: 275px;
-  margin: 26px auto 0 50px;
-}
-.D_ActionButton {
-  margin: 0;
-  margin-left: 40px;
-}
+
 .main {
   display: flex;
   flex-direction: column;

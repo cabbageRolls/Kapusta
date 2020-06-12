@@ -9,6 +9,7 @@ const error = (state = INITIAL_STATE.error, { payload, type }) => {
     case types.LOGIN_USER_ERROR:
     case types.SIGNUP_USER_ERROR:
     case types.GET_CATEGORIES_FAILURE:
+    case types.POST_COSTS_FAILURE:
       return payload;
     default:
       return state;

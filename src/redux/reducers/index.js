@@ -8,6 +8,7 @@ import loader from './loader';
 import session from './session';
 import categories from './categories';
 import alertReducer from './alert';
+import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
 
 const sessionPersistConfig = {
@@ -23,6 +24,7 @@ const rootReducers = combineReducers({
   session: persistReducer(sessionPersistConfig, session),
   categories,
   alert: alertReducer,
+  costs,
   dataPicker: dataPickerReducer,
 });
 export default rootReducers;
