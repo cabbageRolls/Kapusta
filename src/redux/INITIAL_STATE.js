@@ -18,5 +18,6 @@ const initState = {
   error: {},
   loader: false,
   categories: [],
+  costs: null,
 };
 export default initState;

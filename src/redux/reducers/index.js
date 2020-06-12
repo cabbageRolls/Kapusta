@@ -8,6 +8,7 @@ import loader from './loader';
 import session from './session';
 import categories from './categories';
 import alertReducer from './alert';
+import costs from './postCosts';
 
 const sessionPersistConfig = {
   key: 'kapusta',
@@ -22,5 +23,6 @@ const rootReducers = combineReducers({
   session: persistReducer(sessionPersistConfig, session),
   categories,
   alert: alertReducer,
+  costs,
 });
 export default rootReducers;
