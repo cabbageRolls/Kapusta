@@ -24,7 +24,7 @@ export const fetchCosts = () => dispatch => {
 export const deleteCost = id => dispatch => {
   dispatch(deleteCostStart());
   axios
-    .delete(API.userCosts + `${id}`)
+    .delete(API.userCosts + `/${id}`)
     .then(() => {
       dispatch(deleteCostSuccess(id));
     })

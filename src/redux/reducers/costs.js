@@ -1,16 +1,17 @@
+// import { fetchCostsSuccess, deleteCostSuccess } from '../actions/costs';
 import * as types from '../types';
-import { fetchCostsSuccess, deleteCostSuccess } from '../actions/costs';
+
 import INITIAL_STATE from '../INITIAL_STATE';
 
 const costsReducer = (
-  state = INITIAL_STATE.transactions.costs,
+  state = INITIAL_STATE.transactions,
   { payload, type },
 ) => {
   switch (type) {
-    case fetchCostsSuccess:
-      return payload.costs;
+    case types.GET_COSTS_SUCCESS:
+      return { ...state, costs: payload.costs };
 
-    case deleteCostSuccess:
+    case types.DELETE_COST_SUCCESS:
       return state.filter(cost => cost.id !== payload.id);
 
     default:

@@ -2,18 +2,18 @@
 /* eslint-disable import/order */
 import React, { Suspense } from 'react';
 // Временная заглушка пока нет регистрации начало
-// import axios from 'axios';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
 import { loader } from '../redux/selectors';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ExpensesList from 'react-router-dom';
+// import ExpensesList from 'react-router-dom';
 import routes from '../routes';
 
-// axios.defaults.headers.post['Content-Type'] = 'application/json';
-// axios.defaults.headers.common.Authorization =
-//   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDg5ZmIzMTcyZWU3MTJlOTFhMGZmMiIsImlhdCI6MTU5MTI1NDk2NH0.kVS-3m5n2bVnDtNhxWhX9iSZ7QPnhr0DaiSm1eWp4HA';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.common.Authorization =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDg5ZmIzMTcyZWU3MTJlOTFhMGZmMiIsImlhdCI6MTU5MTI1NDk2NH0.kVS-3m5n2bVnDtNhxWhX9iSZ7QPnhr0DaiSm1eWp4HA';
 // Временная заглушка пока нет регистрации конец
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
