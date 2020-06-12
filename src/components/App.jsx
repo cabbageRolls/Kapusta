@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
 import { loader } from '../redux/selectors';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import ExpensesList from 'react-router-dom';
 import routes from '../routes';
 import axios from 'axios';
 
@@ -34,17 +35,17 @@ function App({ isLoading }) {
     <>
       <Header />
       <Switch>
+        <Route
+          exact
+          path={routes.AUTH_PAGE.path}
+          component={routes.AUTH_PAGE.component}
+        />
         <Suspense fallback={<div>Загрузка...</div>}>
           <Route
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
           {/* <Redirect from={routes.MAIN_PAGE.path} to={routes.EXPENSES.path}/> */}
-          <Route
-            exact
-            path={routes.AUTH_PAGE.path}
-            component={routes.AUTH_PAGE.component}
-          />
 
           {Mobile && (
             <>
@@ -65,6 +66,7 @@ function App({ isLoading }) {
         </Suspense>
       </Switch>
       {isLoading && <Loader />}
+
       {/* <ExpensesComponents /> */}
       {/* <ReportPage /> */}
       {/* <SetBalanceForm /> */}
@@ -76,6 +78,7 @@ function App({ isLoading }) {
 
 App.propTypes = {
   init: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const MDTP = {
