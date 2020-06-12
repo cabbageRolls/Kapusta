@@ -22,3 +22,7 @@ export const monthPicker = store => {
 export const yearPicker = store => {
   return store.dataPicker.year;
 };
+
+export const getCosts = store => {
+  return store.transactions.costs;
+};

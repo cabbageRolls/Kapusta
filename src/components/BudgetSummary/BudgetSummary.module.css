@@ -19,8 +19,15 @@
 .boxTotalMonthTablet {
   display: flex;
   align-items: center;
+  padding-bottom: 41px;
 }
 
 .boxTotalMonthTablet .MonthPicker {
   order: 1;
+}
+.boxTotalMonthMobile {
+  padding-bottom: 31px;
+}
+.MonthPickerMobile {
+  padding-bottom: 36px;
 }

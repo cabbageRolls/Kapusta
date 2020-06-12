@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
 import { loader } from '../redux/selectors';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import ExpensesList from 'react-router-dom';
 import routes from '../routes';
 
 // axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -33,10 +34,15 @@ function App({ isLoading, isAuth = true }) {
       <Switch>
         <Suspense fallback={<div>Загрузка...</div>}>
           <Route
+            exact
+            path={routes.AUTH_PAGE.path}
+            component={routes.AUTH_PAGE.component}
+          />
+          <Route
             // exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
-          ></Route>
+          />
           <Route
             path={routes.AUTH_PAGE.path}
             component={routes.AUTH_PAGE.component}
@@ -45,7 +51,7 @@ function App({ isLoading, isAuth = true }) {
             path={routes.REPORT_PAGE.path}
             component={routes.REPORT_PAGE.component}
           />
-          {/* {isAuth ? (
+          {isAuth ? (
             Mobile ? (
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
@@ -53,7 +59,7 @@ function App({ isLoading, isAuth = true }) {
             )
           ) : (
             <Redirect to={routes.AUTH_PAGE.path} />
-          )} */}
+          )}
           {Mobile && (
             <>
               <Route
@@ -73,6 +79,7 @@ function App({ isLoading, isAuth = true }) {
         </Suspense>
       </Switch>
       {isLoading && <Loader />}
+
       {/* <ExpensesComponents /> */}
       {/* <ReportPage /> */}
       {/* <SetBalanceForm /> */}
@@ -84,6 +91,7 @@ function App({ isLoading, isAuth = true }) {
 
 App.propTypes = {
   init: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const MDTP = {
