@@ -26,3 +26,6 @@ export const DELETE_COST_SUCCESS = 'DELETE_COST_SUCCESS';
 export const DELETE_COST_ERROR = 'DELETE_COST_ERROR';
 export const SET_ALERT_ON = 'SET_ALERT';
 export const SET_ALERT_OFF = 'SET_ALERT_OFF';
+
+export const DO_INCREMENT = 'DO_INCREMENT';
+export const DO_DECREMENT = 'DO_DECREMENT';

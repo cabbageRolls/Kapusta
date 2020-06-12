@@ -18,7 +18,6 @@ import routes from '../routes';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
 import Loader from './Loader';
-import Header from './Header';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
 
@@ -28,24 +27,39 @@ import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 
-function App({ isLoading }) {
+function App({ isLoading, isAuth = true }) {
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
-      <Header />
       <Switch>
-        <Route
-          exact
-          path={routes.AUTH_PAGE.path}
-          component={routes.AUTH_PAGE.component}
-        />
         <Suspense fallback={<div>Загрузка...</div>}>
           <Route
+            exact
+            path={routes.AUTH_PAGE.path}
+            component={routes.AUTH_PAGE.component}
+          />
+          <Route
+            // exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
-          {/* <Redirect from={routes.MAIN_PAGE.path} to={routes.EXPENSES.path}/> */}
-
+          <Route
+            path={routes.AUTH_PAGE.path}
+            component={routes.AUTH_PAGE.component}
+          />
+          <Route
+            path={routes.REPORT_PAGE.path}
+            component={routes.REPORT_PAGE.component}
+          />
+          {isAuth ? (
+            Mobile ? (
+              <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
+            ) : (
+              <Redirect to={routes.EXPENSES.path} />
+            )
+          ) : (
+            <Redirect to={routes.AUTH_PAGE.path} />
+          )}
           {Mobile && (
             <>
               <Route
