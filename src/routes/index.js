@@ -13,11 +13,6 @@ const SET_EXPENSES_PAGE = React.lazy(() =>
     '../components/ExpensesComponents' /* webpackChunkName: "SET_EXPENSES_PAGE" */
   ),
 );
-// const SET_INCOME_PAGE = React.lazy(() =>
-//   import(
-//     '../pages/' /* webpackChunkName: "SET_INCOME_PAGE" */
-//   ),
-// );
 
 const REPORT_PAGE = React.lazy(() =>
   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
@@ -45,7 +40,7 @@ export default {
     component: AUTH_PAGE,
   },
   MAIN_PAGE: {
-    path: '/', // redirect to exp_page
+    path: '/dashboard', // redirect to exp_page
     component: MAIN_PAGE,
   },
   REPORT_PAGE: {
@@ -53,11 +48,11 @@ export default {
     component: REPORT_PAGE,
   },
   EXPENSES: {
-    path: '/expenses',
+    path: '/dashboard/expenses',
     component: SET_EXPENSES_PAGE,
   },
   INCOME: {
-    path: '/income',
+    path: '/dashboard/income',
     component: SET_EXPENSES_PAGE,
   },
 

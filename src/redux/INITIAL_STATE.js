@@ -1,3 +1,7 @@
+const date = new Date();
+const currentMonth = date.getMonth();
+const currentYear = date.getFullYear();
+
 const initState = {
   public: {},
   session: {
@@ -19,5 +23,9 @@ const initState = {
   loader: false,
   categories: [],
   costs: null,
+  dataPicker: {
+    month: currentMonth,
+    year: currentYear,
+  },
 };
 export default initState;
