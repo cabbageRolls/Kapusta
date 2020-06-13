@@ -8,11 +8,14 @@ import routes from '../../routes';
 import SetBalanceForm from '../../components/SetBalanceForm';
 import GoToReportsButton from '../../components/GoToReportsButton';
 import AdditionalButton from '../../components/AdditionalButton';
+import Header from '../../components/Header';
 
 const MainPage = () => {
   const isDefault = isNotMobile(useMediaQuery);
   return (
+    
     <Default>
+      <Header/>
       <div
         className={
           isDefault

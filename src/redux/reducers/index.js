@@ -9,6 +9,8 @@ import session from './session';
 import categories from './categories';
 import alertReducer from './alert';
 import costsReduser from './costs';
+import costs from './postCosts';
+import dataPickerReducer from '../reducers/monthPicker';
 
 const sessionPersistConfig = {
   key: 'kapusta',
@@ -23,5 +25,7 @@ const rootReducers = combineReducers({
   session: persistReducer(sessionPersistConfig, session),
   categories,
   alert: alertReducer,
+  costs,
+  dataPicker: dataPickerReducer,
 });
 export default rootReducers;

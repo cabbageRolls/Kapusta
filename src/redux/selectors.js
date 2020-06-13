@@ -14,6 +14,15 @@ export const loader = store => {
 export const getCategories = store => {
   return store.categories;
 };
+
+export const monthPicker = store => {
+  return store.dataPicker.month;
+};
+
+export const yearPicker = store => {
+  return store.dataPicker.year;
+};
+
 export const getCosts = store => {
   return store.transactions.costs;
 };
