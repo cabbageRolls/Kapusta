@@ -64,3 +64,10 @@
   border-radius: 20px;
   margin: 30px auto;
 }
+.button {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
