@@ -12,7 +12,10 @@ const costsReducer = (
       return { ...state, costs: payload.costs };
 
     case types.DELETE_COST_SUCCESS:
-      return state.filter(cost => cost.id !== payload.id);
+      return {
+        ...state,
+        costs: state.costs.filter(cost => cost.costsId !== payload.id),
+      };
 
     default:
       return state;

@@ -108,7 +108,9 @@ const ExpensesListItem = ({ costs, deleteCost }) => {
                     <button
                       className={MobileClass ? styles.btn : styles.defBtn}
                       type="button"
-                      onClick={() => deleteCost(expense.costsId)}
+                      onClick={() =>
+                        deleteCost(`${expense.forDeleteId}/${expense.costsId}`)
+                      }
                     >
                       <span className={styles.btnIcon} />
                     </button>

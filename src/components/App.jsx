@@ -2,7 +2,6 @@
 /* eslint-disable import/order */
 import React, { Suspense } from 'react';
 // Временная заглушка пока нет регистрации начало
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
