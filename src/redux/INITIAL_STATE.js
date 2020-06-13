@@ -1,5 +1,6 @@
 const date = new Date();
-const currentMonth = date.getMonth();
+
+const currentMonth = date.getMonth() + 1;
 const currentYear = date.getFullYear();
 
 const initState = {
