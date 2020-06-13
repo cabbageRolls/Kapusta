@@ -26,3 +26,7 @@ export const yearPicker = store => {
 export const getCosts = store => {
   return store.transactions.costs;
 };
+
+export const getCostsByPeriod = store => {
+  return store.transactions.costs;
+};
