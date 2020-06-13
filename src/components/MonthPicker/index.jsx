@@ -16,12 +16,9 @@ import moment from 'moment';
 moment.locale('ru');
 
 const index = ({ month, year, increment, decrement }) => {
-  // console.log(+moment(new Date()).format('M'));
-  // console.log(+moment(new Date()).format('YYYY'));
-
   const date = moment(new Date());
 
-  date.month(month);
+  date.month(month - 1);
   date.year(year);
 
   const IsDefault = isNotMobile(useMediaQuery);
@@ -31,14 +28,22 @@ const index = ({ month, year, increment, decrement }) => {
         <h4 className={Styles.title}>Текущий период:</h4>
       </Default>
       <div className={Styles.wrapper}>
-        <button type="button" className={Styles.button} onClick={decrement}>
+        <button
+          type="button"
+          className={Styles.button}
+          onClick={() => decrement(month)}
+        >
           <Icon className={Styles.svgLeft} />
         </button>
 
         <div className={Styles.data}>
           {date.format('MMM')} {date.format('YYYY')}
         </div>
-        <button type="button" className={Styles.button} onClick={increment}>
+        <button
+          type="button"
+          className={Styles.button}
+          onClick={() => increment(month)}
+        >
           <Icon className={Styles.svg} />
         </button>
       </div>
@@ -53,8 +58,8 @@ index.propTypes = {
 };
 
 const MDTP = {
-  increment: handeleIncrement,
-  decrement: handeleDecrement,
+  increment: (month) => handeleIncrement(month),
+  decrement: (month) => handeleDecrement(month),
 };
 const MSTP = state => ({
   month: monthPicker(state),
