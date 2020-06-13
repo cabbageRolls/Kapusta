@@ -190,7 +190,8 @@ input::-webkit-inner-spin-button {
   padding-top: 10px;
   border: 2px solid #f4f6fb;
   overflow-y: scroll;
-  height: 400px;
+  height: fit-content;
+  max-height: 400px;
   background-color: #fff;
   position: absolute;
   z-index: 111111;

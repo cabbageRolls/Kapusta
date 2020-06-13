@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -17,29 +17,45 @@ const ExpensesForm = ({
   products,
   isExpensesForm,
 }) => {
-  const [input, handleInputChange, handleClearInput] = useInputChange();
+  const [
+    input,
+    setInput,
+    handleInputChange,
+    handleClearInput,
+  ] = useInputChange();
   const [id, setId] = useIdChange();
+  const [isVisible, setIsVisible] = useState(false);
   const Tablet = isTablet(useMediaQuery);
   const Mobile = isMobile(useMediaQuery);
   useEffect(() => onFetchGategories(), []);
+  useEffect(() => {
+    if (input.description) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [input]);
 
   const handleClick = e => {
     if (e.target === e.currenttarget) return;
     setId(e);
-
-    input.description = e.target.textContent;
+    setInput({
+      amount: input.amount,
+      description: e.target.children[0].textContent,
+    });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    setIsVisible(false);
     const today = new Date().toISOString().substring(0, 10);
 
     const req = JSON.stringify({
       date: today,
       product: { productId: id, amount: input.amount, date: today },
     });
-
-    onPostCosts(req);
+    console.log(req);
+    // onPostCosts(req);
   };
 
   return (
@@ -61,21 +77,30 @@ const ExpensesForm = ({
             value={input.description}
             onChange={handleInputChange}
             placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
-            list="expenses"
             disabled={!isExpensesForm}
+            required
           />
-          {input.description ? (
+          {isVisible ? (
             <ul
               role="button"
               className={styles.expensesDataList}
               onClick={handleClick}
             >
-              {products.map(({ name, _id, category }) => (
-                <li key={_id} id={_id} className={styles.expensesOption}>
-                  <span className={styles.productName}>{name}</span>
-                  <span className={styles.categoryName}>{category.name}</span>
-                </li>
-              ))}
+              {products.map(({ name, _id, category }) => {
+                if (
+                  name.toLowerCase().includes(input.description) ||
+                  category.name.toLowerCase().includes(input.description)
+                ) {
+                  return (
+                    <li key={_id} id={_id} className={styles.expensesOption}>
+                      <span className={styles.productName}>{name}</span>
+                      <span className={styles.categoryName}>
+                        {category.name}
+                      </span>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           ) : null}
         </div>
@@ -95,6 +120,7 @@ const ExpensesForm = ({
             value={input.amount}
             placeholder="0.00"
             onChange={handleInputChange}
+            required
           />
           <div className={styles.iconCalculator} />
         </div>
