@@ -9,7 +9,10 @@ export const getError = store => {
   return store.error;
 };
 
-export const isAuthenticated = state => state.session.authenticated;
+export const storeFullName = store => store.session.fullName;
+export const storeEmail = store => store.session.email;
+export const storeIsLogin = store => store.session.isLogin;
+export const storeToken = store => store.session.token;
 
 export const loader = store => {
   return store.loader;
