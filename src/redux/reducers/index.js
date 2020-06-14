@@ -9,8 +9,10 @@ import alertReducer from './alert';
 import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
 import currentCategory from './currentCategory';
+import isExpenses from './isExpenses';
 
 const rootReducers = combineReducers({
+  isExpenses,
   session,
   realCategories,
   currentCategory,
