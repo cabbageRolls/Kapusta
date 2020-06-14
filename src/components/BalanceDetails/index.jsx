@@ -1,9 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './balanceDetails.module.css';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile, isTablet } from '../../services/mediaQuery';
+import {
+  getMonthBalanceCosts,
+  getMonthBalanceIncomes,
+} from '../../redux/selectors';
 
 const BalanceDetails = () => {
+  const monthBalanceCosts = useSelector(getMonthBalanceCosts);
+  const monthBalanceIncomes = useSelector(getMonthBalanceIncomes);
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
   return (
@@ -23,7 +30,9 @@ const BalanceDetails = () => {
             Mobile ? styles.ExpensesNumberMobile : styles.ExpensesNumberTablet
           }
         >
-          - 18,000.00 грн
+          {'- ' +
+            monthBalanceCosts.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') +
+            ' грн'}
         </span>
       </div>
       <div className={Mobile ? styles.IncomeMobile : styles.IncomeTablet}>
@@ -33,7 +42,9 @@ const BalanceDetails = () => {
             Mobile ? styles.IncomeNumberMobile : styles.IncomeNumberTablet
           }
         >
-          + 45,000.00 грн
+          {'+ ' +
+            monthBalanceIncomes.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') +
+            ' грн'}
         </span>
       </div>
     </div>
