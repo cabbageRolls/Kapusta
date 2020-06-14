@@ -18,12 +18,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
 const Alert = ({ alert, setAlertOff, setAlertOn }) => {
   return (
     <Snackbar open={alert.open} autoHideDuration={6000} onClose={setAlertOff}>
       <AlertComponent onClose={setAlertOff} severity={alert.type}>
-        {alert.message}
+        {alert.text}
       </AlertComponent>
     </Snackbar>
   );
@@ -32,17 +31,17 @@ const Alert = ({ alert, setAlertOff, setAlertOn }) => {
 Alert.defaultProps = {
   alert: {
     type: 'success',
-    message: 'message',
+    text: 'message',
     open: false,
   },
 };
 
 Alert.propTypes = {
-  alert: {
+  alert: T.shape({
     type: T.string.isRequired,
-    message: T.string.isRequired,
+    text: T.string.isRequired,
     open: T.bool.isRequired,
-  },
+  }),
   setAlertOff: T.func.isRequired,
   setAlertOn: T.func.isRequired,
 };

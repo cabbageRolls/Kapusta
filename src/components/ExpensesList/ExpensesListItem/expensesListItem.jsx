@@ -10,12 +10,12 @@ import {
 
 import styles from './expensesListItem.module.css';
 
-const ExpensesListItem = ({ expenses }) => {
+const ExpensesListItem = ({ costs, deleteCost }) => {
   const MobileClass = isMobile(useMediaQuery);
   const TabletClass = isTablet(useMediaQuery);
   return (
     <>
-      {expenses && (
+      {costs && (
         <div
           className={
             MobileClass
@@ -56,7 +56,7 @@ const ExpensesListItem = ({ expenses }) => {
                   : styles.Desktop_expensesList
               }
             >
-              {expenses.map(expense => (
+              {costs.map(expense => (
                 <li
                   className={
                     MobileClass
@@ -65,30 +65,32 @@ const ExpensesListItem = ({ expenses }) => {
                       ? styles.Tablet_item
                       : styles.Desktop_item
                   }
-                  key={expense.id}
+                  key={expense.costsId}
                 >
                   <Mobile>
                     <div className={styles.expenseDateContainer}>
                       <span className={styles.expenseCategory}>
-                        {expense.category}
+                        {expense.product.category.name}
                       </span>
                       <div className={styles.mobileWrapp}>
                         <span className={styles.expenseDate}>
-                          {expense.date}
+                          {expense.date.slice(0, -14)}
                         </span>
                         <span className={styles.expenseDescription}>
-                          {expense.description}
+                          {expense.product.name}
                         </span>
                       </div>
                     </div>
                   </Mobile>
                   <Default>
-                    <span className={styles.DexpenseDate}>{expense.date}</span>
+                    <span className={styles.DexpenseDate}>
+                      {expense.date.slice(0, -14)}
+                    </span>
                     <span className={styles.expenseDescription}>
-                      {expense.description}
+                      {expense.product.name}
                     </span>
                     <span className={styles.Tablet_expenseCategory}>
-                      {expense.category}
+                      {expense.product.category.name}
                     </span>
                   </Default>
                   <span
@@ -100,12 +102,13 @@ const ExpensesListItem = ({ expenses }) => {
                         : styles.Desktop_expenseAmount
                     }
                   >
-                    {expense.amount} грн.
+                    {expense.amount.toFixed(2)} грн.
                   </span>
                   <div>
                     <button
                       className={MobileClass ? styles.btn : styles.defBtn}
                       type="button"
+                      onClick={() => deleteCost(expense.costsId)}
                     >
                       <span className={styles.btnIcon} />
                     </button>
@@ -120,13 +123,17 @@ const ExpensesListItem = ({ expenses }) => {
   );
 };
 ExpensesListItem.propTypes = {
-  expenses: T.arrayOf(
+  costs: T.arrayOf(
     T.shape({
-      id: T.string.isRequired,
+      costsId: T.string.isRequired,
       date: T.string.isRequired,
-      description: T.string.isRequired,
-      category: T.string.isRequired,
-      amount: T.string.isRequired,
+      amount: T.number.isRequired,
+      product: T.shape({
+        name: T.string.isRequired,
+        category: T.shape({
+          name: T.string.isRequired,
+        }).isRequired,
+      }).isRequired,
     }).isRequired,
   ).isRequired,
 };

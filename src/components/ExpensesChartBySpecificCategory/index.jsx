@@ -1,42 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import ExpensesChartBySpecificCategory from './ExpensesChartBySpecificCategory';
 import { Mobile, Tablet, Desktop } from '../../services/mediaQuery';
 import Styles from './index.module.css';
+import { getDataCharts } from '../../redux/selectors';
 
-const index = ({ data }) => (
-  <div className={Styles.section}>
-    <Mobile>
-      <ExpensesChartBySpecificCategory data={data} isMobile currency="грн" />
-    </Mobile>
-    <Tablet>
-      <ExpensesChartBySpecificCategory data={data} currency="грн" />
-    </Tablet>
-    <Desktop>
-      <ExpensesChartBySpecificCategory data={data} currency="грн" />
-    </Desktop>
-  </div>
-);
-index.defaultProps = {
-  data: [
-    { name: 'chery', cost: '2500' },
-    { name: 'bacon', cost: '4500' },
-    { name: 'tomato', cost: '500' },
-    { name: 'chery', cost: '5500' },
-    { name: 'bacon', cost: '4100' },
-    { name: 'tomato', cost: '300' },
-    { name: 'chery', cost: '2000' },
-    { name: 'bacon', cost: '1500' },
-    { name: 'tomato', cost: '500' },
-    { name: 'tomato', cost: '200' },
-  ],
+const MyChart = () => {
+  const dataByCurrentCategory = useSelector(getDataCharts);
+  return (
+    <div className={Styles.section}>
+      {dataByCurrentCategory && dataByCurrentCategory.length > 0 ? (
+        <>
+          <Mobile>
+            <ExpensesChartBySpecificCategory
+              data={dataByCurrentCategory}
+              isMobile
+            />
+          </Mobile>
+          <Tablet>
+            <ExpensesChartBySpecificCategory data={dataByCurrentCategory} />
+          </Tablet>
+          <Desktop>
+            <ExpensesChartBySpecificCategory data={dataByCurrentCategory} />
+          </Desktop>
+        </>
+      ) : (
+        <div>Вы не заполнили эту категорию</div>
+      )}
+    </div>
+  );
 };
-index.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      cost: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
-};
-export default index;
+export default MyChart;

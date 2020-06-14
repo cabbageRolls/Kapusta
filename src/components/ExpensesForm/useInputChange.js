@@ -9,6 +9,10 @@ const useInputChange = () => {
       [e.currentTarget.name]: e.currentTarget.value,
     });
 
-  return [input, handleInputChange];
+  const handleClearInput = () => {
+    setInput({ amount: '', description: '' });
+  };
+
+  return [input, handleInputChange, handleClearInput];
 };
 export default useInputChange;

@@ -1,4 +1,11 @@
+const date = new Date();
+
+const currentMonth = date.getMonth() + 1;
+const currentYear = date.getFullYear();
+
 const initState = {
+  realCategories: [],
+  currentCategory: '',
   public: {},
   session: {
     email: '',
@@ -18,5 +25,11 @@ const initState = {
   error: {},
   loader: false,
   categories: [],
+  realCategories: [],
+  costs: null,
+  dataPicker: {
+    month: currentMonth,
+    year: currentYear,
+  },
 };
 export default initState;
