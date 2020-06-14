@@ -28,6 +28,6 @@ export const signupUserError = error => ({
   payload: { error },
 });
 
-export const logout = () => ({
+export const logoutUser = () => ({
   type: types.LOGOUT,
 });

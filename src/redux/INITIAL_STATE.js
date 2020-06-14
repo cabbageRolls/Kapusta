@@ -8,13 +8,15 @@ const initState = {
   currentCategory: '',
   public: {},
   session: {
-    email: '',
-    password: '',
-    name: {
-      fullName: '',
-      firstName: '',
-      lastName: '',
+    user: {
+      name: {
+        fullName: '',
+        firstName: '',
+        lastName: '',
+      },
+      email: '',
     },
+    authenticated: false,
     token: null,
   },
   transactions: {

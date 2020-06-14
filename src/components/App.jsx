@@ -10,14 +10,14 @@ import routes from '../routes';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
-import { loader } from '../redux/selectors';
-import axios from 'axios';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.common.Authorization =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZTVjMzYyMDM5MzM4NTc0MDkxODdiMCIsImlhdCI6MTU5MjExNjA2N30.Xal3b19ACYtfECZROIL6vWZ7c7zsZqeEFA3SVhsPP0w';
-// Временная заглушка пока нет регистрации конец
-//
-//
+import { loader, isAuthenticated } from '../redux/selectors';
+// import axios from 'axios';
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+// axios.defaults.headers.common.Authorization =
+//   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZTVjMzYyMDM5MzM4NTc0MDkxODdiMCIsImlhdCI6MTU5MjExNjA2N30.Xal3b19ACYtfECZROIL6vWZ7c7zsZqeEFA3SVhsPP0w';
+// // Временная заглушка пока нет регистрации конец
+// //
+// //
 
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
@@ -31,7 +31,7 @@ import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 
-function App({ isLoading, isAuth = false }) {
+function App({ isLoading, isAuth }) {
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
@@ -98,6 +98,7 @@ const MDTP = {
   init: getTransactions,
 };
 const MSTP = store => ({
+  isAuth: isAuthenticated(store),
   isLoading: loader(store),
 });
 export default connect(MSTP, MDTP)(App);
