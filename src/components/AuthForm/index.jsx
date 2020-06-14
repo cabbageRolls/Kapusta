@@ -15,6 +15,9 @@ import ActionButton from '../ActionButton';
 const signIn = 'войти';
 const signUp = 'регистрация';
 
+// login status error - 'Такого юзера не существует.'
+// signup error - 'Пользователь уже существует.'
+
 class AuthForm extends Component {
   state = {
     email: '',

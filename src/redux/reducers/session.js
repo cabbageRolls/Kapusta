@@ -15,6 +15,20 @@ const user = (state = null, { type, payload }) => {
   }
 };
 
+const userFullName = (state = '', { type, payload }) => {
+  switch (type) {
+    case types.LOGIN_USER_SUCCESS:
+    case types.SIGNUP_USER_SUCCESS:
+      return payload.response.user.userData.name.fullName;
+
+    case types.LOGOUT:
+      return null;
+
+    default:
+      return state;
+  }
+};
+
 const authenticated = (state = false, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
@@ -47,6 +61,7 @@ const session = combineReducers({
   user,
   authenticated,
   token,
+  userFullName,
 });
 
 export default session;

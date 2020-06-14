@@ -15,7 +15,7 @@ import currentCategory from './currentCategory';
 const sessionPersistConfig = {
   key: 'kapusta',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'userFullName'],
 };
 
 const rootReducers = combineReducers({

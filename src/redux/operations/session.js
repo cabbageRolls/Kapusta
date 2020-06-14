@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as API from '../../services/api';
+import { setAuthToken, clearAuthToken } from './token';
 import {
   loginUserRequest,
   loginUserSuccess,
@@ -9,8 +10,6 @@ import {
   signupUserError,
   logoutUser,
 } from '../actions/session';
-
-import { setAuthToken, clearAuthToken } from './token';
 
 export const login = credentials => dispatch => {
   dispatch(loginUserRequest());
