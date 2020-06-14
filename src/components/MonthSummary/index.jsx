@@ -1,45 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Styles from './MonthSummary.module.css';
+import { useSelector } from 'react-redux';
+import {
+  getCostsStatistic,
+  getIncomesStatistic,
+  storeIsExpenses,
+} from '../../redux/selectors';
 
-const MonthSummary = ({ data }) => {
+const MonthSummary = () => {
+  const dataCost = useSelector(getCostsStatistic);
+  const dataIncome = useSelector(getIncomesStatistic);
+  const isExpenses = useSelector(store => store.isExpenses);
+  console.log(isExpenses);
+  
+  console.log(dataCost);
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    if (!dataCost) return;
+    if (!dataIncome) return;
+    
+    console.log(isExpenses);
+    if (isExpenses) {
+      setData(dataCost);
+      console.log('isExpenses');
+      
+      return;
+    }
+    setData(dataIncome);
+  }, [dataCost, dataIncome, isExpenses]);
+
   return (
     <div className={Styles.container}>
       <h4 className={Styles.title}>СВОДКА</h4>
       <ul className={Styles.list}>
         {data.map(item => (
           <li key={item.id} className={Styles.item}>
-            <span>{item.mounth}</span>
-            <span>{item.cost}</span>
+            <span>{item.month}</span>
+            <span>{item.amount}</span>
           </li>
         ))}
       </ul>
     </div>
   );
 };
-MonthSummary.defaultProps = {
-  data: [
-    {
-      id: '1',
-      mounth: 'nov',
-      cost: 5,
-    },
-    {
-      id: '2',
-      mounth: 'oct',
-      cost: 5,
-    },
-  ],
-};
-
-MonthSummary.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      mounth: PropTypes.string.isRequired,
-      cost: PropTypes.number.isRequired,
-    }),
-  ),
-};
-
 export default MonthSummary;
