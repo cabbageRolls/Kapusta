@@ -14,7 +14,7 @@ import { loader } from '../redux/selectors';
 import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.common.Authorization =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDg5ZmIzMTcyZWU3MTJlOTFhMGZmMiIsImlhdCI6MTU5MTI1NDk2NH0.kVS-3m5n2bVnDtNhxWhX9iSZ7QPnhr0DaiSm1eWp4HA';
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZTVjMzYyMDM5MzM4NTc0MDkxODdiMCIsImlhdCI6MTU5MjExNjA2N30.Xal3b19ACYtfECZROIL6vWZ7c7zsZqeEFA3SVhsPP0w';
 // Временная заглушка пока нет регистрации конец
 //
 //
