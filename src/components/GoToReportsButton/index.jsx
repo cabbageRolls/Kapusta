@@ -2,15 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Styles from './goToReportsButton.module.css';
+import routes from '../../routes'
 
 import { Mobile, Default } from '../../services/mediaQuery';
 
-const ButtonReports = ({ pathname }) => {
+const ButtonReports = () => {
   return (
     <Link
-      to={{
-        pathname,
-      }}
+      to={routes.REPORT_PAGE.path}
       className={Styles.link}
     >
       <div className={Styles.container}>
@@ -33,10 +32,6 @@ const ButtonReports = ({ pathname }) => {
       </div>
     </Link>
   );
-};
-
-ButtonReports.propTypes = {
-  pathname: PropTypes.string.isRequired,
 };
 
 export default ButtonReports;

@@ -6,7 +6,7 @@ import transactions from './transactions';
 import error from './error';
 import loader from './loader';
 import session from './session';
-import categories from './categories';
+import products from './products';
 import alertReducer from './alert';
 import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
@@ -22,7 +22,7 @@ const rootReducers = combineReducers({
   error,
   loader,
   session: persistReducer(sessionPersistConfig, session),
-  categories,
+  products,
   alert: alertReducer,
   costs,
   dataPicker: dataPickerReducer,

@@ -6,9 +6,9 @@ import styles from './ExpensesForm.module.css';
 import useInputChange from './useInputChange';
 import useIdChange from './useIdChange';
 import { isMobile, isTablet } from '../../services/mediaQuery';
-import fetchCategories from '../../redux/operations/categories';
+import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
-import { getCategories } from '../../redux/selectors';
+import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
 const ExpensesForm = ({
@@ -46,6 +46,7 @@ const ExpensesForm = ({
   };
 
   const handleSubmit = e => {
+    console.log('invoked');
     e.preventDefault();
     setIsVisible(false);
     const today = new Date().toISOString().substring(0, 10);
@@ -59,12 +60,12 @@ const ExpensesForm = ({
   };
 
   return (
-    <>
-      <form
-        action="post"
-        className={!Mobile ? styles.form_Desktop : styles.form}
-        onSubmit={onPostCosts}
-      >
+    <form
+      action="post"
+      className={!Mobile ? styles.form_Desktop : styles.form}
+      onSubmit={handleSubmit}
+    >
+      <div className={!Mobile ? styles.inputWrapper : null}>
         <div className={styles.descriptionInputWrapper}>
           <input
             autoComplete="off"
@@ -83,7 +84,11 @@ const ExpensesForm = ({
           {isVisible ? (
             <ul
               role="button"
-              className={styles.expensesDataList}
+              className={
+                !Mobile
+                  ? styles.expensesDataList
+                  : styles.Mobile_expensesDataList
+              }
               onClick={handleClick}
             >
               {products.map(({ name, _id, category }) => {
@@ -124,18 +129,16 @@ const ExpensesForm = ({
           />
           <div className={styles.iconCalculator} />
         </div>
-        <div
-          className={Tablet ? styles.actionButton : styles.desktop_actionButton}
-        />
-
+      </div>
+      <div className={Mobile ? styles.buttons : null}>
         <ActionButtons
           submitFn={handleSubmit}
           onSignup={handleClearInput}
           firstButtonText="ввод"
           secondButtonText="очистить"
         />
-      </form>
-    </>
+      </div>
+    </form>
   );
 };
 
@@ -148,11 +151,11 @@ ExpensesForm.defaultProps = {
 };
 
 const mstp = state => ({
-  products: getCategories(state),
+  products: getProducts(state),
 });
 
 const mdtp = dispatch => ({
-  onFetchGategories: () => dispatch(fetchCategories()),
+  onFetchGategories: () => dispatch(fetchProducts()),
   onPostCosts: req => dispatch(postCosts(req)),
 });
 

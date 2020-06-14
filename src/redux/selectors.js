@@ -11,8 +11,8 @@ export const isAuthenticated = state => state.session.authenticated;
 export const loader = store => {
   return store.loader;
 };
-export const getCategories = store => {
-  return store.categories;
+export const getProducts = store => {
+  return store.products;
 };
 
 export const monthPicker = store => {
