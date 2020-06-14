@@ -18,7 +18,6 @@ export const login = credentials => dispatch => {
   axios
     .post(API.userLogin, credentials)
     .then(response => {
-      console.log(response.data);
       setAuthToken(response.data.user.token);
       dispatch(loginUserSuccess(response.data));
     })

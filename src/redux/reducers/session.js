@@ -5,7 +5,6 @@ const user = (state = null, { type, payload }) => {
   switch (type) {
     case types.LOGIN_USER_SUCCESS:
     case types.SIGNUP_USER_SUCCESS:
-      console.log(payload.response.user.userData);
       return payload.response.user.userData;
 
     case types.LOGOUT:
