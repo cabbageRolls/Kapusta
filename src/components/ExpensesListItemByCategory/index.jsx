@@ -5,7 +5,7 @@ const ExpensesListItemByCategory = ({ name, amount, icon }) => (
   <div className={styles.Item}>
     <p className={styles.Amount}>{amount}</p>
     <div className={styles.IconBack}>
-      <img className={styles.Icon} src={icon} alt="" />
+      <img className={styles.Icon} src={icon} alt={name} />
     </div>
     <p className={styles.Name}>{name}</p>
   </div>

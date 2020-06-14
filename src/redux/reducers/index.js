@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
-
+import realCategories from './realCategories';
 import transactions from './transactions';
 import error from './error';
 import loader from './loader';
@@ -10,6 +10,7 @@ import products from './products';
 import alertReducer from './alert';
 import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
+import currentCategory from './currentCategory';
 
 const sessionPersistConfig = {
   key: 'kapusta',
@@ -18,6 +19,8 @@ const sessionPersistConfig = {
 };
 
 const rootReducers = combineReducers({
+  realCategories,
+  currentCategory,
   transactions,
   error,
   loader,
