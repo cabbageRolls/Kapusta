@@ -31,17 +31,12 @@ import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
 
-function App({ isLoading, isAuth = true }) {
+function App({ isLoading, isAuth = false }) {
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
       <Switch>
         <Suspense fallback={<div>Загрузка...</div>}>
-          <Route
-            exact
-            path={routes.AUTH_PAGE.path}
-            component={routes.AUTH_PAGE.component}
-          />
           <Route
             // exact
             path={routes.MAIN_PAGE.path}
@@ -59,8 +54,8 @@ function App({ isLoading, isAuth = true }) {
             Mobile ? (
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
-              // <Redirect to={routes.EXPENSES.path} />
-              <Redirect to={routes.REPORT_PAGE.path} />
+              <Redirect to={routes.EXPENSES.path} />
+              // <Redirect to={routes.REPORT_PAGE.path} />
             )
           ) : (
             <Redirect to={routes.AUTH_PAGE.path} />
