@@ -35,11 +35,38 @@ export const yearPicker = store => {
 export const getCosts = store => {
   return store.transactions.costs;
 };
-
+// это MonthPicker
 export const getPeriod = store => store.dataPicker;
+
+export const getCurrentCategory = store => store.currentCategory;
 
 export const getCostByPeriodAndCategories = createSelector(
   [getPeriod, getCosts, realCategories],
   (period, costs, categories) =>
     CostByPeriodAndCategories(period, costs, categories),
+);
+
+export const getDataCharts = createSelector(
+  [getCurrentCategory, getCostByPeriodAndCategories],
+  (category, costs) => {
+    if (!category.length) return [];
+    const sum = (acc, value) => acc + value;
+    const dataByCategory = costs
+      .find(item => {
+        return item.name === category;
+      })
+      .allCosts.map(i => ({ value: i.amount, name: i.product.name }));
+    const result = [...new Set(dataByCategory.map(i => i.name))].reduce(
+      (acc, name) => {
+        const value = dataByCategory
+          .filter(i => i.name === name)
+          .map(i => i.value)
+          .reduce(sum);
+        acc.push({ name, value });
+        return acc;
+      },
+      [],
+    );
+    return result;
+  },
 );

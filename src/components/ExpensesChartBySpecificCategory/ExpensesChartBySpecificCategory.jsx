@@ -11,16 +11,14 @@ Chart.defaults.global.defaultFontSize = 11;
 Chart.defaults.global.defaultFontStyle = '400';
 
 const mapper = json => {
-  return json
-    .sort((a, b) => b.cost - a.cost)
-    .reduce(
-      (acc, product) => {
-        acc.data.push(product.cost);
-        acc.labels.push(product.name);
-        return acc;
-      },
-      { data: [], labels: [] },
-    );
+  return json.reduce(
+    (acc, product) => {
+      acc.data.push(product.value);
+      acc.labels.push(product.name);
+      return acc;
+    },
+    { data: [], labels: [] },
+  );
 };
 
 const bgColor = (lenght, firstColor, secondColor) => {
@@ -41,6 +39,7 @@ const costFormat = cost =>
 const renderChart = ({ dom, data, isMobile = false, currency }) => {
   const backgroundColor = bgColor(data.length, '#ee7428cc', '#edcbbbcc');
   const res = mapper(data);
+  if (!document.getElementById(dom)) return;
   const CTX = document.getElementById(dom).getContext('2d');
   const myChart = () =>
     new Chart(CTX, {
@@ -183,27 +182,53 @@ export default class ExpensesChartBySpecificCategory extends Component {
     data: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
-        cost: PropTypes.string.isRequired,
+        value: PropTypes.number.isRequired,
       }).isRequired,
     ).isRequired,
     isMobile: PropTypes.bool,
-    currency: PropTypes.string.isRequired,
+  };
+  state = {
+    clear: true,
   };
 
   componentDidMount() {
-    const { data, isMobile, currency } = this.props;
+    const { data, isMobile } = this.props;
     renderChart({
       dom: 'canvas',
       data,
       isMobile,
-      currency,
+      currency: 'грн',
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { data, isMobile } = this.props;
+    const { clear } = this.state;
+    if (prevProps.data !== data) {
+      this.setState({ clear: true });
+    }
+    if (prevState.clear !== clear && !clear) {
+      renderChart({
+        dom: 'canvas',
+        data,
+        isMobile,
+        currency: 'грн',
+      });
+    }
+  }
+  clearFalse = () => {
+    this.setState({ clear: false });
+  };
+
   render() {
+    const { clear } = this.state;
     return (
       <section className={Styles.canvas}>
-        <canvas className={Styles.canvas} id="canvas" />
+        {clear ? (
+          <>{this.clearFalse()}</>
+        ) : (
+          <canvas className={Styles.canvas} id="canvas" />
+        )}
       </section>
     );
   }
