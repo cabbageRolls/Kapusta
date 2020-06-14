@@ -4,9 +4,9 @@ export const loginUserRequest = () => ({
   type: types.LOGIN_USER_REQUEST,
 });
 
-export const loginUserSuccess = response => ({
+export const loginUserSuccess = payload => ({
   type: types.LOGIN_USER_SUCCESS,
-  payload: { response },
+  payload,
 });
 
 export const loginUserError = error => ({
@@ -18,9 +18,9 @@ export const signupUserRequest = () => ({
   type: types.SIGNUP_USER_REQUEST,
 });
 
-export const signupUserSuccess = response => ({
+export const signupUserSuccess = payload => ({
   type: types.SIGNUP_USER_SUCCESS,
-  payload: { response },
+  payload,
 });
 
 export const signupUserError = error => ({

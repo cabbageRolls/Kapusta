@@ -1,52 +1,80 @@
-import { combineReducers } from 'redux';
+import INITIAL_STATE from '../INITIAL_STATE';
 import * as types from '../types';
 
-const user = (state = null, { type, payload }) => {
+const authReducer = (state = INITIAL_STATE.session, { payload, type }) => {
   switch (type) {
+    case types.SIGNUP_USER_REQUEST:
+    case types.SIGNUP_USER_ERROR:
+    case types.LOGIN_USER_REQUEST:
+    case types.LOGIN_USER_ERROR:
+      return state;
     case types.LOGIN_USER_SUCCESS:
     case types.SIGNUP_USER_SUCCESS:
-      return payload.response.user.userData;
-
+      return {
+        fullName: payload.user.userData.name.fullName,
+        email: payload.user.userData.email,
+        token: payload.user.token,
+        isLogin: true,
+      };
     case types.LOGOUT:
-      return null;
-
+      return {
+        isLogin: false,
+      };
     default:
       return state;
   }
 };
+export default authReducer;
 
-const authenticated = (state = false, { type, payload }) => {
-  switch (type) {
-    case types.LOGIN_USER_SUCCESS:
-    case types.SIGNUP_USER_SUCCESS:
-      return true;
+// import { combineReducers } from 'redux';
+// import * as types from '../types';
 
-    case types.LOGOUT:
-      return false;
+// const user = (state = null, { type, payload }) => {
+//   switch (type) {
+//     case types.LOGIN_USER_SUCCESS:
+//     case types.SIGNUP_USER_SUCCESS:
+//       return payload.response.user.userData;
 
-    default:
-      return state;
-  }
-};
+//     case types.LOGOUT:
+//       return null;
 
-const token = (state = null, { type, payload }) => {
-  switch (type) {
-    case types.LOGIN_USER_SUCCESS:
-    case types.SIGNUP_USER_SUCCESS:
-      return payload.response.user.token;
+//     default:
+//       return state;
+//   }
+// };
 
-    case types.LOGOUT:
-      return null;
+// const authenticated = (state = false, { type, payload }) => {
+//   switch (type) {
+//     case types.LOGIN_USER_SUCCESS:
+//     case types.SIGNUP_USER_SUCCESS:
+//       return true;
 
-    default:
-      return state;
-  }
-};
+//     case types.LOGOUT:
+//       return false;
 
-const session = combineReducers({
-  user,
-  authenticated,
-  token,
-});
+//     default:
+//       return state;
+//   }
+// };
 
-export default session;
+// const token = (state = null, { type, payload }) => {
+//   switch (type) {
+//     case types.LOGIN_USER_SUCCESS:
+//     case types.SIGNUP_USER_SUCCESS:
+//       return payload.response.user.token;
+
+//     case types.LOGOUT:
+//       return null;
+
+//     default:
+//       return state;
+//   }
+// };
+
+// const session = combineReducers({
+//   user,
+//   authenticated,
+//   token,
+// });
+
+// export default session;
