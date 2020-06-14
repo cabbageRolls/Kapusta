@@ -38,11 +38,6 @@ function App({ isLoading, isAuth }) {
       <Switch>
         <Suspense fallback={<div>Загрузка...</div>}>
           <Route
-            exact
-            path={routes.AUTH_PAGE.path}
-            component={routes.AUTH_PAGE.component}
-          />
-          <Route
             // exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
@@ -59,8 +54,8 @@ function App({ isLoading, isAuth }) {
             Mobile ? (
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
-              // <Redirect to={routes.EXPENSES.path} />
-              <Redirect to={routes.REPORT_PAGE.path} />
+              <Redirect to={routes.EXPENSES.path} />
+              // <Redirect to={routes.REPORT_PAGE.path} />
             )
           ) : (
             <Redirect to={routes.AUTH_PAGE.path} />
