@@ -9,13 +9,13 @@ export const getError = store => {
   return store.error;
 };
 
-export const isAuthenticated = state => state.session.authenticated;
+export const isAuthenticated = state => Boolean(state.session.token);
 
 export const loader = store => {
   return store.loader;
 };
 
-//ЭТО ПРОДУКТЫ
+// ЭТО ПРОДУКТЫ
 export const getCategories = store => {
   return store.categories;
 };
