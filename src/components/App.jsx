@@ -27,13 +27,11 @@ import ReportPage from '../pages/ReportPage';
 import Alert from './Alert';
 // import MainPage from '../pages/MainPage';
 import ExpensesComponents from './ExpensesComponents';
-import A from '../pages/SetExpensesPageMobile';
 
 function App({ isLoading, isAuth = true }) {
   const Mobile = isMobile(useMediaQuery);
   return (
     <>
-      {/* <A /> */}
       <Switch>
         <Suspense fallback={<div>Загрузка...</div>}>
           <Route
