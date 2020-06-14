@@ -1,4 +1,4 @@
-import { CostByPeriodAndCategories } from '../services/helpers';
+import { CostByPeriodAndCategories, dataByDate } from '../services/helpers';
 import { createSelector } from 'reselect';
 
 export const getBalance = store => {
@@ -35,10 +35,25 @@ export const yearPicker = store => {
 export const getCosts = store => {
   return store.transactions.costs;
 };
+export const getIncomes = store => {
+  return store.transactions.income;
+};
 // это MonthPicker
 export const getPeriod = store => store.dataPicker;
 
 export const getCurrentCategory = store => store.currentCategory;
+
+export const getMonthBalanceCosts = createSelector(
+  [getCosts, getPeriod],
+  (costs, period) =>
+    dataByDate(costs, period).reduce((acc, cost) => acc + cost.amount, 0),
+);
+
+export const getMonthBalanceIncomes = createSelector(
+  [getIncomes, getPeriod],
+  (incomes, period) =>
+    dataByDate(incomes, period).reduce((acc, income) => acc + income.amount, 0),
+);
 
 export const getCostByPeriodAndCategories = createSelector(
   [getPeriod, getCosts, realCategories],

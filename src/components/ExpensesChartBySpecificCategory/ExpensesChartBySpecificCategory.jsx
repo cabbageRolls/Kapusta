@@ -156,7 +156,7 @@ const renderChart = ({ dom, data, isMobile = false, currency }) => {
               barPercentage: 0.4,
               categoryPercentage: 0.55,
               gridLines: {
-                display: true,
+                display: false,
                 drawBorder: false,
               },
               display: true,
