@@ -55,8 +55,8 @@ const ExpensesForm = ({
       date: today,
       product: { productId: id, amount: input.amount, date: today },
     });
-    console.log(req);
-    // onPostCosts(req);
+
+    onPostCosts(req);
   };
 
   return (
@@ -132,7 +132,6 @@ const ExpensesForm = ({
       </div>
       <div className={Mobile ? styles.buttons : null}>
         <ActionButtons
-          submitFn={handleSubmit}
           onSignup={handleClearInput}
           firstButtonText="ввод"
           secondButtonText="очистить"
