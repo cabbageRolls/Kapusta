@@ -1,0 +1,7 @@
+.enter {
+  transform: scale(0);
+}
+
+.enterActive {
+  transition: opacity 250ms ease-in-out;
+}
