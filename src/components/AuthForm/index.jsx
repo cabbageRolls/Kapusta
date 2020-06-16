@@ -42,18 +42,34 @@ class AuthForm extends Component {
     onSignup: PropTypes.func.isRequired,
   };
 
-  handleSignup = e => {
-    const credentials = {
-      ...this.state,
-      name: {
-        fullName: `User ${this.state.email}`,
-        firstName: 'User',
-        lastName: this.state.email,
-      },
-    };
+  catchErrors = errors => {
+    const formattedErrors = {};
 
-    this.props.onSignup(credentials);
-    this.setState({ email: '', password: '' });
+    errors.forEach(error => {
+      formattedErrors[error.field] = error.message;
+    });
+
+    this.setState({ errors: formattedErrors });
+  };
+
+  handleSignup = e => {
+    const { email, password } = this.state;
+
+    validateAll({ email, password }, rules, messages)
+      .then(data => {
+        const credentials = {
+          ...data,
+          name: {
+            fullName: `User ${email}`,
+            firstName: 'User',
+            lastName: email,
+          },
+        };
+
+        this.props.onSignup(credentials);
+        this.setState({ email: '', password: '', errors: null });
+      })
+      .catch(errors => this.catchErrors(errors));
   };
 
   handleSubmit = e => {
@@ -63,17 +79,9 @@ class AuthForm extends Component {
     validateAll({ email, password }, rules, messages)
       .then(data => {
         this.props.onLogin(data);
-        this.setState({ email: '', password: '' });
+        this.setState({ email: '', password: '', errors: null });
       })
-      .catch(errors => {
-        const formattedErrors = {};
-
-        errors.forEach(error => {
-          formattedErrors[error.field] = error.message;
-        });
-
-        this.setState({ errors: formattedErrors });
-      });
+      .catch(errors => this.catchErrors(errors));
   };
 
   handleChange = e => {
