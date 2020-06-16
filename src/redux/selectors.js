@@ -1,4 +1,8 @@
-import { CostByPeriodAndCategories, dataByDate } from '../services/helpers';
+import {
+  CostByPeriodAndCategories,
+  dataByDate,
+  getAmountByPeriod,
+} from '../services/helpers';
 import { createSelector } from 'reselect';
 
 export const getBalance = store => {
@@ -8,14 +12,17 @@ export const getBalance = store => {
 export const getError = store => {
   return store.error;
 };
-
-export const isAuthenticated = state => state.session.authenticated;
+export const storeIsExpenses = store => store.isExpenses;
+export const storeFullName = store => store.session.fullName;
+export const storeEmail = store => store.session.email;
+export const storeIsLogin = store => store.session.isLogin;
+export const storeToken = store => store.session.token;
 
 export const loader = store => {
   return store.loader;
 };
 
-//ЭТО ПРОДУКТЫ
+// ЭТО ПРОДУКТЫ
 export const getCategories = store => {
   return store.categories;
 };
@@ -42,6 +49,17 @@ export const getIncomes = store => {
 export const getPeriod = store => store.dataPicker;
 
 export const getCurrentCategory = store => store.currentCategory;
+
+export const getCostsStatistic = createSelector([getCosts], costs =>
+  getAmountByPeriod({ data: costs, viewOld: 6 }),
+);
+
+export const getIncomesStatistic = createSelector([getIncomes], data =>
+  getAmountByPeriod({
+    data,
+    viewOld: 6,
+  }),
+);
 
 export const getMonthBalanceCosts = createSelector(
   [getCosts, getPeriod],

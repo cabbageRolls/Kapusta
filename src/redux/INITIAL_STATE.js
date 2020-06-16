@@ -6,16 +6,11 @@ const currentYear = date.getFullYear();
 const initState = {
   realCategories: [],
   currentCategory: '',
-  public: {},
   session: {
+    fullName: '',
     email: '',
-    password: '',
-    name: {
-      fullName: '',
-      firstName: '',
-      lastName: '',
-    },
-    token: null,
+    token: '',
+    isLogin: false,
   },
   transactions: {
     balance: 0,
@@ -31,5 +26,6 @@ const initState = {
     month: currentMonth,
     year: currentYear,
   },
+  isExpenses: true,
 };
 export default initState;

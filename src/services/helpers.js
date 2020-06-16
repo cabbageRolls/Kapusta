@@ -1,3 +1,15 @@
+import axios from 'axios';
+import moment from 'moment';
+
+export const setAuthToken = token => {
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+export const clearAuthToken = () => {
+  axios.defaults.headers.common.Authorization = null;
+};
+
 export const TwoDigits = value => {
   const result = +value >= 10 ? +value : `0${+value}`;
   return result;
@@ -6,69 +18,76 @@ export const TwoDigits = value => {
 export const dataByDate = (data, { year, month }) => {
   return data.filter(item => item.date.includes(`${year}-${TwoDigits(month)}`));
 };
+
 const textCategories = [
   {
-    id: '01',
+    id: 'dT0T8Kjr',
     name: 'Продукты',
     text: 'Продукты',
     icon: './images/svg/food.svg',
   },
   {
-    id: '02',
+    id: 'iI5MgGk3',
     name: 'Алкоголь',
     text: 'Алкоголь',
     icon: './images/svg/alcohol.svg',
   },
   {
-    id: '03',
+    id: 'ZYde2bXn',
     name: 'Развлечение',
     text: 'Развлечение',
     icon: './images/svg/kite.svg',
   },
   {
-    id: '04',
+    id: 'OvRz2M4u',
     name: 'Здоровье',
     text: 'Здоровье',
     icon: './images/svg/hart.svg',
   },
   {
-    id: '05',
+    id: 'kHsVMa6X',
     name: 'Транспорт',
     text: 'Транспорт',
     icon: './images/svg/car.svg',
   },
   {
-    id: '06',
+    id: 'CHoRd7LK',
     name: 'Все для дома',
     text: 'Все для дома',
     icon: './images/svg/couch.svg',
   },
   {
-    id: '07',
+    id: 'ssE3eTug',
     name: 'Техника',
     text: 'Техника',
     icon: './images/svg/tools.svg',
   },
   {
-    id: '08',
+    id: 'Lm1ByxJJ',
     name: 'Коммуналка,Связь',
     text: 'Коммуналка, связь',
     icon: './images/svg/utilities.svg',
   },
   {
-    id: '09',
+    id: 'H3uA9jhf',
     name: 'Хобби',
     text: 'Спорт,  хобби',
     icon: './images/svg/sport.svg',
   },
   {
-    id: '10',
+    id: '1uMBiflR',
     name: 'Образование',
     text: 'Образование',
     icon: './images/svg/book.svg',
   },
-  { id: '11', name: 'Прочее', text: 'Прочее', icon: './images/svg/others.svg' },
+  {
+    id: '96A4opSK',
+    name: 'Прочее',
+    text: 'Прочее',
+    icon: './images/svg/others.svg',
+  },
 ];
+
 export const CostByPeriodAndCategories = (period, costs, categories) => {
   const sum = data =>
     data.reduce((a, { amount }) => {
@@ -94,4 +113,36 @@ export const CostByPeriodAndCategories = (period, costs, categories) => {
     ...result.filter(i => i.name === item.name)[0],
   }));
   return newResult;
+};
+export const getAmountByMonth = (data, { year, month }) => {
+  const date = moment(new Date());
+  const amount = dataByDate(data, { year, month })
+    .map(item => item.amount)
+    .reduce((acc, value) => acc + value, 0);
+  const result = {
+    id: new Date(),
+    month: date.month(month - 1).format('MMMM'),
+    monthNumder: month,
+    year: year,
+    amount,
+  };
+  return result;
+};
+export const getAmountByPeriod = ({ data, viewOld }) => {
+  let year = +moment(new Date()).format('YYYY');
+  let month = +moment(new Date()).format('M');
+  const result = [];
+  for (let i = 1; i <= viewOld; i += 1) {
+    if (month === 1) {
+      year -= 1;
+      month = 12;
+    }
+    if (month === 12) {
+      year += 1;
+      month = 1;
+    }
+    result.push(getAmountByMonth(data, { year, month }));
+    month -= 1;
+  }
+  return result;
 };

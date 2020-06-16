@@ -8,7 +8,7 @@ import Logo from '../Logo';
 import ProfileName from '../ProfileName';
 import LogoutButton from '../LogoutButton';
 
-import * as sessionActions from '../../redux/actions/session';
+import * as sessionOperations from '../../redux/operations/session';
 
 const index = ({ isAuthenticated, onLogOut }) => {
   const Desktop = isDesktop(useMediaQuery);
@@ -39,7 +39,7 @@ index.defaultProps = {
 };
 
 const mapDispatchToProps = {
-  onLogOut: sessionActions.logout,
+  onLogOut: sessionOperations.logout,
 };
 
 export default connect(null, mapDispatchToProps)(index);

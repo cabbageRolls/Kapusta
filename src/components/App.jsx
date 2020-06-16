@@ -1,45 +1,51 @@
-/* eslint-disable import/first */
-/* eslint-disable import/order */
-import React, { Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React, { Suspense, useEffect, useState } from 'react';
+import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import routes from '../routes';
-//
-//
-// Временная заглушка пока нет регистрации начало
-// Не добавляйте код в заглушку вам же ее удалять как подключите логинизацию
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
-import { loader } from '../redux/selectors';
-
-import axios from 'axios';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.common.Authorization =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZTVjMzYyMDM5MzM4NTc0MDkxODdiMCIsImlhdCI6MTU5MjExNjA2N30.Xal3b19ACYtfECZROIL6vWZ7c7zsZqeEFA3SVhsPP0w';
-// Временная заглушка пока нет регистрации конец
-//
-//
-
+import getCategories from '../redux/operations/realCategories';
+import getProducts from '../redux/operations/categories';
+import { storeIsLogin, storeToken } from '../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
+import { setAuthToken } from '../services/helpers';
 import Loader from './Loader';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-
-// import SetBalanceForm from './SetBalanceForm';
-import ReportPage from '../pages/ReportPage';
 import Alert from './Alert';
-// import MainPage from '../pages/MainPage';
-import ExpensesComponents from './ExpensesComponents';
 
-function App({ isLoading, isAuth = false }) {
+function App() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const isLogin = useSelector(storeIsLogin);
+  const token = useSelector(storeToken);
   const Mobile = isMobile(useMediaQuery);
+  const [isAuth, setIsAuth] = useState(false);
+  const [headers, setHeaders] = useState(false);
+
+  useEffect(() => {
+    if (!isLogin) {
+      history.replace(routes.AUTH_PAGE.path);
+      return;
+    }
+    if (!token.length) return;
+    if (!isAuth) setIsAuth(true);
+    if (!headers) {
+      setAuthToken(token);
+      setHeaders(true);
+    }
+    if (isAuth && headers) {
+      dispatch(getTransactions());
+      dispatch(getCategories());
+      dispatch(getProducts());
+    }
+  }, [isLogin, token, headers, isAuth]);
+
   return (
     <>
       <Switch>
-        <Suspense fallback={<div>Загрузка...</div>}>
+        <Suspense fallback={<Loader />}>
           <Route
-            // exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
@@ -56,7 +62,6 @@ function App({ isLoading, isAuth = false }) {
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
               <Redirect to={routes.EXPENSES.path} />
-              // <Redirect to={routes.REPORT_PAGE.path} />
             )
           ) : (
             <Redirect to={routes.EXPENSES.path} />
@@ -79,26 +84,8 @@ function App({ isLoading, isAuth = false }) {
           )}
         </Suspense>
       </Switch>
-      {/* {isLoading && <Loader />} */}
-
-      {/* <ExpensesComponents /> */}
-      {/* <ReportPage /> */}
-      {/* <SetBalanceForm /> */}
-      {/* <MainPage /> */}
       <Alert />
     </>
   );
 }
-
-App.propTypes = {
-  init: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
-
-const MDTP = {
-  init: getTransactions,
-};
-const MSTP = store => ({
-  isLoading: loader(store),
-});
-export default connect(MSTP, MDTP)(App);
+export default App;
