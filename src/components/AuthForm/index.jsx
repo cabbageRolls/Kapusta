@@ -75,6 +75,7 @@ class AuthForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { email, password } = this.state;
+    console.log();
 
     validateAll({ email, password }, rules, messages)
       .then(data => {
@@ -121,6 +122,7 @@ class AuthForm extends Component {
             <AuthErrorSpan message="password" errors={errors} />
           </AuthLabel>
         </div>
+
         <ActionButton
           firstButtonText={signIn}
           secondButtonText={signUp}
