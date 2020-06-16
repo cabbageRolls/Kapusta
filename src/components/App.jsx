@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getTransactions from '../redux/operations/transactions';
 import { loader } from '../redux/selectors';
+
 import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.common.Authorization =
@@ -58,7 +59,7 @@ function App({ isLoading, isAuth = false }) {
               // <Redirect to={routes.REPORT_PAGE.path} />
             )
           ) : (
-            <Redirect to={routes.AUTH_PAGE.path} />
+            <Redirect to={routes.EXPENSES.path} />
           )}
           {Mobile && (
             <>
