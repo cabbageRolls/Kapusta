@@ -1,18 +1,16 @@
 const date = new Date();
-const currentMonth = date.getMonth();
+
+const currentMonth = date.getMonth() + 1;
 const currentYear = date.getFullYear();
 
 const initState = {
-  public: {},
+  realCategories: [],
+  currentCategory: '',
   session: {
+    fullName: '',
     email: '',
-    password: '',
-    name: {
-      fullName: '',
-      firstName: '',
-      lastName: '',
-    },
-    token: null,
+    token: '',
+    isLogin: false,
   },
   transactions: {
     balance: 0,
@@ -22,10 +20,12 @@ const initState = {
   error: {},
   loader: false,
   categories: [],
+  realCategories: [],
   costs: null,
   dataPicker: {
     month: currentMonth,
     year: currentYear,
   },
+  isExpenses: true,
 };
 export default initState;

@@ -1,9 +1,11 @@
 import * as types from '../types';
 
-export const handeleIncrement = () => ({
+export const handeleIncrement = payload => ({
   type: types.DO_INCREMENT,
+  payload,
 });
 
-export const handeleDecrement = () => ({
+export const handeleDecrement = payload => ({
   type: types.DO_DECREMENT,
+  payload,
 });
