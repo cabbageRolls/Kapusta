@@ -83,7 +83,6 @@ function App() {
               />
             </>
           )}
-          <ExpensesList />
         </Suspense>
       </Switch>
       <Alert />

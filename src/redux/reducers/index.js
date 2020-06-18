@@ -19,7 +19,6 @@ const rootReducers = combineReducers({
   currentCategory,
   transactions,
   error,
-  // costsData: costsReduser,
   loader,
   categories,
   alert: alertReducer,
