@@ -103,3 +103,5 @@ export const getDataCharts = createSelector(
     return result;
   },
 );
+// Datepicker
+export const getCurrentDate = store => store.currentDate;
