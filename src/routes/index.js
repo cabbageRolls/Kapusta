@@ -8,11 +8,12 @@ const MAIN_PAGE = React.lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "MAIN_PAGE" */),
 );
 
-const SET_EXPENSES_PAGE = React.lazy(() =>
-  import(
-    '../components/ExpensesComponents' /* webpackChunkName: "SET_EXPENSES_PAGE" */
-  ),
-);
+// const SET_EXPENSES_PAGE = React.lazy(() =>
+//   import(
+//     '../components/ExpensesComponents' /* webpackChunkName: "SET_EXPENSES_PAGE" */
+//   ),
+// );
+
 const EXPENSES_LIST = React.lazy(() =>
   import(
     '../components/ExpensesList' /* webpackChunkName: "SET_EXPENSES_PAGE" */
