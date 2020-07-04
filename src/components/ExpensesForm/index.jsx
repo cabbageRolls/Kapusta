@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import styles from './ExpensesForm.module.css';
 import useInputChange from './useInputChange';
 import useIdChange from './useIdChange';
-import { isMobile, isTablet } from '../../services/mediaQuery';
+import { isMobile } from '../../services/mediaQuery';
 import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
-import { fetchCosts } from '../../redux/operations/costs';
+// import { fetchCosts } from '../../redux/operations/costs';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 

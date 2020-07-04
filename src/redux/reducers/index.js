@@ -20,7 +20,6 @@ const rootReducers = combineReducers({
   transactions,
   error,
   loader,
-  session,
   products,
   alert: alertReducer,
   costs,
