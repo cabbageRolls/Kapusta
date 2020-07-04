@@ -1,5 +1,4 @@
 import * as actions from '../actions/currentCategory';
-import * as types from '../types';
 
 const setCurrentCategory = data => {
   return dispatch => {

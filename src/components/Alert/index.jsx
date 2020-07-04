@@ -10,14 +10,15 @@ function AlertComponent(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     width: '100%',
+//     '& > * + *': {
+//       marginTop: theme.spacing(2),
+//     },
+//   },
+// }));
+
 const Alert = ({ alert, setAlertOff, setAlertOn }) => {
   return (
     <Snackbar open={alert.open} autoHideDuration={6000} onClose={setAlertOff}>

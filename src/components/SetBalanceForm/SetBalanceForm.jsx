@@ -80,7 +80,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
 };
 SetBalanceForm.propTypes = {
   balance: PropTypes.number.isRequired,
-  error: PropTypes.shape(PropTypes.any).isRequired,
+  error: PropTypes.shape(PropTypes.any),
   sendBalance: PropTypes.func.isRequired,
 };
 
