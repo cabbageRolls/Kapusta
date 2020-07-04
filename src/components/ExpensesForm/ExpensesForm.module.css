@@ -15,7 +15,7 @@ input::-webkit-inner-spin-button {
 }
 .amountInputWrapper {
   position: relative;
-  width: fit-content;
+  width: 180px;
   margin: 0 auto;
 }
 .descriptionInput {
@@ -96,11 +96,14 @@ input::-webkit-inner-spin-button {
 .form_Desktop {
   display: flex;
   max-width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   height: 46px;
+}
+.inputWrapper {
+  display: flex;
+  width: 600px;
   position: relative;
 }
-
 .descriptionInput_Desktop {
   height: 100%;
   border: #f4f6fb 2px solid;
@@ -127,7 +130,6 @@ input::-webkit-inner-spin-button {
   margin: 0 auto;
 }
 .amountInputWrapper_Desktop::after {
-  left: 0;
   background-color: #f4f6fb;
   width: 2px;
   height: 100%;
@@ -172,9 +174,7 @@ input::-webkit-inner-spin-button {
   composes: amountInput;
 }
 /*  */
-.amountInputWrapper::after {
-  left: 0;
-}
+
 .amountInput_Desktop::placeholder {
   color: #c7ccdc;
 }
@@ -190,7 +190,8 @@ input::-webkit-inner-spin-button {
   padding-top: 10px;
   border: 2px solid #f4f6fb;
   overflow-y: scroll;
-  height: 400px;
+  height: fit-content;
+  max-height: 400px;
   background-color: #fff;
   position: absolute;
   z-index: 111111;
@@ -241,4 +242,14 @@ input::-webkit-inner-spin-button {
 .productName {
   transition: all linear 200ms;
   pointer-events: none;
+}
+.buttons {
+  max-width: 272px;
+  margin: 90px auto 0;
+}
+.Mobile_expensesDataList {
+  composes: expensesDataList;
+  position: static;
+  width: 80%;
+  margin: 0 auto;
 }

@@ -13,9 +13,6 @@ const index = () => {
         </div>
         <ExpensesForm />
       </div>
-      <div className={styles.buttons}>
-        <ActionButton firstButtonText="ввод" secondButtonText="очистить" />
-      </div>
     </div>
   );
 };

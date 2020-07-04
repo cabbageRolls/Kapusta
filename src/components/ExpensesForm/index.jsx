@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,9 +6,9 @@ import styles from './ExpensesForm.module.css';
 import useInputChange from './useInputChange';
 import useIdChange from './useIdChange';
 import { isMobile, isTablet } from '../../services/mediaQuery';
-import fetchCategories from '../../redux/operations/categories';
+import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
-import { getCategories } from '../../redux/selectors';
+import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
 const ExpensesForm = ({
@@ -17,21 +17,38 @@ const ExpensesForm = ({
   products,
   isExpensesForm,
 }) => {
-  const [input, handleInputChange, handleClearInput] = useInputChange();
+  const [
+    input,
+    setInput,
+    handleInputChange,
+    handleClearInput,
+  ] = useInputChange();
   const [id, setId] = useIdChange();
+  const [isVisible, setIsVisible] = useState(false);
   const Tablet = isTablet(useMediaQuery);
   const Mobile = isMobile(useMediaQuery);
   useEffect(() => onFetchGategories(), []);
+  useEffect(() => {
+    if (input.description) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [input]);
 
   const handleClick = e => {
     if (e.target === e.currenttarget) return;
     setId(e);
-
-    input.description = e.target.textContent;
+    setInput({
+      amount: input.amount,
+      description: e.target.children[0].textContent,
+    });
   };
 
   const handleSubmit = e => {
+    console.log('invoked');
     e.preventDefault();
+    setIsVisible(false);
     const today = new Date().toISOString().substring(0, 10);
 
     const req = JSON.stringify({
@@ -43,12 +60,12 @@ const ExpensesForm = ({
   };
 
   return (
-    <>
-      <form
-        action="post"
-        className={!Mobile ? styles.form_Desktop : styles.form}
-        onSubmit={onPostCosts}
-      >
+    <form
+      action="post"
+      className={!Mobile ? styles.form_Desktop : styles.form}
+      onSubmit={handleSubmit}
+    >
+      <div className={!Mobile ? styles.inputWrapper : null}>
         <div className={styles.descriptionInputWrapper}>
           <input
             autoComplete="off"
@@ -61,21 +78,34 @@ const ExpensesForm = ({
             value={input.description}
             onChange={handleInputChange}
             placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
-            list="expenses"
             disabled={!isExpensesForm}
+            required
           />
-          {input.description ? (
+          {isVisible ? (
             <ul
               role="button"
-              className={styles.expensesDataList}
+              className={
+                !Mobile
+                  ? styles.expensesDataList
+                  : styles.Mobile_expensesDataList
+              }
               onClick={handleClick}
             >
-              {products.map(({ name, _id, category }) => (
-                <li key={_id} id={_id} className={styles.expensesOption}>
-                  <span className={styles.productName}>{name}</span>
-                  <span className={styles.categoryName}>{category.name}</span>
-                </li>
-              ))}
+              {products.map(({ name, _id, category }) => {
+                if (
+                  name.toLowerCase().includes(input.description) ||
+                  category.name.toLowerCase().includes(input.description)
+                ) {
+                  return (
+                    <li key={_id} id={_id} className={styles.expensesOption}>
+                      <span className={styles.productName}>{name}</span>
+                      <span className={styles.categoryName}>
+                        {category.name}
+                      </span>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           ) : null}
         </div>
@@ -95,21 +125,19 @@ const ExpensesForm = ({
             value={input.amount}
             placeholder="0.00"
             onChange={handleInputChange}
+            required
           />
           <div className={styles.iconCalculator} />
         </div>
-        <div
-          className={Tablet ? styles.actionButton : styles.desktop_actionButton}
-        />
-
+      </div>
+      <div className={Mobile ? styles.buttons : null}>
         <ActionButtons
-          submitFn={handleSubmit}
           onSignup={handleClearInput}
           firstButtonText="ввод"
           secondButtonText="очистить"
         />
-      </form>
-    </>
+      </div>
+    </form>
   );
 };
 
@@ -122,11 +150,11 @@ ExpensesForm.defaultProps = {
 };
 
 const mstp = state => ({
-  products: getCategories(state),
+  products: getProducts(state),
 });
 
 const mdtp = dispatch => ({
-  onFetchGategories: () => dispatch(fetchCategories()),
+  onFetchGategories: () => dispatch(fetchProducts()),
   onPostCosts: req => dispatch(postCosts(req)),
 });
 

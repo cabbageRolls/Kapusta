@@ -19,7 +19,7 @@ const initState = {
   },
   error: {},
   loader: false,
-  categories: [],
+  products: [],
   realCategories: [],
   costs: null,
   // costsData: [],

@@ -13,6 +13,6 @@ const useInputChange = () => {
     setInput({ amount: '', description: '' });
   };
 
-  return [input, handleInputChange, handleClearInput];
+  return [input, setInput, handleInputChange, handleClearInput];
 };
 export default useInputChange;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import routes from '../routes';
 import getTransactions from '../redux/operations/transactions';
 import getCategories from '../redux/operations/realCategories';
-import getProducts from '../redux/operations/categories';
+import getProducts from '../redux/operations/products';
 import { storeIsLogin, storeToken } from '../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';

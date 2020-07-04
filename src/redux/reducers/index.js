@@ -4,7 +4,7 @@ import transactions from './transactions';
 import error from './error';
 import loader from './loader';
 import session from './session';
-import categories from './categories';
+import products from './products';
 import alertReducer from './alert';
 // import costsReduser from './costs';
 import costs from './postCosts';
@@ -20,7 +20,8 @@ const rootReducers = combineReducers({
   transactions,
   error,
   loader,
-  categories,
+  session,
+  products,
   alert: alertReducer,
   costs,
   dataPicker: dataPickerReducer,

@@ -21,10 +21,8 @@ export const storeToken = store => store.session.token;
 export const loader = store => {
   return store.loader;
 };
-
-// ЭТО ПРОДУКТЫ
-export const getCategories = store => {
-  return store.categories;
+export const getProducts = store => {
+  return store.products;
 };
 
 export const realCategories = store => {
