@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import T from 'prop-types';
 import { Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { setAlertOffAction, setAlertOnAction } from '../../redux/actions/alert';
 
 function AlertComponent(props) {
