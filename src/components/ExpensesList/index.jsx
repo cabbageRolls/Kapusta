@@ -16,6 +16,12 @@ class ExpensesList extends Component {
     fetchCostsData();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.costsData === this.props.costsData) return;
+    const { fetchCostsData } = this.props;
+    fetchCostsData();
+  }
+
   render() {
     const { costsData, deleteCost } = this.props;
     return <ExpensesListItem costs={costsData} deleteCost={deleteCost} />;
