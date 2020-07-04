@@ -7,10 +7,9 @@ const ActionButton = ({
   firstButtonText,
   secondButtonText,
   onSignup,
-  submitFn,
 }) => (
   <div className={styles.ActionButton}>
-    <button className={styles.FirstButton} type="submit" onClick={submitFn}>
+    <button className={styles.FirstButton} type="submit">
       {firstButtonText}
     </button>
     <button className={styles.SecondButton} type="button" onClick={onSignup}>
@@ -23,7 +22,6 @@ ActionButton.propTypes = {
   firstButtonText: PropTypes.string.isRequired,
   secondButtonText: PropTypes.string.isRequired,
   onSignup: PropTypes.func.isRequired,
-  submitFn: PropTypes.func.isRequired,
 };
 
 export default ActionButton;

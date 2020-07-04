@@ -11,7 +11,7 @@ const Router = () => {
     <Switch>
       <Route path="/" exact component={GoBackButton} />
       <Route path="/main" exact component={MainPage} />
-      <Route path="/authorization" component={AuthPage} />
+      <Route path="/auth" component={AuthPage} />
       <Route path="/expensespage" component={ExpensesPage} />
     </Switch>
   );

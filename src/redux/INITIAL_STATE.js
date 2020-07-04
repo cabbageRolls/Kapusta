@@ -4,7 +4,6 @@ const currentMonth = date.getMonth() + 1;
 const currentYear = date.getFullYear();
 
 const initState = {
-  realCategories: [],
   currentCategory: '',
   session: {
     fullName: '',
@@ -19,7 +18,7 @@ const initState = {
   },
   error: {},
   loader: false,
-  categories: [],
+  products: [],
   realCategories: [],
   costs: null,
   // costsData: [],

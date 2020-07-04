@@ -9,8 +9,9 @@ import ProfileName from '../ProfileName';
 import LogoutButton from '../LogoutButton';
 
 import * as sessionOperations from '../../redux/operations/session';
+import * as selectors from '../../redux/selectors';
 
-const index = ({ isAuthenticated, onLogOut }) => {
+const Header = ({ isAuthenticated, onLogOut }) => {
   const Desktop = isDesktop(useMediaQuery);
   return (
     <div
@@ -29,17 +30,17 @@ const index = ({ isAuthenticated, onLogOut }) => {
   );
 };
 
-index.propTypes = {
-  isAuthenticated: PropTypes.bool,
+Header.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
   onLogOut: PropTypes.func.isRequired,
 };
 
-index.defaultProps = {
-  isAuthenticated: true,
-};
+const mapStateToProps = state => ({
+  isAuthenticated: selectors.storeIsLogin(state),
+});
 
 const mapDispatchToProps = {
   onLogOut: sessionOperations.logout,
 };
 
-export default connect(null, mapDispatchToProps)(index);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -125,7 +125,7 @@ const renderChart = ({ dom, data, isMobile = false, currency }) => {
           display: false,
         },
         tooltips: {
-          enabled: false,
+          enabled: true,
         },
         layout: {
           padding: {
@@ -143,8 +143,8 @@ const renderChart = ({ dom, data, isMobile = false, currency }) => {
               barPercentage: 1,
               categoryPercentage: 0.65,
               gridLines: {
-                display: false,
-                drawBorder: false,
+                display: true,
+                drawBorder: true,
               },
               ticks: {
                 display: true,
@@ -156,12 +156,12 @@ const renderChart = ({ dom, data, isMobile = false, currency }) => {
               barPercentage: 0.4,
               categoryPercentage: 0.55,
               gridLines: {
-                display: false,
-                drawBorder: false,
+                display: true,
+                drawBorder: true,
               },
               display: true,
               ticks: {
-                display: false,
+                display: true,
                 min: 0,
                 stepSize: 1000,
               },
