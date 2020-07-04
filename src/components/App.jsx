@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import routes from '../routes';
 import getTransactions from '../redux/operations/transactions';
@@ -28,12 +28,14 @@ function App() {
       history.replace(routes.AUTH_PAGE.path);
       return;
     }
+
     if (!token.length) return;
     if (!isAuth) setIsAuth(true);
     if (!headers) {
       setAuthToken(token);
       setHeaders(true);
     }
+
     if (isAuth && headers) {
       dispatch(getTransactions());
       dispatch(getCategories());
@@ -57,7 +59,7 @@ function App() {
             path={routes.REPORT_PAGE.path}
             component={routes.REPORT_PAGE.component}
           />
-          {isAuth ? (
+          {/* {isAuth ? (
             Mobile ? (
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
@@ -65,7 +67,7 @@ function App() {
             )
           ) : (
             <Redirect to={routes.AUTH_PAGE.path} />
-          )}
+          )} */}
           {Mobile && (
             <>
               <Route
@@ -88,4 +90,5 @@ function App() {
     </>
   );
 }
+
 export default App;
