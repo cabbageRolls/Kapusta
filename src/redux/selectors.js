@@ -46,6 +46,14 @@ export const getCosts = store => {
   return store.transactions.costs;
 };
 
+export const getPostedCost = store => {
+  if (store.costs?.createdCosts) {
+    return store.costs.createdCosts.costsId;
+  } else {
+    return null;
+  }
+};
+
 export const getIncomes = store => {
   return store.transactions.income;
 };

@@ -58,8 +58,8 @@ index.propTypes = {
 };
 
 const MDTP = {
-  increment: (month) => handeleIncrement(month),
-  decrement: (month) => handeleDecrement(month),
+  increment: month => handeleIncrement(month),
+  decrement: month => handeleDecrement(month),
 };
 const MSTP = state => ({
   month: monthPicker(state),

@@ -2,7 +2,8 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import DatePicker from '../DatePicker';
 import ExpensesForm from '../ExpensesForm';
-import ExpensesList from '../ExpensesList';
+import { Switch, Route } from 'react-router-dom';
+import routes from '../../routes';
 import MonthSummary from '../MonthSummary';
 import Styles from './index.module.css';
 import * as MQ from '../../services/mediaQuery';
@@ -24,13 +25,29 @@ const ExpensesComponents = () => {
           <div
             className={IsTablet ? Styles.ExpensesForm : Styles.D_ExpensesForm}
           >
-            <ExpensesForm />
+            <Switch>
+              <Route path={routes.EXPENSES.path}>
+                <ExpensesForm />
+              </Route>
+              <Route path={routes.INCOME.path}>
+                <ExpensesForm isExpensesForm={false} />
+              </Route>
+            </Switch>
           </div>
         </div>
       </div>
       <div className={IsTablet ? Styles.main : Styles.D_main}>
         <div className={IsTablet ? Styles.ExpensesList : Styles.D_ExpensesList}>
-          <ExpensesList />
+          <Switch>
+            <Route
+              path={routes.EXPENSES.path}
+              component={routes.EXPENSES.component}
+            />
+            <Route
+              path={routes.INCOME.path}
+              component={routes.INCOME.component}
+            />
+          </Switch>
         </div>
         <div className={IsTablet ? Styles.MonthSummary : Styles.D_MonthSummary}>
           <MonthSummary />

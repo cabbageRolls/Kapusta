@@ -1,21 +1,19 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import styles from './MainPage.module.css';
 import { isNotMobile, Default } from '../../services/mediaQuery';
-import routes from '../../routes';
 
 import SetBalanceForm from '../../components/SetBalanceForm';
 import GoToReportsButton from '../../components/GoToReportsButton';
 import AdditionalButton from '../../components/AdditionalButton';
 import Header from '../../components/Header';
+import ExpensesComponent from '../../components/ExpensesComponents';
 
 const MainPage = () => {
   const isDefault = isNotMobile(useMediaQuery);
   return (
-    
     <Default>
-      <Header/>
+      <Header />
       <div
         className={
           isDefault
@@ -30,13 +28,7 @@ const MainPage = () => {
           <GoToReportsButton />
         </div>
         <AdditionalButton />
-        <Switch>
-          <Route
-            path={routes.EXPENSES.path}
-            component={routes.EXPENSES.component}
-          />
-          <Route path={routes.INCOME.path} component={routes.INCOME.component} />
-        </Switch>
+        <ExpensesComponent />
       </div>
     </Default>
   );
