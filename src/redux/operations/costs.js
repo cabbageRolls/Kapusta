@@ -22,11 +22,11 @@ export const fetchCosts = () => dispatch => {
 };
 
 export const deleteCost = id => dispatch => {
-  dispatch(deleteCostStart());
+  dispatch(deleteCostStart(id.slice(25)));
   axios
-    .delete(API.userCosts + `${id}`)
+    .delete(API.userCosts + `/${id}`)
     .then(() => {
-      dispatch(deleteCostSuccess(id));
+      dispatch(deleteCostSuccess(id.slice(25)));
     })
     .catch(error => {
       dispatch(deleteCostError(error));

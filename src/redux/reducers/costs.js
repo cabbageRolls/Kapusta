@@ -1,20 +1,21 @@
-import * as types from '../types';
-import { fetchCostsSuccess, deleteCostSuccess } from '../actions/costs';
-import INITIAL_STATE from '../INITIAL_STATE';
+// // import { fetchCostsSuccess, deleteCostSuccess } from '../actions/costs';
+// import * as types from '../types';
 
-const costsReducer = (
-  state = INITIAL_STATE.transactions.costs,
-  { payload, type },
-) => {
-  switch (type) {
-    case fetchCostsSuccess:
-      return payload.costs;
+// import INITIAL_STATE from '../INITIAL_STATE';
 
-    case deleteCostSuccess:
-      return state.filter(cost => cost.id !== payload.id);
+// const costsReducer = (
+//   state = INITIAL_STATE.transactions.costs,
+//   { payload, type },
+// ) => {
+//   switch (type) {
+//     case types.GET_COSTS_SUCCESS:
+//       return payload.costs;
 
-    default:
-      return state;
-  }
-};
-export default costsReducer;
+//     // case types.DELETE_COST_SUCCESS:
+//     //   return state.filter(cost => cost.costsId !== payload.id);
+
+//     default:
+//       return state;
+//   }
+// };
+// export default costsReducer;

@@ -8,7 +8,7 @@ import * as operations from '../../redux/operations/costs';
 class ExpensesList extends Component {
   static propTypes = {
     fetchCostsData: T.func.isRequired,
-    costsData: T.func.isRequired,
+    costsData: T.shape(T.any).isRequired,
   };
 
   componentDidMount() {

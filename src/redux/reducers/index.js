@@ -6,6 +6,7 @@ import loader from './loader';
 import session from './session';
 import categories from './categories';
 import alertReducer from './alert';
+// import costsReduser from './costs';
 import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
 import currentCategory from './currentCategory';
