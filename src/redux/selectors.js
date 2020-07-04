@@ -9,6 +9,10 @@ export const getBalance = store => {
   return store.transactions.balance;
 };
 
+export const getIncome = store => {
+  return store.transactions.income;
+};
+
 export const getError = store => {
   return store.error;
 };
@@ -44,14 +48,6 @@ export const yearPicker = store => {
 
 export const getCosts = store => {
   return store.transactions.costs;
-};
-
-export const getPostedCost = store => {
-  if (store.costs?.createdCosts) {
-    return store.costs.createdCosts.costsId;
-  } else {
-    return null;
-  }
 };
 
 export const getIncomes = store => {

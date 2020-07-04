@@ -1,17 +1,17 @@
 import * as types from '../types';
 
-export const fetchCostsStart = () => ({
+const fetchCostsStart = () => ({
   type: types.GET_COSTS_STARTED,
 });
 
-export const fetchCostsSuccess = costs => ({
+const fetchCostsSuccess = data => ({
   type: types.GET_COSTS_SUCCESS,
   payload: {
-    costs,
+    ...data,
   },
 });
 
-export const fetchCostsError = error => ({
+const fetchCostsError = error => ({
   type: types.GET_COSTS_ERROR,
   payload: {
     error,
@@ -20,20 +20,47 @@ export const fetchCostsError = error => ({
 
 // DELETE
 
-export const deleteCostStart = () => ({
+const deleteCostStart = () => ({
   type: types.DELETE_COST_STARTED,
 });
 
-export const deleteCostSuccess = id => ({
+const deleteCostSuccess = id => ({
   type: types.DELETE_COST_SUCCESS,
   payload: {
     id,
   },
 });
 
-export const deleteCostError = error => ({
+const deleteCostError = error => ({
   type: types.DELETE_COST_ERROR,
   payload: {
     error,
   },
 });
+
+const postCostsStart = () => ({
+  type: types.POST_COSTS_STARTED,
+});
+
+const postCostsSuccess = data => ({
+  type: types.POST_COSTS_SUCCESS,
+  payload: data,
+});
+
+const postCostsError = data => ({
+  type: types.POST_COSTS_FAILURE,
+  payload: {
+    error: data,
+  },
+});
+export default {
+  fetchCostsStart,
+  fetchCostsSuccess,
+  fetchCostsError,
+  deleteCostStart,
+  deleteCostSuccess,
+  deleteCostError,
+  postCostsStart,
+  postCostsSuccess,
+  postCostsError,
+};
