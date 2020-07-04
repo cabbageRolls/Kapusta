@@ -59,15 +59,6 @@ function App() {
             path={routes.REPORT_PAGE.path}
             component={routes.REPORT_PAGE.component}
           />
-          {/* {isAuth ? (
-            Mobile ? (
-              <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
-            ) : (
-              <Redirect to={routes.EXPENSES.path} />
-            )
-          ) : (
-            <Redirect to={routes.AUTH_PAGE.path} />
-          )} */}
           {Mobile && (
             <>
               <Route
