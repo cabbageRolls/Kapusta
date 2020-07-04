@@ -10,6 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
 import { setAuthToken } from '../services/helpers';
 import Loader from './Loader';
+import ExpensesList from './ExpensesList';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
 import Alert from './Alert';
