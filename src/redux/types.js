@@ -39,3 +39,5 @@ export const POST_COSTS_FAILURE = 'POST_COSTS_FAILURE';
 export const DO_INCREMENT = 'DO_INCREMENT';
 export const DO_DECREMENT = 'DO_DECREMENT';
 export const IS_EXPENSES = 'IS_EXPENSES';
+
+export const SET_CURRENT_DATE = 'SET_CURRENT_DATE';
