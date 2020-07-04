@@ -64,7 +64,7 @@ function App() {
               <Redirect to={routes.EXPENSES.path} />
             )
           ) : (
-            <Redirect to={routes.AUTH_PAGE.path} />
+            <Redirect to={routes.EXPENSES.path} />
           )}
           {Mobile && (
             <>
