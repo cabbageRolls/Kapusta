@@ -8,6 +8,7 @@ import useIdChange from './useIdChange';
 import { isMobile, isTablet } from '../../services/mediaQuery';
 import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
+import { fetchCosts } from '../../redux/operations/costs';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
@@ -25,7 +26,6 @@ const ExpensesForm = ({
   ] = useInputChange();
   const [id, setId] = useIdChange();
   const [isVisible, setIsVisible] = useState(false);
-  const Tablet = isTablet(useMediaQuery);
   const Mobile = isMobile(useMediaQuery);
   useEffect(() => onFetchGategories(), []);
   useEffect(() => {
@@ -46,7 +46,6 @@ const ExpensesForm = ({
   };
 
   const handleSubmit = e => {
-    console.log('invoked');
     e.preventDefault();
     setIsVisible(false);
     const today = new Date().toISOString().substring(0, 10);
