@@ -8,12 +8,14 @@ import useIdChange from './useIdChange';
 import { isMobile } from '../../services/mediaQuery';
 import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
+import postBalance from '../../redux/operations/balance';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
 const ExpensesForm = ({
   onPostCosts,
   onFetchGategories,
+  onPostBalance,
   products,
   isExpensesForm,
 }) => {
@@ -48,13 +50,16 @@ const ExpensesForm = ({
     e.preventDefault();
     setIsVisible(false);
     const today = new Date().toISOString().substring(0, 10);
-
-    const req = JSON.stringify({
-      date: today,
-      product: { productId: id, amount: input.amount, date: today },
-    });
+    if (isExpensesForm) {
+      const req = JSON.stringify({
+        date: today,
+        product: { productId: id, amount: input.amount, date: today },
+      });
+      onPostCosts(req);
+    } else {
+      onPostBalance(input.amount);
+    }
     handleClearInput();
-    onPostCosts(req);
   };
 
   return (
@@ -158,6 +163,7 @@ const mstp = state => ({
 const mdtp = dispatch => ({
   onFetchGategories: () => dispatch(fetchProducts()),
   onPostCosts: req => dispatch(postCosts(req)),
+  onPostBalance: req => dispatch(postBalance(req)),
 });
 
 export default connect(mstp, mdtp)(ExpensesForm);
