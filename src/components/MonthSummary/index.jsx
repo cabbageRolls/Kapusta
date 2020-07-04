@@ -13,19 +13,19 @@ const MonthSummary = () => {
   const dataIncome = useSelector(getIncomesStatistic);
   const isExpenses = useSelector(store => store.isExpenses);
   console.log(isExpenses);
-  
+
   console.log(dataCost);
 
   const [data, setData] = useState([]);
   useEffect(() => {
     if (!dataCost) return;
     if (!dataIncome) return;
-    
+
     console.log(isExpenses);
     if (isExpenses) {
       setData(dataCost);
       console.log('isExpenses');
-      
+
       return;
     }
     setData(dataIncome);
