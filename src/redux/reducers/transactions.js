@@ -10,8 +10,6 @@ const transactions = (
     case types.POST_BALANCE_STARTED:
     case types.GET_TRANSACTIONS_SUCCESS:
     case types.POST_BALANCE_SUCCESS:
-    case types.GET_COSTS_STARTED:
-    case types.GET_COSTS_SUCCESS:
       return { ...state, ...payload };
 
     case types.DELETE_COST_SUCCESS:

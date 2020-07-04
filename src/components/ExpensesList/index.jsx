@@ -8,7 +8,6 @@ import * as operations from '../../redux/operations/costs';
 class ExpensesList extends Component {
   static propTypes = {
     fetchCostsData: T.func.isRequired,
-    costsData: T.shape(T.any).isRequired,
   };
 
   componentDidMount() {
@@ -17,9 +16,9 @@ class ExpensesList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // if (prevProps.costsData === this.props.costsData) return;
-    // const { fetchCostsData } = this.props;
-    // fetchCostsData();
+    if (prevProps.costsData === this.props.costsData) return;
+    const { fetchCostsData } = this.props;
+    fetchCostsData();
   }
 
   render() {
