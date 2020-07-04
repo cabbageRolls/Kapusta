@@ -17,6 +17,7 @@ const SET_EXPENSES_PAGE = React.lazy(() =>
 const REPORT_PAGE = React.lazy(() =>
   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
 );
+
 const SET_BALANCE_PAGE_MOBILE = React.lazy(() =>
   import(
     '../pages/SetBalancePageMobile' /* webpackChunkName: "SET_BALANCE_PAGE_MOBILE" */
@@ -28,6 +29,7 @@ const SET_EXPENSES_PAGE_MOBILE = React.lazy(() =>
     '../pages/SetExpensesPageMobile' /* webpackChunkName: "SET_EXPENSES_PAGE_MOBILE" */
   ),
 );
+
 const SET_INCOME_PAGE_MOBILE = React.lazy(() =>
   import(
     '../pages/SetIncomePageMobile' /* webpackChunkName: "SET_INCOME_PAGE_MOBILE" */
@@ -39,18 +41,22 @@ export default {
     path: '/auth',
     component: AUTH_PAGE,
   },
+
   MAIN_PAGE: {
     path: '/dashboard', // redirect to exp_page
     component: MAIN_PAGE,
   },
+
   REPORT_PAGE: {
     path: '/report',
     component: REPORT_PAGE,
   },
+
   EXPENSES: {
     path: '/dashboard/expenses',
     component: SET_EXPENSES_PAGE,
   },
+
   INCOME: {
     path: '/dashboard/income',
     component: SET_EXPENSES_PAGE,
@@ -60,10 +66,12 @@ export default {
     path: '/balance',
     component: SET_BALANCE_PAGE_MOBILE,
   },
+
   SET_EXPENSES_PAGE_MOBILE: {
     path: '/expenses-form',
     component: SET_EXPENSES_PAGE_MOBILE,
   },
+
   SET_INCOME_PAGE_MOBILE: {
     path: '/income-form',
     component: SET_INCOME_PAGE_MOBILE,

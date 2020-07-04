@@ -12,10 +12,15 @@ export const getBalance = store => {
 export const getError = store => {
   return store.error;
 };
+
 export const storeIsExpenses = store => store.isExpenses;
+
 export const storeFullName = store => store.session.fullName;
+
 export const storeEmail = store => store.session.email;
+
 export const storeIsLogin = store => store.session.isLogin;
+
 export const storeToken = store => store.session.token;
 
 export const loader = store => {
@@ -42,9 +47,11 @@ export const yearPicker = store => {
 export const getCosts = store => {
   return store.transactions.costs;
 };
+
 export const getIncomes = store => {
   return store.transactions.income;
 };
+
 // это MonthPicker
 export const getPeriod = store => store.dataPicker;
 

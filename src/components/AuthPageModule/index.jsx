@@ -6,7 +6,7 @@ import styles from './AuthPageModule.module.css';
 import ProjectTitle from '../ProjectTitle';
 import AuthForm from '../AuthForm';
 
-const index = () => {
+const AuthPageModule = () => {
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
 
@@ -26,4 +26,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AuthPageModule;
