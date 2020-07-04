@@ -11,7 +11,6 @@ import * as API from '../../services/api';
 
 export const fetchCosts = () => dispatch => {
   dispatch(fetchCostsStart());
-
   axios
     .get(API.userTransactions)
     .then(res => {

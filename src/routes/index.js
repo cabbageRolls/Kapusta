@@ -13,6 +13,16 @@ const SET_EXPENSES_PAGE = React.lazy(() =>
     '../components/ExpensesComponents' /* webpackChunkName: "SET_EXPENSES_PAGE" */
   ),
 );
+const EXPENSES_LIST = React.lazy(() =>
+  import(
+    '../components/ExpensesList' /* webpackChunkName: "SET_EXPENSES_PAGE" */
+  ),
+);
+const INCOME_LIST = React.lazy(() =>
+  import(
+    '../components/IncomeList' /* webpackChunkName: "SET_EXPENSES_PAGE" */
+  ),
+);
 
 const REPORT_PAGE = React.lazy(() =>
   import('../pages/ReportPage' /* webpackChunkName: "REPORT_PAGE" */),
@@ -54,12 +64,12 @@ export default {
 
   EXPENSES: {
     path: '/dashboard/expenses',
-    component: SET_EXPENSES_PAGE,
+    component: EXPENSES_LIST,
   },
 
   INCOME: {
     path: '/dashboard/income',
-    component: SET_EXPENSES_PAGE,
+    component: INCOME_LIST,
   },
 
   SET_BALANCE_PAGE_MOBILE: {

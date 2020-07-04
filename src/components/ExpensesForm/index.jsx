@@ -8,7 +8,6 @@ import useIdChange from './useIdChange';
 import { isMobile } from '../../services/mediaQuery';
 import fetchProducts from '../../redux/operations/products';
 import postCosts from '../../redux/operations/postCosts';
-// import { fetchCosts } from '../../redux/operations/costs';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
@@ -54,7 +53,7 @@ const ExpensesForm = ({
       date: today,
       product: { productId: id, amount: input.amount, date: today },
     });
-
+    handleClearInput();
     onPostCosts(req);
   };
 
@@ -76,7 +75,11 @@ const ExpensesForm = ({
             name="description"
             value={input.description}
             onChange={handleInputChange}
-            placeholder="Здесь ты будешь вносить на что ты тратишь деньги"
+            placeholder={
+              isExpensesForm
+                ? 'Здесь ты будешь вносить на что ты тратишь деньги'
+                : 'Введите сумму дохода'
+            }
             disabled={!isExpensesForm}
             required
           />
