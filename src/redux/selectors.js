@@ -51,13 +51,13 @@ export const getPeriod = store => store.dataPicker;
 export const getCurrentCategory = store => store.currentCategory;
 
 export const getCostsStatistic = createSelector([getCosts], costs =>
-  getAmountByPeriod({ data: costs, viewOld: 6 }),
+  getAmountByPeriod({ data: costs, viewOld: 12 }),
 );
 
 export const getIncomesStatistic = createSelector([getIncomes], data =>
   getAmountByPeriod({
     data,
-    viewOld: 6,
+    viewOld: 12,
   }),
 );
 
