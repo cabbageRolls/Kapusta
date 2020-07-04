@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isTablet, isMobile } from '../../services/mediaQuery';
 import styles from './ProfileName.module.css';
+import { connect } from 'react-redux';
+import * as selectors from '../../redux/selectors';
 
 const index = ({ userName, isRendered }) => {
   const Tablet = isTablet(useMediaQuery);
@@ -30,4 +32,8 @@ index.defaultProps = {
   isRendered: true,
 };
 
-export default index;
+const MSTP = store => ({
+  userName: selectors.getUserName(store),
+});
+
+export default connect(MSTP)(index);
