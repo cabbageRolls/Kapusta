@@ -14,21 +14,23 @@ const MainPage = () => {
   return (
     <Default>
       <Header />
-      <div
-        className={
-          isDefault
-            ? styles.MainPageContainerDekstop
-            : styles.MainPageContainerTablet
-        }
-      >
+      <div className={styles.mainWrapper}>
         <div
-          style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '30px' }}
+          className={
+            isDefault
+              ? styles.MainPageContainerDekstop
+              : styles.MainPageContainerTablet
+          }
         >
-          <SetBalanceForm />
-          <GoToReportsButton />
+          <div
+            style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '30px' }}
+          >
+            <SetBalanceForm />
+            <GoToReportsButton />
+          </div>
+          <AdditionalButton />
+          <ExpensesComponent />
         </div>
-        <AdditionalButton />
-        <ExpensesComponent />
       </div>
     </Default>
   );

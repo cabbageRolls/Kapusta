@@ -9,7 +9,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 .descriptionInput:disabled {
-  background-color: rgb(243, 243, 243);
+  background-color: #fafafc;
 }
 .container {
   max-width: 1000px;
