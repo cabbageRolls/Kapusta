@@ -18,11 +18,7 @@ const ExpensesListItem = ({ costs, deleteCost }) => {
       {costs && (
         <div
           className={
-            MobileClass
-              ? styles.Mobile_container
-              : TabletClass
-              ? styles.Tablet_container
-              : styles.Desktop_container
+            MobileClass ? styles.Mobile_container : styles.Desktop_container
           }
         >
           <Default>
