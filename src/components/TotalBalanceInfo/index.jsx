@@ -6,11 +6,9 @@ import Styles from './TotalBalanceInfo.module.css';
 import { connect } from 'react-redux';
 import * as balanceSelectors from '../../redux/selectors';
 
-const TotalBalance = ({ balance = '45,000.00' }) => {
+const TotalBalance = ({ balance }) => {
   const Mobile = isMobile(useMediaQuery);
-  var date = new Date().getDate();
-  var month = new Date().getMonth() + 1;
-  var year = new Date().getFullYear();
+  const today = new Date().toLocaleDateString().substring(0, 10);
   return (
     <div className={Mobile ? Styles.MobileContainer : Styles.TabletContainer}>
       <div
@@ -19,9 +17,7 @@ const TotalBalance = ({ balance = '45,000.00' }) => {
         }
       >
         <span>Баланс на </span>
-        <span>
-          {date}.{month}.{year}:
-        </span>
+        <span>{today}:</span>
       </div>
       <div className={Mobile ? Styles.MobileBalance : Styles.TabletBalance}>
         <span className={Styles.BalanceCost}>{balance} </span>

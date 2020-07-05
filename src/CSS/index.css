@@ -13,7 +13,5 @@ button {
   outline: none;
   font-size: 11px;
   font-family: 'Roboto';
-  font-weight: bold;
-  text-transform: uppercase;
   transition: all 0s linear;
 }
