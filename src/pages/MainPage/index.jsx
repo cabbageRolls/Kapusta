@@ -8,7 +8,7 @@ import AdditionalButton from '../../components/AdditionalButton';
 import Header from '../../components/Header';
 import ExpensesComponent from '../../components/ExpensesComponents';
 
-const MainPage = (props) => {
+const MainPage = () => {
   const isDefault = isNotMobile(useMediaQuery);
   return (
     <Default>
@@ -30,7 +30,7 @@ const MainPage = (props) => {
             }}
           >
             <SetBalanceForm />
-            <GoToReportsButton location={props.location.pathname} />
+            <GoToReportsButton />
           </div>
           <AdditionalButton />
           <ExpensesComponent />
