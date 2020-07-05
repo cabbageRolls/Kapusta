@@ -1,9 +1,5 @@
 @import '../../CSS/fonts.css';
 
-button {
-  cursor: pointer;
-  outline: none;
-}
 .ActionButton {
   width: 272px;
   display: flex;
@@ -16,11 +12,7 @@ button {
   border: 2px rgba(244, 246, 251, 0) solid;
   border-radius: 16px;
   background-color: rgb(252, 130, 42);
-  font-size: 11px;
-  font-family: 'Roboto';
   color: rgb(255, 255, 255);
-  font-weight: bold;
-  text-transform: uppercase;
   text-align: center;
   box-shadow: 2px 2px 5px 0px rgba(255, 107, 8, 0.34);
 }
