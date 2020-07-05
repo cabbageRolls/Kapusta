@@ -7,15 +7,15 @@ import useInputChange from './useInputChange';
 import useIdChange from './useIdChange';
 import { isMobile } from '../../services/mediaQuery';
 import fetchProducts from '../../redux/operations/products';
-import postCosts from '../../redux/operations/postCosts';
-import postBalance from '../../redux/operations/balance';
+import { postCosts } from '../../redux/operations/costsOperations/costs';
+import postIncome from '../../redux/operations/incomeOperations/postIncome';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 
 const ExpensesForm = ({
   onPostCosts,
   onFetchGategories,
-  onPostBalance,
+  onPostIncome,
   products,
   isExpensesForm,
 }) => {
@@ -57,7 +57,11 @@ const ExpensesForm = ({
       });
       onPostCosts(req);
     } else {
-      onPostBalance(input.amount);
+      const req = JSON.stringify({
+        amount: input.amount,
+        date: today,
+      });
+      onPostIncome(req);
     }
     handleClearInput();
   };
@@ -163,7 +167,7 @@ const mstp = state => ({
 const mdtp = dispatch => ({
   onFetchGategories: () => dispatch(fetchProducts()),
   onPostCosts: req => dispatch(postCosts(req)),
-  onPostBalance: req => dispatch(postBalance(req)),
+  onPostIncome: req => dispatch(postIncome(req)),
 });
 
 export default connect(mstp, mdtp)(ExpensesForm);

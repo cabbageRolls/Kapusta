@@ -10,12 +10,13 @@ import {
 
 import styles from './IncomeListItem.module.css';
 
-const IncomeListItem = ({ costs, deleteCost }) => {
+const IncomeListItem = ({ income, deleteIncome }) => {
   const MobileClass = isMobile(useMediaQuery);
   const TabletClass = isTablet(useMediaQuery);
+  console.log(income);
   return (
     <>
-      {costs && (
+      {income && (
         <div
           className={
             MobileClass
@@ -55,7 +56,7 @@ const IncomeListItem = ({ costs, deleteCost }) => {
                   : styles.Desktop_expensesList
               }
             >
-              {costs.map(expense => (
+              {income.map(income => (
                 <li
                   className={
                     MobileClass
@@ -64,50 +65,37 @@ const IncomeListItem = ({ costs, deleteCost }) => {
                       ? styles.Tablet_item
                       : styles.Desktop_item
                   }
-                  key={expense.costsId}
+                  key={income.incomeId}
                 >
                   <Mobile>
                     <div className={styles.expenseDateContainer}>
                       <span className={styles.expenseCategory}>
-                        {expense.product.category.name}
+                        {/* {expense.product.category.name} */}
                       </span>
                       <div className={styles.mobileWrapp}>
                         <span className={styles.expenseDate}>
-                          {expense.date.slice(0, -14)}
+                          {income.date.slice(0, -14)}
                         </span>
                         <span className={styles.expenseDescription}>
-                          {expense.product.name}
+                          {/* {expense.product.name} */}
                         </span>
                       </div>
                     </div>
                   </Mobile>
                   <Default>
                     <span className={styles.DexpenseDate}>
-                      {expense.date.slice(0, -14)}
+                      {income.date.slice(0, -14)}
                     </span>
                     <span className={styles.expenseDescription}>Доход</span>
                     <span className={styles.Tablet_expenseCategory}>
-                      {expense.product.category.name}
+                      {income.amount.toFixed(2)} грн.
                     </span>
                   </Default>
-                  <span
-                    className={
-                      MobileClass
-                        ? styles.Mobile_expenseAmount
-                        : TabletClass
-                        ? styles.Tablet_expenseAmount
-                        : styles.Desktop_expenseAmount
-                    }
-                  >
-                    {expense.amount.toFixed(2)} грн.
-                  </span>
                   <div>
                     <button
                       className={MobileClass ? styles.btn : styles.defBtn}
                       type="button"
-                      onClick={() =>
-                        deleteCost(`${expense.forDeleteId}/${expense.costsId}`)
-                      }
+                      onClick={() => deleteIncome(income.incomeId)}
                     >
                       <span className={styles.btnIcon} />
                     </button>
@@ -121,19 +109,19 @@ const IncomeListItem = ({ costs, deleteCost }) => {
     </>
   );
 };
-IncomeListItem.propTypes = {
-  costs: T.arrayOf(
-    T.shape({
-      costsId: T.string.isRequired,
-      date: T.string.isRequired,
-      amount: T.number.isRequired,
-      product: T.shape({
-        name: T.string.isRequired,
-        category: T.shape({
-          name: T.string.isRequired,
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+// IncomeListItem.propTypes = {
+//   costs: T.arrayOf(
+//     T.shape({
+//       costsId: T.string.isRequired,
+//       date: T.string.isRequired,
+//       amount: T.number.isRequired,
+//       product: T.shape({
+//         name: T.string.isRequired,
+//         category: T.shape({
+//           name: T.string.isRequired,
+//         }).isRequired,
+//       }).isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 export default IncomeListItem;
