@@ -10,6 +10,7 @@ import costs from './postCosts';
 import dataPickerReducer from '../reducers/monthPicker';
 import currentCategory from './currentCategory';
 import incomeReducer from './incomeReducer';
+import isExpenses from './isExpenses';
 
 const rootReducers = combineReducers({
   session,
@@ -23,5 +24,6 @@ const rootReducers = combineReducers({
   costs,
   dataPicker: dataPickerReducer,
   incomeReducer,
+  isExpenses,
 });
 export default rootReducers;
