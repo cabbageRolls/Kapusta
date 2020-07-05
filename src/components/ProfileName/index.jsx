@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import { isTablet, isMobile } from '../../services/mediaQuery';
+import { isTablet, isMobile, isDesktop } from '../../services/mediaQuery';
 import styles from './ProfileName.module.css';
 import { connect } from 'react-redux';
 import * as selectors from '../../redux/selectors';
@@ -9,6 +9,7 @@ import * as selectors from '../../redux/selectors';
 const index = ({ userName, isRendered }) => {
   const Tablet = isTablet(useMediaQuery);
   const Mobile = isMobile(useMediaQuery);
+  const Desktop = isDesktop(useMediaQuery);
   return isRendered ? (
     <div
       className={[
@@ -17,7 +18,9 @@ const index = ({ userName, isRendered }) => {
       ].join(' ')}
     >
       <div className={styles.firstLetter}>{userName[0]}</div>
-      {Tablet ? <span className={styles.text}>{userName}</span> : null}
+      {Tablet || Desktop ? (
+        <span className={styles.text}>{userName}</span>
+      ) : null}
     </div>
   ) : null;
 };
