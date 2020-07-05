@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isNotMobile } from '../../services/mediaQuery';
-import Styles from './SetBalanceForm.module.css';
+import styles from './SetBalanceForm.module.css';
 import Notification from '../WelcomeNotification';
 
 const SetBalanceForm = ({ balance, error, sendBalance }) => {
@@ -26,22 +26,25 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
   };
 
   return (
-    <div className={isDefault ? Styles.default_container : Styles.container}>
+    <div className={isDefault ? styles.default_container : styles.container}>
       <div
         className={
           isDefault
-            ? Styles.default_balance_container
-            : Styles.balance_container
+            ? styles.default_balance_container
+            : styles.balance_container
         }
       >
-        <p className={isDefault ? Styles.default_text : Styles.text}>Баланс:</p>
+        <p className={isDefault ? styles.default_text : styles.text}>Баланс:</p>
         <form
           onSubmit={handleSubmit}
           action="post"
-          className={isDefault ? Styles.default_form : Styles.form}
+          className={isDefault ? styles.default_form : styles.form}
         >
           <input
-            className={isDefault ? Styles.default_input : Styles.input}
+            className={[
+              isDefault ? styles.default_input : styles.input,
+              balance ? styles.existBalance : null,
+            ].join(' ')}
             type="number"
             value={inputValue}
             onChange={handleChange}
@@ -51,21 +54,23 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             pattern="\d+(\.\d{2})?"
             disabled={balance}
           />
-          <button
-            type="submit"
-            className={isDefault ? Styles.default_button : Styles.button}
-            disabled={balance}
-          >
-            подтвердить
-          </button>
+          {!balance ? (
+            <button
+              type="submit"
+              className={isDefault ? styles.default_button : styles.button}
+              disabled={balance}
+            >
+              подтвердить
+            </button>
+          ) : null}
         </form>
       </div>
 
       {!balance ? (
-        <div className={Styles.notification_container}>
+        <div className={styles.notification_container}>
           <div
             className={
-              isDefault ? Styles.default_notification : Styles.notification
+              isDefault ? styles.default_notification : styles.notification
             }
           >
             <Notification />
