@@ -5,15 +5,9 @@ import routes from '../../routes';
 
 import { Mobile, Default } from '../../services/mediaQuery';
 
-const ButtonReports = ({ location }) => {
+const ButtonReports = () => {
   return (
-    <Link
-      to={{
-        pathname: routes.REPORT_PAGE.path,
-        state: { from: location },
-      }}
-      className={Styles.link}
-    >
+    <Link to={routes.REPORT_PAGE.path} className={Styles.link}>
       <div className={Styles.container}>
         <Default>
           <p className={Styles.text}>Перейти к отчетам</p>
