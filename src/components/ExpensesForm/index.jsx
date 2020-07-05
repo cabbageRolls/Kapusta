@@ -11,13 +11,14 @@ import { postCosts } from '../../redux/operations/costsOperations/costs';
 import postIncome from '../../redux/operations/incomeOperations/postIncome';
 import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
-
+import { getCurrentDate } from '../../redux/selectors';
 const ExpensesForm = ({
   onPostCosts,
   onFetchGategories,
   onPostIncome,
   products,
   isExpensesForm,
+  currentDate,
 }) => {
   const [
     input,
@@ -49,17 +50,17 @@ const ExpensesForm = ({
   const handleSubmit = e => {
     e.preventDefault();
     setIsVisible(false);
-    const today = new Date().toISOString().substring(0, 10);
+    // const today = new Date().toISOString().substring(0, 10);
     if (isExpensesForm) {
       const req = JSON.stringify({
-        date: today,
-        product: { productId: id, amount: input.amount, date: today },
+        date: currentDate,
+        product: { productId: id, amount: input.amount, date: currentDate },
       });
       onPostCosts(req);
     } else {
       const req = JSON.stringify({
         amount: input.amount,
-        date: today,
+        date: currentDate,
       });
       onPostIncome(req);
     }
@@ -162,6 +163,7 @@ ExpensesForm.defaultProps = {
 
 const mstp = state => ({
   products: getProducts(state),
+  currentDate: getCurrentDate(state),
 });
 
 const mdtp = dispatch => ({

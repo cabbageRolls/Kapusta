@@ -113,6 +113,6 @@ export const getDataCharts = createSelector(
   },
 );
 // Datepicker
-export const getCurrentDate = store => store.dataPicker;
+export const getCurrentDate = store => store.currentDate;
 
 export const getUserName = store => store.session.fullName;
