@@ -1,5 +1,4 @@
 import React from 'react';
-import T from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import {
   Mobile,
@@ -13,7 +12,7 @@ import styles from './IncomeListItem.module.css';
 const IncomeListItem = ({ income, deleteIncome }) => {
   const MobileClass = isMobile(useMediaQuery);
   const TabletClass = isTablet(useMediaQuery);
-  console.log(income);
+
   return (
     <>
       {income && (
@@ -109,6 +108,7 @@ const IncomeListItem = ({ income, deleteIncome }) => {
     </>
   );
 };
+
 // IncomeListItem.propTypes = {
 //   costs: T.arrayOf(
 //     T.shape({
@@ -124,4 +124,5 @@ const IncomeListItem = ({ income, deleteIncome }) => {
 //     }).isRequired,
 //   ).isRequired,
 // };
+
 export default IncomeListItem;

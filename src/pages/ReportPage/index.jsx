@@ -13,6 +13,7 @@ const ReportPage = () => {
   const currentCategory = useSelector(getCurrentCategory);
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
+
   return (
     <>
       <Header />
@@ -32,7 +33,7 @@ const ReportPage = () => {
               : Styles.ChartDesktopContainer
           }
         >
-          {currentCategory.length && <ExpensesListChart />}
+          {currentCategory !== '' && <ExpensesListChart />}
         </div>
       </div>
     </>

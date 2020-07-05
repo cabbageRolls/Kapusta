@@ -51,8 +51,8 @@ const index = ({ month, year, increment, decrement }) => {
   );
 };
 index.propTypes = {
-  month: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
 };
