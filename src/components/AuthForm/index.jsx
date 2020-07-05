@@ -30,9 +30,9 @@ class AuthForm extends Component {
     const credentials = {
       ...this.state,
       name: {
-        fullName: this.state.email,
+        fullName: `${this.state.email} User`,
         firstName: this.state.email,
-        lastName: this.state.email,
+        lastName: 'User',
       },
     };
 
