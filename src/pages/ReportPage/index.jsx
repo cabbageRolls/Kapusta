@@ -9,7 +9,7 @@ import ExpensesListChart from '../../components/ExpensesChartBySpecificCategory'
 import { isMobile, isTablet } from '../../services/mediaQuery';
 import { getCurrentCategory } from '../../redux/selectors';
 
-const ReportPage = () => {
+const ReportPage = props => {
   const currentCategory = useSelector(getCurrentCategory);
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
@@ -19,7 +19,7 @@ const ReportPage = () => {
       <Header />
       <div className={Mobile ? Styles.MobileContainer : Styles.TabletContainer}>
         <div className={Styles.BudgetMobileContainer}>
-          <BudgetSummary />
+          <BudgetSummary location={props} />
         </div>
         <div className={Styles.ExpensesMobileContainer}>
           <ExpensesListByCategory />
