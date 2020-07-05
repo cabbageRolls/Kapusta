@@ -11,7 +11,7 @@ import { postCosts } from '../../redux/operations/costsOperations/costs';
 import postIncome from '../../redux/operations/incomeOperations/postIncome';
 
 import { getProducts } from '../../redux/selectors';
-import { getCurrentDate } from '../../redux/selectors';
+// import { getCurrentDate } from '../../redux/selectors';
 
 import ActionButtons from '../ActionButton';
 import DatePicker from '../DatePicker';
@@ -26,7 +26,6 @@ const ExpensesForm = ({
   onPostIncome,
   products,
   isExpensesForm,
-  currentDate,
 }) => {
   const Mobile = isMobile(useMediaQuery);
 
@@ -184,7 +183,7 @@ ExpensesForm.defaultProps = {
 
 const mstp = state => ({
   products: getProducts(state),
-  currentDate: getCurrentDate(state),
+  // currentDate: getCurrentDate(state),
 });
 
 const mdtp = dispatch => ({

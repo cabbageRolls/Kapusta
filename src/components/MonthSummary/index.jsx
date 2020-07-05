@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Styles from './MonthSummary.module.css';
 import { useSelector } from 'react-redux';
 import {
   getCostsStatistic,
   getIncomesStatistic,
-  storeIsExpenses,
 } from '../../redux/selectors';
 
 const MonthSummary = () => {

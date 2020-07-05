@@ -51,7 +51,7 @@ function App() {
             {Mobile ? (
               <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
             ) : (
-              <Redirect to={routes.MAIN_PAGE.path} />
+              <Redirect to={routes.EXPENSES.path} />
             )}
           </Route>
           <Route

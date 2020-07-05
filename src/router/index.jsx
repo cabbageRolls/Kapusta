@@ -5,6 +5,7 @@ import AuthPage from '../pages/AuthPage';
 import ExpensesPage from '../pages/ExpensesPage';
 import MainPage from '../pages/MainPage';
 import GoBackButton from '../components/GoBackButton';
+import ReportPage from '../pages/ReportPage';
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
       <Route path="/" exact component={GoBackButton} />
       <Route path="/main" exact component={MainPage} />
       <Route path="/auth" component={AuthPage} />
+      <Route path="/report" component={ReportPage} />
       <Route path="/expensespage" component={ExpensesPage} />
     </Switch>
   );

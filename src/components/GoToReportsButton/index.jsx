@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Styles from './goToReportsButton.module.css';
-import routes from '../../routes'
+import routes from '../../routes';
 
 import { Mobile, Default } from '../../services/mediaQuery';
 
-const ButtonReports = () => {
+const ButtonReports = ({ location }) => {
   return (
     <Link
-      to={routes.REPORT_PAGE.path}
+      to={{
+        pathname: routes.REPORT_PAGE.path,
+        state: { from: location },
+      }}
       className={Styles.link}
     >
       <div className={Styles.container}>

@@ -6,18 +6,25 @@ import styles from './GoBackButton.module.css';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 
-export default function GoBackButton() {
+export default function GoBackButton({ props }) {
   const Mobile = isMobile(useMediaQuery);
+  const prevLocation = props.location.state;
 
   return (
     <button type="button" className={styles.GoBackButton}>
       <Link
-        to={Mobile ? routes.SET_BALANCE_PAGE_MOBILE.path : routes.EXPENSES.path}
+        to={
+          Mobile
+            ? routes.SET_BALANCE_PAGE_MOBILE.path
+            : prevLocation
+            ? prevLocation.from
+            : routes.EXPENSES.path
+        }
       >
         <div className={styles.GoBackButtonImg} />
       </Link>
 
-      <Link to={routes.EXPENSES.path}>
+      <Link to={prevLocation ? prevLocation.from : routes.EXPENSES.path}>
         <Tablet>На главную</Tablet>
         <Desktop>Вернуться на главную</Desktop>
       </Link>

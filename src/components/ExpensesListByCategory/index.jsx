@@ -12,6 +12,7 @@ const ExpensesListByCategory = () => {
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
   const data = useSelector(getCostByPeriodAndCategories);
+  
   return (
     <div
       className={
@@ -46,4 +47,5 @@ const ExpensesListByCategory = () => {
     </div>
   );
 };
+
 export default ExpensesListByCategory;

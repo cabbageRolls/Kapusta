@@ -7,17 +7,20 @@
   border-bottom-right-radius: 25px;
   box-shadow: 4.5px 7.794px 10.5px rgba(170, 178, 197, 0.78);
 }
+
 .D_section {
   composes: section;
   width: 1090px;
   background-color: #fff;
 }
+
 .head {
   position: relative;
   display: flex;
   width: 100%;
   padding-bottom: 40px;
 }
+
 .DatePicker {
   height: 46px;
   width: 100px;
@@ -26,20 +29,24 @@
   align-items: center;
   margin-right: 20px;
 }
+
 .ExpensesSection {
   width: 490;
   display: flex;
   flex-direction: column;
 }
+
 .D_ExpensesSection {
   composes: ExpensesSection;
-  width: 880px;
+  width: 1090px;
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
 .ExpensesForm {
   width: 500px;
 }
+
 .D_ExpensesForm {
   width: 100%;
 }
@@ -48,6 +55,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .D_main {
   display: flex;
 }
@@ -55,6 +63,7 @@
 .ExpensesList {
   width: 500px;
 }
+
 .D_ExpensesList {
   width: 764px;
 }
@@ -62,6 +71,7 @@
 .MonthSummary {
   padding-top: 30px;
 }
+
 .D_MonthSummary {
   padding-left: 30px;
 }
