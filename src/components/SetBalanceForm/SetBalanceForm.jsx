@@ -51,13 +51,15 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             pattern="\d+(\.\d{2})?"
             disabled={balance}
           />
-          <button
-            type="submit"
-            className={isDefault ? Styles.default_button : Styles.button}
-            disabled={balance}
-          >
-            подтвердить
-          </button>
+          {!balance ? (
+            <button
+              type="submit"
+              className={isDefault ? Styles.default_button : Styles.button}
+              disabled={balance}
+            >
+              подтвердить
+            </button>
+          ) : null}
         </form>
       </div>
 
