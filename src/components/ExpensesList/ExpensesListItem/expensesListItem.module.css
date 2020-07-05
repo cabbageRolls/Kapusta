@@ -3,7 +3,7 @@
 .Mobile_scrollbar {
   display: block;
   overflow: auto;
-  height: 200px;
+  max-height: 380px;
 }
 
 .Mobile_scrollbar::-webkit-scrollbar {
@@ -13,7 +13,7 @@
 .Mobile_container {
   display: block;
   width: 280px;
-  margin: 0 auto;
+  margin: 10px auto 0;
 }
 
 .Mobile_expensesList {

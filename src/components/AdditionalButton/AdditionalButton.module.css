@@ -2,6 +2,8 @@
   width: 280px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  bottom: 20px;
 }
 .Tablet_Container {
   display: flex;
