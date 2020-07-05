@@ -10,6 +10,7 @@
 .D_section {
   composes: section;
   width: 1090px;
+  background-color: #fff;
 }
 .head {
   position: relative;

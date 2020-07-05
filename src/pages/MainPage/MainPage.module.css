@@ -15,3 +15,10 @@
 .MainPageContainerMobile {
   width: 278px;
 }
+
+.mainWrapper {
+  background-color: #f3f9ff;
+  height: 520px;
+  border-radius: 0px 0px 0px 90px;
+  padding-top: 20px;
+}
