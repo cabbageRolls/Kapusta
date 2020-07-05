@@ -8,8 +8,8 @@ import currentDate from '../../redux/operations/currentDate';
 import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 import './stylesDataPicker.css';
 
-const DatePickerCustom = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const DatePickerCustom = ({ startDate, setStartDate }) => {
+  // const [startDate, setStartDate] = useState(new Date());
 
   const handleChange = date => {
     setStartDate(date);
