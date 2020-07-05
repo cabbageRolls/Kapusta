@@ -22,7 +22,12 @@ const MainPage = () => {
         }
       >
         <div
-          style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '30px' }}
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            marginBottom: '10px',
+            paddingTop: '40px',
+          }}
         >
           <SetBalanceForm />
           <GoToReportsButton />
