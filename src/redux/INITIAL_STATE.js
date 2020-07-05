@@ -31,4 +31,5 @@ const initState = {
   isExpenses: true,
   income: [],
 };
+
 export default initState;
