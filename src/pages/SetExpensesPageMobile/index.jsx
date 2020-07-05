@@ -2,9 +2,11 @@ import React from 'react';
 import ExpensesForm from '../../components/ExpensesForm';
 import GoBackButton from '../../components/GoBackButton';
 import styles from './SetExpensesPageMobile.module.css';
+import Header from '../../components/Header';
 
-const index = () => {
-  return (
+const SetExpensesPageMobile = () => (
+  <>
+    <Header />
     <div className={styles.formWrapper}>
       <div className={styles.formContent}>
         <div className={styles.goBackButton}>
@@ -13,7 +15,7 @@ const index = () => {
         <ExpensesForm />
       </div>
     </div>
-  );
-};
+  </>
+);
 
-export default index;
+export default SetExpensesPageMobile;

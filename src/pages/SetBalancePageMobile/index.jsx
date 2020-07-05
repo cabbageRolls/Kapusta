@@ -4,18 +4,18 @@ import GoToReportButton from '../../components/GoToReportsButton';
 import SetBalanceForm from '../../components/SetBalanceForm';
 import ExpensesList from '../../components/ExpensesList';
 import AdditionButton from '../../components/AdditionalButton';
+import Header from '../../components/Header';
 
-export default class SetBalansePage extends React.Component {
-  state = {};
+const SetBalansePage = () => (
+  <>
+    <Header />
+    <div className={Styles.container}>
+      <GoToReportButton />
+      <SetBalanceForm />
+      <ExpensesList />
+      <AdditionButton />
+    </div>
+  </>
+);
 
-  render() {
-    return (
-      <div className={Styles.container}>
-        <GoToReportButton />
-        <SetBalanceForm />
-        <ExpensesList />
-        <AdditionButton />
-      </div>
-    );
-  }
-}
+export default SetBalansePage;
