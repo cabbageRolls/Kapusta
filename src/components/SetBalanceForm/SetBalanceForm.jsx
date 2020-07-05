@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isNotMobile } from '../../services/mediaQuery';
 import Styles from './SetBalanceForm.module.css';
-import DatePickerCustom from '../DatePicker';
 import Notification from '../WelcomeNotification';
 
 const SetBalanceForm = ({ balance, error, sendBalance }) => {
@@ -38,33 +37,31 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
         <p className={isDefault ? Styles.default_text : Styles.text}>Баланс:</p>
         <form
           onSubmit={handleSubmit}
-          action=""
+          action="post"
           className={isDefault ? Styles.default_form : Styles.form}
         >
           <input
             className={isDefault ? Styles.default_input : Styles.input}
-            type="text"
+            type="number"
             value={inputValue}
             onChange={handleChange}
             placeholder={
               balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
             }
             pattern="\d+(\.\d{2})?"
+            disabled={balance}
           />
           <button
             type="submit"
             className={isDefault ? Styles.default_button : Styles.button}
+            disabled={balance}
           >
-            <div className={Styles.containerBtn}>подтвердить</div>
+            подтвердить
           </button>
         </form>
       </div>
 
-      {balance ? (
-        <div className={Styles.datePicker}>
-          <DatePickerCustom />
-        </div>
-      ) : (
+      {!balance ? (
         <div className={Styles.notification_container}>
           <div
             className={
@@ -74,10 +71,11 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             <Notification />
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
+
 SetBalanceForm.propTypes = {
   balance: PropTypes.number.isRequired,
   sendBalance: PropTypes.func.isRequired,

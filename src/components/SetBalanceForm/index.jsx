@@ -7,6 +7,7 @@ const MSTP = store => ({
   balance: selectors.getBalance(store),
   error: selectors.getError(store),
 });
+
 const MDTP = {
   sendBalance: postBalance,
 };
