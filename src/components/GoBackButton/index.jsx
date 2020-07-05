@@ -12,11 +12,7 @@ export default function GoBackButton() {
   return (
     <button type="button" className={styles.GoBackButton}>
       <Link
-        to={
-          Mobile
-            ? routes.SET_BALANCE_PAGE_MOBILE.path
-            : routes.EXPENSES.path
-        }
+        to={Mobile ? routes.SET_BALANCE_PAGE_MOBILE.path : routes.EXPENSES.path}
       >
         <div className={styles.GoBackButtonImg} />
       </Link>

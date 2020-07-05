@@ -153,3 +153,15 @@ export const getAmountByPeriod = ({ data, viewOld }) => {
 
   return result;
 };
+
+export const thisDate = period => {
+  if (typeof period === 'string') {
+    const data = moment(period);
+    return data;
+  }
+  const data = moment(new Date());
+  if (period && period.year) data.year(period.year);
+  if (period && period.month) data.month(period.month - 1);
+  if (period && period.day) data.days(period.day);
+  return data;
+};

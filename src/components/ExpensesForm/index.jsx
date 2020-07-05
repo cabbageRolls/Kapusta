@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import styles from './ExpensesForm.module.css';
-import useInputChange from './useInputChange';
-import useIdChange from './useIdChange';
+import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../../services/mediaQuery';
+
 import fetchProducts from '../../redux/operations/products';
 import { postCosts } from '../../redux/operations/costsOperations/costs';
 import postIncome from '../../redux/operations/incomeOperations/postIncome';
+
 import { getProducts } from '../../redux/selectors';
+import { getCurrentDate } from '../../redux/selectors';
+
 import ActionButtons from '../ActionButton';
+import DatePicker from '../DatePicker';
+
+import useInputChange from './useInputChange';
+import useIdChange from './useIdChange';
+import useDataChange from './useDataChange.js';
 
 const ExpensesForm = ({
   onPostCosts,
@@ -18,7 +26,10 @@ const ExpensesForm = ({
   onPostIncome,
   products,
   isExpensesForm,
+  currentDate,
 }) => {
+  const Mobile = isMobile(useMediaQuery);
+
   const [
     input,
     setInput,
@@ -27,7 +38,12 @@ const ExpensesForm = ({
   ] = useInputChange();
   const [id, setId] = useIdChange();
   const [isVisible, setIsVisible] = useState(false);
-  const Mobile = isMobile(useMediaQuery);
+  const [
+    pickedDate,
+    handlePickedDateChange,
+    handleClearPickedDate,
+  ] = useDataChange();
+
   useEffect(() => onFetchGategories(), []);
   useEffect(() => {
     if (input.description) {
@@ -48,22 +64,24 @@ const ExpensesForm = ({
 
   const handleSubmit = e => {
     e.preventDefault();
+
     setIsVisible(false);
-    const today = new Date().toISOString().substring(0, 10);
+    // const today = new Date().toISOString().substring(0, 10);
     if (isExpensesForm) {
       const req = JSON.stringify({
-        date: today,
-        product: { productId: id, amount: input.amount, date: today },
+        date: pickedDate,
+        product: { productId: id, amount: input.amount, date: pickedDate },
       });
       onPostCosts(req);
     } else {
       const req = JSON.stringify({
         amount: input.amount,
-        date: today,
+        date: pickedDate,
       });
       onPostIncome(req);
     }
     handleClearInput();
+    handleClearPickedDate();
   };
 
   return (
@@ -72,6 +90,12 @@ const ExpensesForm = ({
       className={!Mobile ? styles.form_Desktop : styles.form}
       onSubmit={handleSubmit}
     >
+      <div className={styles.DatePicker}>
+        <DatePicker
+          handleChange={handlePickedDateChange}
+          startDate={pickedDate}
+        />
+      </div>
       <div className={!Mobile ? styles.inputWrapper : null}>
         <div className={styles.descriptionInputWrapper}>
           <input
@@ -160,6 +184,7 @@ ExpensesForm.defaultProps = {
 
 const mstp = state => ({
   products: getProducts(state),
+  currentDate: getCurrentDate(state),
 });
 
 const mdtp = dispatch => ({

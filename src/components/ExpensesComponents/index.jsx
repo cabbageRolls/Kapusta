@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import DatePicker from '../DatePicker';
 import ExpensesForm from '../ExpensesForm';
 import { Switch, Route } from 'react-router-dom';
 import routes from '../../routes';
@@ -14,9 +13,6 @@ const ExpensesComponents = () => {
   return (
     <section className={IsTablet ? Styles.section : Styles.D_section}>
       <div className={Styles.head}>
-        <div className={Styles.DatePicker}>
-          <DatePicker />
-        </div>
         <div
           className={
             IsTablet ? Styles.ExpensesSection : Styles.D_ExpensesSection

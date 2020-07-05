@@ -1,3 +1,4 @@
+import { thisDate } from '../services/helpers';
 const date = new Date();
 
 const currentMonth = date.getMonth() + 1;
@@ -26,7 +27,9 @@ const initState = {
     month: currentMonth,
     year: currentYear,
   },
+  currentDate: thisDate()._d,
   isExpenses: true,
   income: [],
 };
+
 export default initState;

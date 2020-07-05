@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import routes from '../routes';
 import getTransactions from '../redux/operations/transactions';
@@ -47,6 +47,13 @@ function App() {
     <>
       <Switch>
         <Suspense fallback={<Loader />}>
+          <Route exact path="/">
+            {Mobile ? (
+              <Redirect to={routes.SET_BALANCE_PAGE_MOBILE.path} />
+            ) : (
+              <Redirect to={routes.MAIN_PAGE.path} />
+            )}
+          </Route>
           <Route
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
