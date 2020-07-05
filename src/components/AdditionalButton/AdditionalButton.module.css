@@ -1,9 +1,10 @@
 .Mobile_Container {
-  width: 280px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   position: fixed;
   bottom: 20px;
+  padding: 0 40px;
 }
 .Tablet_Container {
   display: flex;
