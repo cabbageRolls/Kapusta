@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Styles from './goToReportsButton.module.css';
+import styles from './goToReportsButton.module.css';
 import routes from '../../routes';
 
 import { Mobile, Default } from '../../services/mediaQuery';
 
 const ButtonReports = () => {
   return (
-    <Link to={routes.REPORT_PAGE.path} className={Styles.link}>
-      <div className={Styles.container}>
+    <Link to={routes.REPORT_PAGE.path} className={styles.link}>
+      <div className={styles.container}>
         <Default>
-          <p className={Styles.text}>Перейти к отчетам</p>
+          <p className={styles.text}>Перейти к отчетам</p>
         </Default>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ const ButtonReports = () => {
         </svg>
 
         <Mobile>
-          <p className={Styles.text}>Перейти к отчетам</p>
+          <p className={styles.text}>Перейти к отчетам</p>
         </Mobile>
       </div>
     </Link>
