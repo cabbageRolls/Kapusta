@@ -61,7 +61,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
         </form>
       </div>
 
-      {/* {balance ? (
+      {balance ? (
         <div className={Styles.datePicker}>
           <DatePickerCustom />
         </div>
@@ -75,7 +75,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             <Notification />
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
