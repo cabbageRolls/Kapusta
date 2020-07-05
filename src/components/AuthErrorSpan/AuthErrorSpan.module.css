@@ -1,0 +1,16 @@
+.ErrorContainer {
+  position: relative;
+  width: 272px;
+  min-height: 6px;
+}
+
+.Message {
+  display: flex;
+  justify-content: center;
+  width: 272px;
+  min-height: 35px;
+  color: rgb(214, 6, 6);
+  position: absolute;
+  top: -8px;
+  font-weight: 400;
+}
