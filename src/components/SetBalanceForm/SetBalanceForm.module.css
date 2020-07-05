@@ -93,7 +93,11 @@
 }
 
 .button:disabled {
-  background-color: rgb(241, 180, 138);
+  background-color: rgb(244, 246, 251);
+  color: rgb(82, 85, 95);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+  background-image: url(./textures/pinstriped-suit.png);
 }
 
 .notification_container {
