@@ -221,7 +221,6 @@
 /* DESKTOP */
 
 .Desktop_container {
-  composes: Tablet_container;
   width: 760px;
 }
 
