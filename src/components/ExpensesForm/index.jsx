@@ -109,9 +109,7 @@ const ExpensesForm = ({
             value={input.description}
             onChange={handleInputChange}
             placeholder={
-              isExpensesForm
-                ? 'Здесь ты будешь вносить на что ты тратишь деньги'
-                : 'Введите сумму дохода'
+              isExpensesForm ? 'Введите свой расход' : 'Введите сумму дохода'
             }
             disabled={!isExpensesForm}
             required

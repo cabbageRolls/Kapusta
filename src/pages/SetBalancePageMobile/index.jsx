@@ -17,5 +17,4 @@ const SetBalansePage = () => (
     </div>
   </>
 );
-
 export default SetBalansePage;

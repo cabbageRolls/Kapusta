@@ -41,11 +41,11 @@ const SET_EXPENSES_PAGE_MOBILE = React.lazy(() =>
   ),
 );
 
-const SET_INCOME_PAGE_MOBILE = React.lazy(() =>
-  import(
-    '../pages/SetIncomePageMobile' /* webpackChunkName: "SET_INCOME_PAGE_MOBILE" */
-  ),
-);
+// const SET_INCOME_PAGE_MOBILE = React.lazy(() =>
+//   import(
+//     '../pages/SetIncomePageMobile' /* webpackChunkName: "SET_INCOME_PAGE_MOBILE" */
+//   ),
+// );
 
 export default {
   AUTH_PAGE: {
@@ -85,6 +85,6 @@ export default {
 
   SET_INCOME_PAGE_MOBILE: {
     path: '/income-form',
-    component: SET_INCOME_PAGE_MOBILE,
+    component: SET_EXPENSES_PAGE_MOBILE,
   },
 };

@@ -1,4 +1,4 @@
-.className {
+.link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,13 +14,32 @@
   text-transform: uppercase;
   font-weight: 900;
 }
-.activeClassName {
+.mobileLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48%;
+  height: 53px;
+  color: #000000;
+  background-color: #f4f6fb;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all, 0.3s;
+  text-align: center;
+  text-transform: uppercase;
+}
+.mobileLink:hover {
+  background-color: rgb(255, 108, 10);
+  color: #fff;
+}
+.activelink {
   z-index: 2;
-  composes: className;
+  composes: link;
   color: #fa7c2e;
   background: #ffffff;
 }
 
-.className:last-child {
+.link:last-child {
   margin-left: -10px;
 }

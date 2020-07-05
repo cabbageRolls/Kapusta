@@ -1,5 +1,7 @@
 .Mobile_Container {
   width: 280px;
+  display: flex;
+  justify-content: space-between;
 }
 .Tablet_Container {
   display: flex;
