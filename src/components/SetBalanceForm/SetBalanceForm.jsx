@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isNotMobile } from '../../services/mediaQuery';
 import Styles from './SetBalanceForm.module.css';
-import DatePickerCustom from '../DatePicker';
 import Notification from '../WelcomeNotification';
 
 const SetBalanceForm = ({ balance, error, sendBalance }) => {
@@ -60,11 +59,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
         </form>
       </div>
 
-      {balance ? (
-        <div className={Styles.datePicker}>
-          <DatePickerCustom />
-        </div>
-      ) : (
+      {!balance ? (
         <div className={Styles.notification_container}>
           <div
             className={
@@ -74,7 +69,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             <Notification />
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
