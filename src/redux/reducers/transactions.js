@@ -6,11 +6,8 @@ const transactions = (
   { payload, type },
 ) => {
   switch (type) {
-    case types.GET_TRANSACTIONS_STARTED:
-    case types.POST_BALANCE_STARTED:
     case types.GET_TRANSACTIONS_SUCCESS:
     case types.POST_BALANCE_SUCCESS:
-    case types.GET_COSTS_STARTED:
     case types.GET_COSTS_SUCCESS:
       return { ...state, ...payload };
 

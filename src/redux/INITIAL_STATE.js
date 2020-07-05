@@ -27,5 +27,6 @@ const initState = {
     year: currentYear,
   },
   isExpenses: true,
+  income: [],
 };
 export default initState;
