@@ -12,6 +12,10 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
   }, [balance]);
   const isDefault = isNotMobile(useMediaQuery);
 
+  const handleClick = e => {
+    setInputValue((balance = ''));
+  };
+
   const handleChange = e => {
     setInputValue(e.target.value);
   };
@@ -48,6 +52,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             type="number"
             value={inputValue}
             onChange={handleChange}
+            onClick={handleClick}
             placeholder={
               balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
             }
