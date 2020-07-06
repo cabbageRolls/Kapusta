@@ -53,7 +53,8 @@ const ExpensesForm = ({
   }, [input]);
 
   const handleClick = e => {
-    if (e.target === e.currenttarget) return;
+    setIsVisible(false);
+    if (e.target === e.currentTarget) return;
     setId(e);
     setInput({
       amount: input.amount,
@@ -65,7 +66,6 @@ const ExpensesForm = ({
     e.preventDefault();
 
     setIsVisible(false);
-    // const today = new Date().toISOString().substring(0, 10);
     if (isExpensesForm) {
       const req = JSON.stringify({
         date: pickedDate,
@@ -125,8 +125,8 @@ const ExpensesForm = ({
             >
               {products.map(({ name, _id, category }) => {
                 if (
-                  name.toLowerCase().includes(input.description) ||
-                  category.name.toLowerCase().includes(input.description)
+                  name.includes(input.description.toLowerCase()) ||
+                  category.name.includes(input.description.toLowerCase())
                 ) {
                   return (
                     <li key={_id} id={_id} className={styles.expensesOption}>
