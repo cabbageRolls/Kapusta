@@ -14,6 +14,7 @@ const MainPage = () => {
     <Default>
       <Header />
       <div className={styles.mainWrapper}>
+        <div className={styles.mainWrapperBg}></div>
         <div
           className={
             isDefault
@@ -35,6 +36,7 @@ const MainPage = () => {
           <AdditionalButton />
           <ExpensesComponent />
         </div>
+        <div className={styles.cabbageBack}></div>
       </div>
     </Default>
   );
