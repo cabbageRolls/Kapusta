@@ -5,24 +5,23 @@
   font-family: 'Roboto', sans-serif;
   line-height: 1.2;
   font-weight: 400;
-  color: #52555f;
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
 }
-
-.GoBackButtonImg {
-  margin-right: 15px;
-  background-image: url(./img/arrowblack.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.link {
+  color: #52555f;
+  transition: all 0.2s linear;
+}
+.link:hover {
+  color: #ff6c0a;
+}
+.goBackIcon {
+  height: 11px;
   width: 16px;
-  height: 10px;
-  display: inline-block;
-}
-
-.GoBackButton:hover .GoBackButtonImg {
-  background-image: url(./img/arrow.png);
+  margin-right: 6px;
+  fill: #52555f;
 }

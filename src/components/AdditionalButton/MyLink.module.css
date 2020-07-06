@@ -27,7 +27,7 @@
   transition: all, 0.3s;
   text-align: center;
   text-transform: uppercase;
-  background-image: url(./textures/pinstripe-dark.png);
+  background-image: url(./textures/project-paper.png);
   border: 2px #f4f6fb solid;
   border-radius: 10px;
 }

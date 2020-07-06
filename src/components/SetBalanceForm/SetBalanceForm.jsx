@@ -46,7 +46,7 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
               balance ? styles.existBalance : null,
             ].join(' ')}
             type="number"
-            value={inputValue}
+            value={inputValue ? inputValue : `undefined`}
             onChange={handleChange}
             placeholder={
               balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
