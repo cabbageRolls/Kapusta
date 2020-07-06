@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import Styles from './ReportPage.module.css';
+import styles from './ReportPage.module.css';
 import BudgetSummary from '../../components/BudgetSummary';
 import Header from '../../components/Header';
 import ExpensesListByCategory from '../../components/ExpensesListByCategory';
@@ -17,24 +17,26 @@ const ReportPage = () => {
   return (
     <>
       <Header />
-      <div className={Mobile ? Styles.MobileContainer : Styles.TabletContainer}>
-        <div className={Styles.BudgetMobileContainer}>
+      <div className={Mobile ? styles.MobileContainer : styles.TabletContainer}>
+        <div className={styles.reportWrapperBg}></div>
+        <div className={styles.BudgetMobileContainer}>
           <BudgetSummary />
         </div>
-        <div className={Styles.ExpensesMobileContainer}>
+        <div className={styles.ExpensesMobileContainer}>
           <ExpensesListByCategory />
         </div>
         <div
           className={
             Mobile
-              ? Styles.ChartMobileContainer
+              ? styles.ChartMobileContainer
               : Tablet
-              ? Styles.ChartTabletContainer
-              : Styles.ChartDesktopContainer
+              ? styles.ChartTabletContainer
+              : styles.ChartDesktopContainer
           }
         >
           {currentCategory !== '' && <ExpensesListChart />}
         </div>
+        <div className={styles.cabbageBack}></div>
       </div>
     </>
   );

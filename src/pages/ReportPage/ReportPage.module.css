@@ -6,18 +6,23 @@
 
 .TabletContainer {
   padding-top: 67px;
-  background-color: #f3f9ff;
+  position: relative;
+  z-index: 111;
+  /* background-color: #f3f9ff;
   height: 520px;
   border-radius: 0px 0px 0px 90px;
-  background-image: url('./textures/tex2res5.png');
+  background-image: url('./textures/tex2res5.png'); */
 }
 
 .BudgetMobileContainer {
   margin-bottom: 42px;
+  position: relative;
 }
 
 .ExpensesMobileContainer {
   margin-bottom: 39px;
+  z-index: 111;
+  position: relative;
 }
 
 .ChartMobileContainer {
@@ -30,4 +35,24 @@
 
 .ChartDesktopContainer {
   padding-bottom: 81px;
+  z-index: 111;
+  position: relative;
+}
+
+.cabbageBack {
+  position: absolute;
+  bottom: 0;
+  background-image: url(./textures/decorCabbage.png);
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+}
+.reportWrapperBg {
+  background-color: #f3f9ff;
+  height: 520px;
+  border-radius: 0px 0px 0px 90px;
+  background-image: url(./textures/tex2res5.png);
+  position: absolute;
+  top: 0;
+  width: 100%;
 }

@@ -2,6 +2,9 @@
 .MainPageContainerTablet,
 .MainPageContainerMobile {
   margin: 0 auto;
+  position: relative;
+  z-index: 111;
+  padding-bottom: 40px;
 }
 
 .MainPageContainerDekstop {
@@ -17,9 +20,23 @@
 }
 
 .mainWrapper {
+  position: relative;
+  z-index: 111;
+}
+.cabbageBack {
+  position: absolute;
+  bottom: 0;
+  background-image: url(./textures/decorCabbage.png);
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+}
+.mainWrapperBg {
   background-color: #f3f9ff;
   height: 520px;
   border-radius: 0px 0px 0px 90px;
-  padding-top: 20px;
   background-image: url(./textures/tex2res5.png);
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
