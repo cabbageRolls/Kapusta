@@ -49,7 +49,8 @@ const SetBalanceForm = ({ balance, error, sendBalance }) => {
             value={inputValue}
             onChange={handleChange}
             placeholder={
-              balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
+              // balance ? `${Number(balance).toFixed(2)} UAH` : '00.00 UAH'
+              `${Number(balance).toFixed(2)} UAH`
             }
             pattern="\d+(\.\d{2})?"
             disabled={balance}

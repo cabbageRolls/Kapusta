@@ -60,9 +60,9 @@ class AuthForm extends Component {
         const credentials = {
           ...data,
           name: {
-            fullName: `${email} user`,
+            fullName: `${email}`,
             firstName: email,
-            lastName: 'user',
+            lastName: '',
           },
         };
 

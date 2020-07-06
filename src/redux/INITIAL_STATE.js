@@ -13,7 +13,7 @@ const initState = {
     isLogin: false,
   },
   transactions: {
-    balance: 0,
+    balance: '',
     income: [],
     costs: [],
   },
