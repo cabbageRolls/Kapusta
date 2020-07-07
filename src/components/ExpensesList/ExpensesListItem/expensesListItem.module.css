@@ -3,7 +3,7 @@
 .Mobile_scrollbar {
   display: block;
   overflow: auto;
-  max-height: 330px;
+  max-height: 260px;
 }
 
 .Mobile_scrollbar::-webkit-scrollbar {
