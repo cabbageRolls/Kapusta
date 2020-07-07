@@ -153,9 +153,8 @@ input::-webkit-inner-spin-button {
   content: '';
   display: block;
   position: absolute;
-  background-color: #fff;
   top: 0;
-  left: 122px;
+  left: 0;
 }
 
 .amountInput::placeholder {
