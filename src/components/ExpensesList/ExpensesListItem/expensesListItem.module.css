@@ -3,7 +3,7 @@
 .Mobile_scrollbar {
   display: block;
   overflow: auto;
-  max-height: 380px;
+  max-height: 330px;
 }
 
 .Mobile_scrollbar::-webkit-scrollbar {
@@ -167,17 +167,8 @@
   padding: 0;
 }
 
-/* .Tablet_title div:nth-child(4) {
-  padding-left: 40px;
-}
-
-.Tablet_title div:nth-child(1) {
-  padding-left: 25px;
-} */
-
 .Tablet_item {
   composes: Mobile_item;
-  /* grid-template-columns: 4fr 3fr 1fr; */
   grid-template-columns: 120px 220px 120px 100px 49px;
   height: 38px;
 }
@@ -212,8 +203,6 @@
 .Tablet_expensesList {
   composes: Mobile_expensesList;
   position: relative;
-  /* border-top-left-radius: 16px;
-  border-top-right-radius: 16px; */
   border-left: 1px solid #f4f6fb;
   border-right: 1px solid #f4f6fb;
 }
@@ -223,11 +212,6 @@
 .Desktop_container {
   width: 760px;
 }
-
-/* .Desktop_title {
-  composes: Tablet_title;
-  grid-template-columns: 170px 248px 164px 170px;
-} */
 
 .Desktop_item {
   composes: Tablet_item;
