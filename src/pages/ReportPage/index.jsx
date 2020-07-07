@@ -25,18 +25,20 @@ const ReportPage = () => {
         <div className={styles.ExpensesMobileContainer}>
           <ExpensesListByCategory />
         </div>
-        <div
-          className={
-            Mobile
-              ? styles.ChartMobileContainer
-              : Tablet
-              ? styles.ChartTabletContainer
-              : styles.ChartDesktopContainer
-          }
-        >
-          {currentCategory !== '' && <ExpensesListChart />}
-        </div>
-        <div className={styles.cabbageBack}></div>
+        {currentCategory ? (
+          <div
+            className={
+              Mobile
+                ? styles.ChartMobileContainer
+                : Tablet
+                ? styles.ChartTabletContainer
+                : styles.ChartDesktopContainer
+            }
+          >
+            <ExpensesListChart />
+          </div>
+        ) : null}
+        {!Mobile ? <div className={styles.cabbageBack}></div> : null}
       </div>
     </>
   );
