@@ -1,4 +1,5 @@
 .section {
+  background-color: #fff;
   width: 690px;
   padding: 30px;
   border-top-left-radius: 0;
@@ -11,7 +12,6 @@
 .D_section {
   composes: section;
   width: 1090px;
-  background-color: #fff;
 }
 
 .head {

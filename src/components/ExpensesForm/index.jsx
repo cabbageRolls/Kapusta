@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 
 import styles from './ExpensesForm.module.css';
 import { useMediaQuery } from 'react-responsive';
-import { isMobile } from '../../services/mediaQuery';
+import { isMobile, isTablet } from '../../services/mediaQuery';
 
 import fetchProducts from '../../redux/operations/products';
 import { postCosts } from '../../redux/operations/costsOperations/costs';
 import postIncome from '../../redux/operations/incomeOperations/postIncome';
 
 import { getProducts } from '../../redux/selectors';
-// import { getCurrentDate } from '../../redux/selectors';
 
 import ActionButtons from '../ActionButton';
 import DatePicker from '../DatePicker';
@@ -28,7 +27,7 @@ const ExpensesForm = ({
   isExpensesForm,
 }) => {
   const Mobile = isMobile(useMediaQuery);
-
+  const Tablet = isTablet(useMediaQuery);
   const [
     input,
     setInput,
@@ -86,16 +85,34 @@ const ExpensesForm = ({
   return (
     <form
       action="post"
-      className={!Mobile ? styles.form_Desktop : styles.form}
+      className={
+        Mobile ? styles.form : Tablet ? styles.form_Tablet : styles.form_Desktop
+      }
       onSubmit={handleSubmit}
     >
-      <div className={!Mobile ? styles.DatePicker : styles.DatePickerMobile}>
+      <div
+        className={
+          Mobile
+            ? styles.DatePickerMobile
+            : Tablet
+            ? styles.DatePickerTablet
+            : styles.DatePickerDesktop
+        }
+      >
         <DatePicker
           handleChange={handlePickedDateChange}
           startDate={pickedDate}
         />
       </div>
-      <div className={!Mobile ? styles.inputWrapper : null}>
+      <div
+        className={
+          Mobile
+            ? null
+            : Tablet
+            ? styles.inputWrapperTablet
+            : styles.inputWrapper
+        }
+      >
         <div className={styles.descriptionInputWrapper}>
           <input
             autoComplete="off"
@@ -162,7 +179,11 @@ const ExpensesForm = ({
           <div className={styles.iconCalculator} />
         </div>
       </div>
-      <div className={Mobile ? styles.buttons : null}>
+      <div
+        className={
+          Mobile ? styles.buttons : Tablet ? styles.buttonsTablet : null
+        }
+      >
         <ActionButtons
           onSignup={handleClearInput}
           firstButtonText="ввод"
@@ -183,7 +204,6 @@ ExpensesForm.defaultProps = {
 
 const mstp = state => ({
   products: getProducts(state),
-  // currentDate: getCurrentDate(state),
 });
 
 const mdtp = dispatch => ({
