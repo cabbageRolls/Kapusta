@@ -219,7 +219,18 @@ input::-webkit-inner-spin-button {
   top: 44px;
   box-shadow: 7px 12.124px 65px 0px rgba(179, 185, 200, 0.25);
 }
-
+.expensesDataList::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f97a2c;
+}
+.expensesDataList:-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #000000;
+}
+.expensesDataList::-webkit-scrollbar {
+  width: 6px;
+  background-color: inherit;
+}
 .expensesOption {
   width: 100%;
   height: 30px;
