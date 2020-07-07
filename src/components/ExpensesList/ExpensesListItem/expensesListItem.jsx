@@ -10,12 +10,16 @@ import {
 
 import styles from './expensesListItem.module.css';
 
-const ExpensesListItem = ({ costs, deleteCost }) => {
+const costsListMapper = obj => {
+  return {};
+};
+
+const ExpensesListItem = ({ expenses, incomes, deleteCost }) => {
   const MobileClass = isMobile(useMediaQuery);
   const TabletClass = isTablet(useMediaQuery);
   return (
     <>
-      {costs && (
+      {expenses && (
         <div
           className={
             MobileClass ? styles.Mobile_container : styles.Desktop_container
@@ -52,7 +56,7 @@ const ExpensesListItem = ({ costs, deleteCost }) => {
                   : styles.Desktop_expensesList
               }
             >
-              {costs.map(expense => (
+              {expenses.map(expense => (
                 <li
                   className={
                     MobileClass
@@ -121,7 +125,7 @@ const ExpensesListItem = ({ costs, deleteCost }) => {
   );
 };
 ExpensesListItem.propTypes = {
-  costs: T.arrayOf(
+  expenses: T.arrayOf(
     T.shape({
       costsId: T.string.isRequired,
       date: T.string.isRequired,

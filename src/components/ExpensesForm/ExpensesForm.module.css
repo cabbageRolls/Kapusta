@@ -32,7 +32,7 @@ input::-webkit-inner-spin-button {
   outline: none;
   border-right: none;
   border-top-left-radius: 10px;
-  height: 76px;
+  height: 49px;
   display: block;
   width: 80%;
   border: 2px solid #fff;
@@ -77,10 +77,7 @@ input::-webkit-inner-spin-button {
   white-space: pre-line;
   text-align: left;
   font-size: 13px;
-  line-height: 16px;
   color: #9a9a9b;
-  position: relative;
-  top: -10px;
 }
 
 .amountInputWrapper::after {
@@ -288,9 +285,13 @@ input::-webkit-inner-spin-button {
 
 .DatePicker {
   height: 46px;
-  width: 100px;
+  width: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-right: 20px;
+}
+.DatePickerMobile {
+  composes: DatePicker;
+  margin: 0 auto;
 }

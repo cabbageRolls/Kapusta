@@ -89,7 +89,7 @@ const ExpensesForm = ({
       className={!Mobile ? styles.form_Desktop : styles.form}
       onSubmit={handleSubmit}
     >
-      <div className={styles.DatePicker}>
+      <div className={!Mobile ? styles.DatePicker : styles.DatePickerMobile}>
         <DatePicker
           handleChange={handlePickedDateChange}
           startDate={pickedDate}

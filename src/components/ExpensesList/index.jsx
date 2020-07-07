@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import T from 'prop-types';
 import ExpensesListItem from './ExpensesListItem/expensesListItem';
-import { getCosts } from '../../redux/selectors';
+import { getCosts, getIncomes } from '../../redux/selectors';
 import {
   fetchCosts,
   deleteCost,
@@ -14,13 +14,20 @@ class ExpensesList extends Component {
   };
 
   render() {
-    const { costsData, onDeleteCost } = this.props;
-    return <ExpensesListItem costs={costsData} deleteCost={onDeleteCost} />;
+    const { costsData, incomeData, onDeleteCost } = this.props;
+    return (
+      <ExpensesListItem
+        expenses={costsData}
+        incomes={incomeData}
+        deleteCost={onDeleteCost}
+      />
+    );
   }
 }
 
 const mstp = state => ({
   costsData: getCosts(state),
+  incomeData: getIncomes(state),
 });
 
 const mdtp = dispatch => ({
