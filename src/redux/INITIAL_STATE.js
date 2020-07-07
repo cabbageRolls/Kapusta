@@ -17,7 +17,7 @@ const initState = {
     income: [],
     costs: [],
   },
-  error: {},
+  error: null,
   loader: false,
   products: [],
   realCategories: [],

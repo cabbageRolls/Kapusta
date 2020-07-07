@@ -13,11 +13,11 @@ import incomeReducer from './incomeReducer';
 import isExpenses from './isExpenses';
 
 const rootReducers = combineReducers({
+  error,
   session,
   realCategories,
   currentCategory,
   transactions,
-  error,
   loader,
   products,
   alert: alertReducer,

@@ -4,9 +4,7 @@ import * as types from '../types';
 const authReducer = (state = INITIAL_STATE.session, { payload, type }) => {
   switch (type) {
     case types.SIGNUP_USER_REQUEST:
-    case types.SIGNUP_USER_ERROR:
     case types.LOGIN_USER_REQUEST:
-    case types.LOGIN_USER_ERROR:
       return state;
     case types.LOGIN_USER_SUCCESS:
     case types.SIGNUP_USER_SUCCESS:
