@@ -1,18 +1,15 @@
 import React from 'react';
 import T from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   Mobile,
   Default,
   isMobile,
   isTablet,
 } from '../../../services/mediaQuery';
-
+import popTransition from '../transition/pop.module.css';
 import styles from './expensesListItem.module.css';
-
-const costsListMapper = obj => {
-  return {};
-};
 
 const ExpensesListItem = ({ expenses, incomes, deleteCost }) => {
   const MobileClass = isMobile(useMediaQuery);
@@ -51,7 +48,7 @@ const ExpensesListItem = ({ expenses, incomes, deleteCost }) => {
                 : styles.Desktop_scrollbar
             }
           >
-            <ul
+            <TransitionGroup
               className={
                 MobileClass
                   ? styles.Mobile_expensesList
@@ -59,69 +56,78 @@ const ExpensesListItem = ({ expenses, incomes, deleteCost }) => {
                   ? styles.Tablet_expensesList
                   : styles.Desktop_expensesList
               }
+              component="ul"
             >
               {expenses.map(expense => (
-                <li
-                  className={
-                    MobileClass
-                      ? styles.Mobile_item
-                      : TabletClass
-                      ? styles.Tablet_item
-                      : styles.Desktop_item
-                  }
+                <CSSTransition
                   key={expense.costsId}
+                  timeout={250}
+                  classNames={popTransition}
                 >
-                  <Mobile>
-                    <div className={styles.expenseDateContainer}>
-                      <span className={styles.expenseCategory}>
-                        {expense.product.category.name}
-                      </span>
-                      <div className={styles.mobileWrapp}>
-                        <span className={styles.expenseDate}>
-                          {expense.date.slice(0, -14)}
-                        </span>
-                        <span className={styles.expenseDescription}>
-                          {expense.product.name}
-                        </span>
-                      </div>
-                    </div>
-                  </Mobile>
-                  <Default>
-                    <span className={styles.DexpenseDate}>
-                      {expense.date.slice(0, -14)}
-                    </span>
-                    <span className={styles.expenseDescription}>
-                      {expense.product.name}
-                    </span>
-                    <span className={styles.Tablet_expenseCategory}>
-                      {expense.product.category.name}
-                    </span>
-                  </Default>
-                  <span
+                  <li
                     className={
                       MobileClass
-                        ? styles.Mobile_expenseAmount
+                        ? styles.Mobile_item
                         : TabletClass
-                        ? styles.Tablet_expenseAmount
-                        : styles.Desktop_expenseAmount
+                        ? styles.Tablet_item
+                        : styles.Desktop_item
                     }
+                    key={expense.costsId}
                   >
-                    {expense.amount.toFixed(2)} грн.
-                  </span>
-                  <div>
-                    <button
-                      className={MobileClass ? styles.btn : styles.defBtn}
-                      type="button"
-                      onClick={() =>
-                        deleteCost(`${expense.forDeleteId}/${expense.costsId}`)
+                    <Mobile>
+                      <div className={styles.expenseDateContainer}>
+                        <span className={styles.expenseCategory}>
+                          {expense.product.category.name}
+                        </span>
+                        <div className={styles.mobileWrapp}>
+                          <span className={styles.expenseDate}>
+                            {expense.date.slice(0, -14)}
+                          </span>
+                          <span className={styles.expenseDescription}>
+                            {expense.product.name}
+                          </span>
+                        </div>
+                      </div>
+                    </Mobile>
+                    <Default>
+                      <span className={styles.DexpenseDate}>
+                        {expense.date.slice(0, -14)}
+                      </span>
+                      <span className={styles.expenseDescription}>
+                        {expense.product.name}
+                      </span>
+                      <span className={styles.Tablet_expenseCategory}>
+                        {expense.product.category.name}
+                      </span>
+                    </Default>
+                    <span
+                      className={
+                        MobileClass
+                          ? styles.Mobile_expenseAmount
+                          : TabletClass
+                          ? styles.Tablet_expenseAmount
+                          : styles.Desktop_expenseAmount
                       }
                     >
-                      <span className={styles.btnIcon} />
-                    </button>
-                  </div>
-                </li>
+                      {expense.amount.toFixed(2)} грн.
+                    </span>
+                    <div>
+                      <button
+                        className={MobileClass ? styles.btn : styles.defBtn}
+                        type="button"
+                        onClick={() =>
+                          deleteCost(
+                            `${expense.forDeleteId}/${expense.costsId}`,
+                          )
+                        }
+                      >
+                        <span className={styles.btnIcon} />
+                      </button>
+                    </div>
+                  </li>
+                </CSSTransition>
               ))}
-            </ul>
+            </TransitionGroup>
           </div>
         </div>
       )}

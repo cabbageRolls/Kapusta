@@ -1,11 +1,13 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   Mobile,
   Default,
   isMobile,
   isTablet,
 } from '../../../services/mediaQuery';
+import popTransition from '../transition/pop.module.css';
 
 import styles from './IncomeListItem.module.css';
 
@@ -46,7 +48,7 @@ const IncomeListItem = ({ income, deleteIncome }) => {
                 : styles.Desktop_scrollbar
             }
           >
-            <ul
+            <TransitionGroup
               className={
                 MobileClass
                   ? styles.Mobile_expensesList
@@ -54,54 +56,61 @@ const IncomeListItem = ({ income, deleteIncome }) => {
                   ? styles.Tablet_expensesList
                   : styles.Desktop_expensesList
               }
+              component="ul"
             >
               {income.map(income => (
-                <li
-                  className={
-                    MobileClass
-                      ? styles.Mobile_item
-                      : TabletClass
-                      ? styles.Tablet_item
-                      : styles.Desktop_item
-                  }
+                <CSSTransition
                   key={income.incomeId}
+                  timeout={250}
+                  classNames={popTransition}
                 >
-                  <Mobile>
-                    <div className={styles.expenseDateContainer}>
-                      <span className={styles.expenseCategory}>
-                        {/* {expense.product.category.name} */}
-                      </span>
-                      <div className={styles.mobileWrapp}>
-                        <span className={styles.expenseDate}>
-                          {income.date.slice(0, -14)}
+                  <li
+                    className={
+                      MobileClass
+                        ? styles.Mobile_item
+                        : TabletClass
+                        ? styles.Tablet_item
+                        : styles.Desktop_item
+                    }
+                    key={income.incomeId}
+                  >
+                    <Mobile>
+                      <div className={styles.expenseDateContainer}>
+                        <span className={styles.expenseCategory}>
+                          {/* {expense.product.category.name} */}
                         </span>
-                        <span className={styles.expenseDescription}>
-                          {/* {expense.product.name} */}
-                        </span>
+                        <div className={styles.mobileWrapp}>
+                          <span className={styles.expenseDate}>
+                            {income.date.slice(0, -14)}
+                          </span>
+                          <span className={styles.expenseDescription}>
+                            {/* {expense.product.name} */}
+                          </span>
+                        </div>
                       </div>
+                    </Mobile>
+                    <Default>
+                      <span className={styles.DexpenseDate}>
+                        {income.date.slice(0, -14)}
+                      </span>
+                      <span className={styles.expenseDescription}>Доход</span>
+                      <span className={styles.Tablet_expenseCategory}>
+                        {income.amount.toFixed(2)} грн.
+                      </span>
+                    </Default>
+                    <div>
+                      <button
+                        className={MobileClass ? styles.btn : styles.defBtn}
+                        type="button"
+                        onClick={() => deleteIncome(income.incomeId)}
+                      >
+                        <span className={styles.btnIcon} />
+                      </button>
                     </div>
-                  </Mobile>
-                  <Default>
-                    <span className={styles.DexpenseDate}>
-                      {income.date.slice(0, -14)}
-                    </span>
-                    <span className={styles.expenseDescription}>Доход</span>
-                    <span className={styles.Tablet_expenseCategory}>
-                      {income.amount.toFixed(2)} грн.
-                    </span>
-                  </Default>
-                  <div>
-                    <button
-                      className={MobileClass ? styles.btn : styles.defBtn}
-                      type="button"
-                      onClick={() => deleteIncome(income.incomeId)}
-                    >
-                      <span className={styles.btnIcon} />
-                    </button>
-                  </div>
-                </li>
+                  </li>
+                </CSSTransition>
               ))}
-            </ul>
+            </TransitionGroup>
           </div>
         </div>
       )}
