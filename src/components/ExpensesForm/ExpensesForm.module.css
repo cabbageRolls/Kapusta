@@ -111,10 +111,22 @@ input::-webkit-inner-spin-button {
   justify-content: space-between;
   height: 46px;
 }
+.form_Tablet {
+  display: flex;
+  flex-wrap: wrap;
+  width: 625px;
+  justify-content: center;
+  height: 123px;
+}
 
 .inputWrapper {
   display: flex;
   width: 600px;
+  position: relative;
+}
+.inputWrapperTablet {
+  display: flex;
+  width: 496px;
   position: relative;
 }
 
@@ -285,6 +297,10 @@ input::-webkit-inner-spin-button {
   max-width: 272px;
   margin: 90px auto 0;
 }
+.buttonsTablet {
+  max-width: 272px;
+  padding-top: 30px;
+}
 
 .Mobile_expensesDataList {
   composes: expensesDataList;
@@ -293,7 +309,7 @@ input::-webkit-inner-spin-button {
   margin: 0 auto;
 }
 
-.DatePicker {
+.DatePickerDesktop {
   height: 46px;
   width: fit-content;
   display: flex;
@@ -301,7 +317,15 @@ input::-webkit-inner-spin-button {
   align-items: center;
   margin-right: 20px;
 }
+.DatePickerTablet {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 20px;
+}
+
 .DatePickerMobile {
-  composes: DatePicker;
+  composes: DatePickerDesktop;
   margin: 0 auto;
 }

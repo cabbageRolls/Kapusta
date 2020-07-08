@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import styles from './MainPage.module.css';
-import { isNotMobile, Default } from '../../services/mediaQuery';
+import { isMobile, Default, isTablet } from '../../services/mediaQuery';
 import SetBalanceForm from '../../components/SetBalanceForm';
 import GoToReportsButton from '../../components/GoToReportsButton';
 import AdditionalButton from '../../components/AdditionalButton';
@@ -9,7 +9,9 @@ import Header from '../../components/Header';
 import ExpensesComponent from '../../components/ExpensesComponents';
 
 const MainPage = () => {
-  const isDefault = isNotMobile(useMediaQuery);
+  const Mobile = isMobile(useMediaQuery);
+  const Tablet = isTablet(useMediaQuery);
+
   return (
     <Default>
       <Header />
@@ -17,9 +19,11 @@ const MainPage = () => {
         <div className={styles.mainWrapperBg}></div>
         <div
           className={
-            isDefault
-              ? styles.MainPageContainerDekstop
-              : styles.MainPageContainerTablet
+            Mobile
+              ? styles.MainPageContainerMobile
+              : Tablet
+              ? styles.MainPageContainerTablet
+              : styles.MainPageContainerDekstop
           }
         >
           <div
