@@ -18,18 +18,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 49%;
+  width: 48%;
   height: 53px;
-  color: #000000;
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
   transition: all, 0.3s;
   text-align: center;
   text-transform: uppercase;
-  background-image: url(./textures/project-paper.png);
-  border: 2px #f4f6fb solid;
-  border-radius: 10px;
+  color: #fff;
+  background-color: rgb(252, 130, 42);
+  box-shadow: 2px 2px 5px 0px rgba(255, 107, 8, 0.34);
+  border: 2px rgba(244, 246, 251, 0) solid;
+  border-radius: 16px;
 }
 .activelink {
   z-index: 2;
