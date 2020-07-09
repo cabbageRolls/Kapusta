@@ -29,7 +29,7 @@ svg {
   font-size: 13px;
   letter-spacing: 1px;
   color: #52555f;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   text-align: right;
 }
