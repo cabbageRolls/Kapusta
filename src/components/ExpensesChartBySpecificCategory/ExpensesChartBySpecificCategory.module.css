@@ -6,6 +6,9 @@
   .canvas {
     width: 700px;
     height: 420px;
+    position: relative;
+    z-index: 111;
+    background-color: #fff;
   }
 }
 
