@@ -15,9 +15,12 @@ import { getProducts } from '../../redux/selectors';
 import ActionButtons from '../ActionButton';
 import DatePicker from '../DatePicker';
 
-import useInputChange from './useInputChange';
-import useIdChange from './useIdChange';
-import useDataChange from './useDataChange.js';
+import {
+  useInputChange,
+  useIdChange,
+  useDataChange,
+  useVisibleChange,
+} from './hooks';
 
 const ExpensesForm = ({
   onPostCosts,
@@ -35,7 +38,7 @@ const ExpensesForm = ({
     handleClearInput,
   ] = useInputChange();
   const [id, setId] = useIdChange();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useVisibleChange();
   const [
     pickedDate,
     handlePickedDateChange,
@@ -49,16 +52,16 @@ const ExpensesForm = ({
     } else {
       setIsVisible(false);
     }
-  }, [input]);
+  }, [input.description]);
 
   const handleClick = e => {
-    setIsVisible(false);
     if (e.target === e.currentTarget) return;
     setId(e);
     setInput({
       amount: input.amount,
       description: e.target.children[0].textContent,
     });
+    setTimeout(setIsVisible, 0, false);
   };
 
   const handleSubmit = e => {
@@ -141,10 +144,7 @@ const ExpensesForm = ({
               onClick={handleClick}
             >
               {products.map(({ name, _id, category }) => {
-                if (
-                  name.includes(input.description.toLowerCase()) ||
-                  category.name.includes(input.description.toLowerCase())
-                ) {
+                if (name.includes(input.description.toLowerCase())) {
                   return (
                     <li key={_id} id={_id} className={styles.expensesOption}>
                       <span className={styles.productName}>{name}</span>

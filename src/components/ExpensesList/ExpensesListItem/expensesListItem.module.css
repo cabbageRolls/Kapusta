@@ -2,8 +2,6 @@
 
 .Mobile_scrollbar {
   display: block;
-  overflow: auto;
-  max-height: 330px;
 }
 
 .Mobile_scrollbar::-webkit-scrollbar {
@@ -16,6 +14,8 @@
   max-width: 620px;
   margin: 10px auto 0;
   padding: 0 40px;
+  /* overflow: auto;
+  max-height: 330px; */
 }
 
 .Mobile_expensesList {

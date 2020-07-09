@@ -17,6 +17,9 @@
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     box-shadow: 7px 12.5px 12.5px rgba(179, 185, 200, 0.25);
+    position: relative;
+    z-index: 111;
+    background-color: #fff;
   }
 }
 
