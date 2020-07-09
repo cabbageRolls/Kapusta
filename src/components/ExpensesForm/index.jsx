@@ -125,7 +125,7 @@ const ExpensesForm = ({
                 : styles.descriptionInput
             }
             name="description"
-            value={input.description}
+            value={isExpensesForm ? input.description : ''}
             onChange={handleInputChange}
             placeholder={
               isExpensesForm ? 'Введите свой расход' : 'Введите сумму дохода'
@@ -144,7 +144,9 @@ const ExpensesForm = ({
               onClick={handleClick}
             >
               {products.map(({ name, _id, category }) => {
-                if (name.includes(input.description.toLowerCase())) {
+                if (
+                  name.toLowerCase().includes(input.description.toLowerCase())
+                ) {
                   return (
                     <li key={_id} id={_id} className={styles.expensesOption}>
                       <span className={styles.productName}>{name}</span>
