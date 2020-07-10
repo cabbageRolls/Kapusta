@@ -56,12 +56,14 @@
 }
 
 ::-webkit-input-placeholder {
+  opacity: 1;
+  transition: text-indent 0.1s ease;
   color: #000;
 }
 
 :focus::-webkit-input-placeholder {
-  text-indent: 300px;
-  transition: text-indent 1s ease;
+  opacity: 0;
+  transition: text-indent 0.1s ease;
 }
 
 .label {

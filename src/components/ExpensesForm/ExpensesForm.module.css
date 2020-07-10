@@ -258,6 +258,11 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   transition: all linear 200ms;
 }
+.expensesOptionMobile {
+  composes: expensesOption;
+  font-size: 11px;
+  padding: 0 12px;
+}
 
 .expensesOption:hover {
   background-color: #f4f6fb;
@@ -287,7 +292,10 @@ input::-webkit-inner-spin-button {
   font-weight: normal;
   pointer-events: none;
 }
-
+.categoryNameMobile {
+  composes: categoryName;
+  font-size: 7px;
+}
 .productName {
   transition: all linear 200ms;
   pointer-events: none;

@@ -148,9 +148,23 @@ const ExpensesForm = ({
                   name.toLowerCase().includes(input.description.toLowerCase())
                 ) {
                   return (
-                    <li key={_id} id={_id} className={styles.expensesOption}>
+                    <li
+                      key={_id}
+                      id={_id}
+                      className={
+                        Mobile
+                          ? styles.expensesOptionMobile
+                          : styles.expensesOption
+                      }
+                    >
                       <span className={styles.productName}>{name}</span>
-                      <span className={styles.categoryName}>
+                      <span
+                        className={
+                          Mobile
+                            ? styles.categoryNameMobile
+                            : styles.categoryName
+                        }
+                      >
                         {category.name}
                       </span>
                     </li>
