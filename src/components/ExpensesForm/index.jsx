@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -45,14 +45,14 @@ const ExpensesForm = ({
     handleClearPickedDate,
   ] = useDataChange();
 
-  useEffect(() => onFetchGategories(), []);
+  useEffect(() => onFetchGategories(), [onFetchGategories]);
   useEffect(() => {
     if (input.description) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  }, [input.description]);
+  }, [input.description, setIsVisible]);
 
   const handleClick = e => {
     if (e.target === e.currentTarget) return;
@@ -170,6 +170,8 @@ const ExpensesForm = ({
                     </li>
                   );
                 }
+
+                return null;
               })}
             </ul>
           ) : null}

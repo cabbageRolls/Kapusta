@@ -41,7 +41,7 @@ function App() {
       dispatch(getCategories());
       dispatch(getProducts());
     }
-  }, [isLogin, token, headers, isAuth]);
+  }, [dispatch, history, isLogin, token, headers, isAuth]);
 
   return (
     <>

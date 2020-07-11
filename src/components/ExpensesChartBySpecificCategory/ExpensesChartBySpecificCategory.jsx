@@ -90,7 +90,7 @@ const renderChart = ({ dom, data, isMobile = false, currency }) => {
                     }
                     return spase;
                   };
-                  ctx.fillText(v.label, 20, m.y - v.height);
+                  // ctx.fillText(v.label, 20, m.y - v.height);
                   ctx.fillText(cost, xTextPosition(), m.y - v.height);
                 });
               });
