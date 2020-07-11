@@ -12,7 +12,7 @@ const ExpensesListByCategory = () => {
   const Mobile = isMobile(useMediaQuery);
   const Tablet = isTablet(useMediaQuery);
   const data = useSelector(getCostByPeriodAndCategories);
-  
+
   return (
     <div
       className={
@@ -33,10 +33,12 @@ const ExpensesListByCategory = () => {
               <button
                 className={styles.button}
                 type="button"
-                onClick={() => dispatch(setCurrentCategory(item.name))}
+                onClick={() => {
+                  dispatch(setCurrentCategory(item.name));
+                }}
               >
                 <Item
-                  name={item.text}
+                  name={item.name}
                   amount={item.amount >= 0 && item.amount.toFixed(2)}
                   icon={item.icon}
                 />
