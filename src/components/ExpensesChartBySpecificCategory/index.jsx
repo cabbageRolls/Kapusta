@@ -7,7 +7,7 @@ import { getDataCharts } from '../../redux/selectors';
 
 const MyChart = () => {
   const dataByCurrentCategory = useSelector(getDataCharts);
-  
+
   return (
     <div className={Styles.section}>
       {dataByCurrentCategory && dataByCurrentCategory.length > 0 ? (
@@ -31,4 +31,5 @@ const MyChart = () => {
     </div>
   );
 };
+
 export default MyChart;
