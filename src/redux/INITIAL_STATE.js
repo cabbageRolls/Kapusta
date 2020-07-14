@@ -21,13 +21,13 @@ const initState = {
   products: [],
   realCategories: [],
   costs: null,
-  // costsData: [],
   dataPicker: {
     month: currentMonth,
     year: currentYear,
   },
   isExpenses: true,
   income: [],
+  alert: { type: 'success', text: 'Message', open: false },
 };
 
 export default initState;

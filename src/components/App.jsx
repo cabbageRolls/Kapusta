@@ -5,14 +5,13 @@ import routes from '../routes';
 import getTransactions from '../redux/operations/transactions';
 import getCategories from '../redux/operations/realCategories';
 import getProducts from '../redux/operations/products';
-import { storeIsLogin, storeToken } from '../redux/selectors';
+import { storeIsLogin, storeToken, getError } from '../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../services/mediaQuery';
 import { setAuthToken } from '../services/helpers';
 import Loader from './Loader';
 import '../CSS/normilize.css';
 import '../CSS/index.css';
-import Alert from './Alert';
 
 function App() {
   const history = useHistory();
@@ -84,7 +83,6 @@ function App() {
           )}
         </Suspense>
       </Switch>
-      <Alert />
     </>
   );
 }

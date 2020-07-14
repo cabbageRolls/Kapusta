@@ -1,15 +1,14 @@
 import * as types from '../types';
+import INITIAL_STATE from '../INITIAL_STATE';
 
-export default function alertReducer(
-  state = { type: 'success', text: 'Message', open: false },
-  action,
-) {
-  switch (action.type) {
+const alertReducer = (state = INITIAL_STATE.alert, { payload, type }) => {
+  switch (type) {
     case types.SET_ALERT_ON:
-      return { ...action.payload, open: true };
+      return { ...payload, open: true };
     case types.SET_ALERT_OFF:
       return { ...state, open: false };
     default:
       return state;
   }
-}
+};
+export default alertReducer;
