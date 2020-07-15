@@ -1,25 +1,25 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { isMobile } from '../../services/mediaQuery';
 
 import Header from '../../components/Header';
 import AuthPageModule from '../../components/AuthPageModule';
-
 import Decoration from '../../components/Decoration';
 import Background from '../../components/Background';
+import Alert from '../../components/Alert';
+import { getError, storeIsLogin } from '../../redux/selectors';
 
-import * as selectors from '../../redux/selectors';
 import routes from '../../routes';
+import { setAlertOnAction, setAlertOffAction } from '../../redux/actions/alert';
 
 const AuthPage = () => {
   const Mobile = isMobile(useMediaQuery);
-  const isAuthenticated = useSelector(selectors.storeIsLogin);
+  const isAuthenticated = useSelector(storeIsLogin);
   const history = useHistory();
-
+  const error = useSelector(getError);
+  const dispatch = useDispatch();
   useEffect(() => {
     if (isAuthenticated) {
       Mobile
@@ -27,6 +27,23 @@ const AuthPage = () => {
         : history.replace(routes.EXPENSES.path);
     }
   });
+  useEffect(() => {
+    if (error?.config.url.includes('register')) {
+      dispatch(
+        setAlertOnAction({
+          type: 'error',
+          text: 'Такой пользователь уже существует!',
+        }),
+      );
+    } else if (error?.config.url.includes('login')) {
+      dispatch(
+        setAlertOnAction({
+          type: 'error',
+          text: 'Неправильный логин или пароль!',
+        }),
+      );
+    }
+  }, [error]);
 
   return (
     <>
@@ -53,13 +70,10 @@ const AuthPage = () => {
         </div>
         <Header />
         <AuthPageModule />
+        <Alert />
       </div>
     </>
   );
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: selectors.storeIsLogin(state),
-});
-
-export default connect(mapStateToProps, null)(AuthPage);
+export default AuthPage;
