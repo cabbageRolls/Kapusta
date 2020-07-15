@@ -31,7 +31,12 @@
   width: 59px;
   height: 48px;
   margin: 0 auto 15px;
+  transition: all 100ms linear;
 }
 .IconBack:hover {
+  background-color: #ffd9c0;
+}
+.activeIconBack {
+  composes: IconBack;
   background-color: #ffd9c0;
 }
