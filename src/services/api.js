@@ -1,4 +1,4 @@
-const BASE_URL = 'https://smart-finance.goit.co.ua/api/v1';
+const BASE_URL = 'https://kapusta-backend.goit.global';
 
 export const makeGoogleAuth = `${BASE_URL}/auth/google`;
 export const userLogin = `${BASE_URL}/auth/login`;
